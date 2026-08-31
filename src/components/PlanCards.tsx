@@ -1,5 +1,5 @@
 import type { Service } from "@/data/services";
-import { usd } from "@/lib/format";
+import { cop } from "@/lib/format";
 import { whatsappLink } from "@/data/site";
 import { Reveal } from "./Reveal";
 import { ListaSi } from "./ui";
@@ -30,16 +30,18 @@ export function PlanCards({ service }: { service: Service }) {
                 ) : null}
               </div>
 
-              <p className="tnum mt-6 font-display text-4xl leading-none">
-                {usd(plan.price)}
+              {/* Las cifras en pesos son largas: la cifra nunca se parte, pero la
+                  moneda puede bajar de línea antes que desbordar la columna. */}
+              <p className="tnum mt-6 font-display text-[1.75rem] leading-none sm:text-3xl xl:text-4xl">
+                <span className="whitespace-nowrap">{cop(plan.price)}</span>
                 <span className="ml-1 font-body text-sm text-niebla">
-                  {plan.billing === "mes" ? "USD/mes" : "USD"}
+                  {plan.billing === "mes" ? "COP/mes" : "COP"}
                 </span>
               </p>
 
               {plan.monthly !== undefined ? (
                 <p className="tnum mt-2 text-sm text-niebla">
-                  más {usd(plan.monthly)} USD al mes
+                  más {cop(plan.monthly)} COP al mes
                 </p>
               ) : null}
 

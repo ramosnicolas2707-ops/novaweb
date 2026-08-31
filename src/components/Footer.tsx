@@ -98,8 +98,8 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-hairline pt-8 text-xs text-niebla sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.legalName}. Precios en dólares
-            estadounidenses.
+            © {new Date().getFullYear()} {site.legalName}. Precios en pesos
+            colombianos.
           </p>
           <p>
             Hecho en Next.js, servido estático.{" "}

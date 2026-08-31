@@ -9,6 +9,6 @@ export default function Image() {
   return renderOg({
     kicker: "Desarrollo web · Bogotá",
     title: "¿Necesitas una página web o una tienda online?",
-    price: "Desde $450 USD",
+    price: "Desde $900.000 COP",
   });
 }

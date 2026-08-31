@@ -1,8 +1,9 @@
 /**
- * Formato de precios en convención latinoamericana: punto como separador de miles.
- * $1.100, no $1,100. Todos los importes del sitio pasan por aquí.
+ * Formato de precios en pesos colombianos, convención latinoamericana:
+ * punto como separador de miles. $1.800.000, no $1,800,000.
+ * Todos los importes del sitio pasan por aquí.
  */
-export const usd = (amount: number) => `$${amount.toLocaleString("es-CO")}`;
+export const cop = (amount: number) => `$${amount.toLocaleString("es-CO")}`;
 
 /** Sufijo legible del ciclo de cobro. */
 export const billingLabel = (billing: "unico" | "mes") =>
@@ -11,5 +12,5 @@ export const billingLabel = (billing: "unico" | "mes") =>
 /** Texto accesible del precio, para lectores de pantalla y para el atributo title. */
 export const priceAria = (amount: number, billing: "unico" | "mes") =>
   billing === "mes"
-    ? `${amount} dólares al mes`
-    : `${amount} dólares, pago único`;
+    ? `${amount.toLocaleString("es-CO")} pesos al mes`
+    : `${amount.toLocaleString("es-CO")} pesos, pago único`;

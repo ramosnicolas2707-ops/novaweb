@@ -67,7 +67,7 @@ export function organizationLd() {
     email: site.contact.email,
     telephone: site.contact.phone,
     priceRange: "$$$",
-    currenciesAccepted: "USD, COP",
+    currenciesAccepted: "COP",
     paymentAccepted: "Transferencia bancaria, tarjeta de crédito",
     openingHours: site.openingHours,
     founder: {
@@ -88,29 +88,29 @@ export function organizationLd() {
       {
         "@type": "Offer",
         name: "Desarrollo de páginas web",
-        priceCurrency: "USD",
-        price: 450,
+        priceCurrency: "COP",
+        price: 900000,
         url: absoluteUrl("/servicios/paginas-web"),
       },
       {
         "@type": "Offer",
         name: "Desarrollo de tiendas online",
-        priceCurrency: "USD",
-        price: 1400,
+        priceCurrency: "COP",
+        price: 2800000,
         url: absoluteUrl("/servicios/ecommerce"),
       },
       {
         "@type": "Offer",
         name: "Menú digital y menú con realidad aumentada",
-        priceCurrency: "USD",
-        price: 350,
+        priceCurrency: "COP",
+        price: 700000,
         url: absoluteUrl("/servicios/software-restaurantes"),
       },
       {
         "@type": "Offer",
         name: "Mantenimiento web mensual",
-        priceCurrency: "USD",
-        price: 35,
+        priceCurrency: "COP",
+        price: 70000,
         url: absoluteUrl("/servicios/mantenimiento"),
       },
     ],
@@ -144,7 +144,7 @@ export function serviceLd(service: Service) {
     areaServed: site.serviceArea.map((name) => ({ "@type": "Country", name })),
     offers: {
       "@type": "AggregateOffer",
-      priceCurrency: "USD",
+      priceCurrency: "COP",
       lowPrice: Math.min(...prices),
       highPrice: Math.max(...prices),
       offerCount: service.plans.length,
@@ -153,7 +153,7 @@ export function serviceLd(service: Service) {
         name: plan.name,
         description: plan.scope,
         price: plan.price,
-        priceCurrency: "USD",
+        priceCurrency: "COP",
         availability: "https://schema.org/InStock",
         url: absoluteUrl(`/servicios/${service.slug}`),
         ...(plan.billing === "mes"
@@ -161,7 +161,7 @@ export function serviceLd(service: Service) {
               priceSpecification: {
                 "@type": "UnitPriceSpecification",
                 price: plan.price,
-                priceCurrency: "USD",
+                priceCurrency: "COP",
                 billingIncrement: 1,
                 unitCode: "MON",
                 referenceQuantity: {

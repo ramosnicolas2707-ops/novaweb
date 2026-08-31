@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
   title:
     "Meridiano — Desarrollo web y e-commerce en Colombia para Latinoamérica",
   description:
-    "Estudio de desarrollo web en Bogotá. Páginas web desde 450 USD, tiendas online desde 1.400 USD y menús con realidad aumentada para restaurantes desde 900 USD. Precios visibles.",
+    "Estudio de desarrollo web en Bogotá. Páginas web desde $900.000 COP, tiendas online desde $2.800.000 COP y menús con realidad aumentada para restaurantes desde $1.800.000 COP. Precios visibles.",
   path: "/",
   keywords: [
     "desarrollo web Colombia",
@@ -39,11 +39,7 @@ export default function Home() {
       {/* Prueba de solvencia técnica. */}
       <Section plano="pizarra">
         <Container>
-          <SectionHeader
-            kicker="Prueba"
-            title={proof.title}
-            intro={proof.intro}
-          />
+          <SectionHeader kicker="Prueba" title={proof.title} />
           <div className="mt-14">
             <Stats />
           </div>
@@ -56,7 +52,6 @@ export default function Home() {
           <SectionHeader
             kicker={servicesIntro.kicker}
             title={servicesIntro.title}
-            intro={servicesIntro.intro}
           />
           <ServiceGrid />
         </Container>

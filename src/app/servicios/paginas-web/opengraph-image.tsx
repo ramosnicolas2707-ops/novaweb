@@ -1,5 +1,5 @@
 import { getService } from "@/data/services";
-import { usd } from "@/lib/format";
+import { cop } from "@/lib/format";
 import { ogContentType, ogSize, renderOg } from "@/lib/og";
 
 const service = getService("paginas-web")!;
@@ -15,6 +15,6 @@ export default function Image() {
   return renderOg({
     kicker: service.nav,
     title: service.meta.title,
-    price: `Desde ${usd(desde)} USD${mensual ? " al mes" : ""}`,
+    price: `Desde ${cop(desde)} COP${mensual ? " al mes" : ""}`,
   });
 }

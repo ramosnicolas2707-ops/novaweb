@@ -11,7 +11,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { fork, hero } from "@/data/home";
-import { usd } from "@/lib/format";
+import { cop } from "@/lib/format";
 import { Container } from "./ui";
 
 /**
@@ -154,9 +154,9 @@ export function HeroFork() {
                 {op.detail}
               </p>
 
-              <p className="tnum mt-6 text-sm text-tiza">
+              <p className="tnum mt-6 whitespace-nowrap text-sm text-tiza">
                 Desde{" "}
-                <span className="text-brasa">{usd(op.priceFrom)} USD</span>
+                <span className="text-brasa">{cop(op.priceFrom)} COP</span>
               </p>
 
               <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-tiza">

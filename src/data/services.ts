@@ -5,7 +5,7 @@
 
 export type Plan = {
   name: string;
-  /** Precio principal en USD. */
+  /** Precio principal en pesos colombianos (COP). */
   price: number;
   /** "unico" = pago único de implementación. "mes" = suscripción. */
   billing: "unico" | "mes";
@@ -29,6 +29,8 @@ export type Service = {
   kicker: string;
   /** Frase autocontenida y verificable. La usan los buscadores generativos. */
   summary: string;
+  /** Una línea para la tarjeta del home. El summary es demasiado largo ahí. */
+  cardLine: string;
   intro: string[];
   deliveryTime: string;
   forWhom: string[];
@@ -48,12 +50,13 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "paginas-web",
+    cardLine: "Para que te encuentren y te escriban.",
     nav: "Páginas web",
     card: "Páginas web",
     kicker: "Servicio 01",
     h1: "Páginas web a medida, desde Colombia para toda Latinoamérica",
     summary:
-      "Meridiano desarrolla páginas web a medida en Next.js desde 450 USD la landing page y 1.100 USD el sitio corporativo, con entrega entre 2 y 5 semanas.",
+      "Meridiano desarrolla páginas web a medida en Next.js desde $900.000 la landing page y $2.200.000 el sitio corporativo, con entrega entre 2 y 5 semanas.",
     intro: [
       "Una página web sirve para dos cosas: que te encuentren y que te escriban. Todo lo demás es decoración.",
       "Construimos en Next.js con renderizado estático. Eso significa que la página se entrega ya armada desde el servidor más cercano al visitante, no se ensambla en su teléfono. La diferencia se nota en Bogotá, en Ciudad de México y en un celular de gama media con datos móviles.",
@@ -114,7 +117,7 @@ export const services: Service[] = [
     plans: [
       {
         name: "Landing page",
-        price: 450,
+        price: 900000,
         billing: "unico",
         scope: "1 página, hasta 5 secciones, formulario y WhatsApp",
         features: [
@@ -128,7 +131,7 @@ export const services: Service[] = [
       },
       {
         name: "Sitio corporativo",
-        price: 1100,
+        price: 2200000,
         billing: "unico",
         scope: "Hasta 6 páginas, blog y SEO base",
         featured: true,
@@ -144,16 +147,16 @@ export const services: Service[] = [
       },
     ],
     tableCaption:
-      "Planes de desarrollo web. Precios en dólares estadounidenses (USD), pago único.",
+      "Planes de desarrollo web. Precios en pesos colombianos (COP), pago único.",
     extras: [
-      { label: "Página adicional sobre el plan contratado", value: "180 USD" },
-      { label: "Ronda de revisión adicional", value: "30 USD / hora" },
-      { label: "Redacción de textos por página", value: "70 USD" },
+      { label: "Página adicional sobre el plan contratado", value: "$360.000" },
+      { label: "Ronda de revisión adicional", value: "$60.000 / hora" },
+      { label: "Redacción de textos por página", value: "$140.000" },
     ],
     faq: [
       {
         q: "¿Cuánto cuesta una página web con Meridiano?",
-        a: "Una landing page de una sola página cuesta 450 USD y un sitio corporativo de hasta 6 páginas con blog cuesta 1.100 USD. Ambos precios son pago único e incluyen diseño propio, formulario de contacto, botón de WhatsApp y SEO técnico de base.",
+        a: "Una landing page de una sola página cuesta $900.000 y un sitio corporativo de hasta 6 páginas con blog cuesta $2.200.000. Ambos precios son pago único e incluyen diseño propio, formulario de contacto, botón de WhatsApp y SEO técnico de base.",
       },
       {
         q: "¿Cuánto se demora el desarrollo de una página web?",
@@ -161,7 +164,7 @@ export const services: Service[] = [
       },
       {
         q: "¿La página incluye hosting y dominio?",
-        a: "No. El dominio y el hosting se compran a nombre del cliente, con sus datos y su medio de pago, para que la propiedad sea suya. Meridiano configura todo sin costo adicional. Si prefieres no ocuparte, el plan de mantenimiento desde 35 USD al mes incluye el hosting.",
+        a: "No. El dominio y el hosting se compran a nombre del cliente, con sus datos y su medio de pago, para que la propiedad sea suya. Meridiano configura todo sin costo adicional. Si prefieres no ocuparte, el plan de mantenimiento desde $70.000 al mes incluye el hosting.",
       },
       {
         q: "¿Con qué tecnología construyen las páginas web?",
@@ -169,17 +172,17 @@ export const services: Service[] = [
       },
       {
         q: "¿Puedo editar los textos de mi página después?",
-        a: "En el plan de sitio corporativo puedes editar el blog por tu cuenta. Los textos de las secciones fijas los cambia Meridiano: con un plan de mantenimiento entran dentro de las horas incluidas; sin plan, se facturan a 30 USD la hora.",
+        a: "En el plan de sitio corporativo puedes editar el blog por tu cuenta. Los textos de las secciones fijas los cambia Meridiano: con un plan de mantenimiento entran dentro de las horas incluidas; sin plan, se facturan a $60.000 la hora.",
       },
       {
         q: "¿Trabajan con clientes fuera de Colombia?",
-        a: "Sí. Meridiano trabaja de forma remota con clientes en México, Chile, Perú, Argentina, Ecuador, Costa Rica y Panamá. Las reuniones se hacen por videollamada y la facturación es en dólares.",
+        a: "Sí. Meridiano trabaja de forma remota con clientes en México, Chile, Perú, Argentina, Ecuador, Costa Rica y Panamá. Las reuniones se hacen por videollamada y la factura se emite en pesos colombianos, con el equivalente en dólares a la TRM del día para quien lo necesite.",
       },
     ],
     meta: {
       title: "Desarrollo de páginas web a medida",
       description:
-        "Páginas web en Next.js desde 450 USD. Landing page en 2 semanas, sitio corporativo con blog en 5. Diseño propio, SEO técnico y carga bajo 2 segundos. Bogotá, Colombia.",
+        "Páginas web en Next.js desde $900.000. Landing page en 2 semanas, sitio corporativo con blog en 5. Diseño propio, SEO técnico y carga bajo 2 segundos. Bogotá, Colombia.",
     },
     keywords: [
       "desarrollo web Colombia",
@@ -191,12 +194,13 @@ export const services: Service[] = [
 
   {
     slug: "ecommerce",
+    cardLine: "Para cobrar en línea y manejar catálogo.",
     nav: "E-commerce",
     card: "Tiendas online",
     kicker: "Servicio 02",
     h1: "Tiendas online que aguantan catálogos grandes y pagos reales",
     summary:
-      "Meridiano desarrolla tiendas online desde 1.400 USD, con pasarela de pago integrada, catálogos de más de 700 productos y cierre de venta por WhatsApp.",
+      "Meridiano desarrolla tiendas online desde $2.800.000, con pasarela de pago integrada, catálogos de más de 700 productos y cierre de venta por WhatsApp.",
     intro: [
       "Un e-commerce se rompe en dos puntos: cuando el catálogo crece y cuando el cliente va a pagar. Ahí ponemos el trabajo.",
       "Ya hemos gestionado catálogos de más de 700 referencias con variantes de talla, color y presentación, filtros que responden al instante y buscador que tolera errores de tipeo. Y hemos integrado las pasarelas que de verdad operan en la región: Wompi, Mercado Pago, PayU y Stripe.",
@@ -252,7 +256,7 @@ export const services: Service[] = [
       },
     ],
     excludes: [
-      "La carga inicial de productos por encima del tope del plan. Se cobra a 1,50 USD por producto.",
+      "La carga inicial de productos por encima del tope del plan. Se cobra a $3.000 por producto.",
       "Fotografía y edición de imágenes de producto.",
       "La cuenta de la pasarela de pago. Se abre a nombre del comercio, con sus documentos: nosotros no manejamos tu dinero.",
       "Las comisiones de la pasarela, que cobra el proveedor sobre cada transacción.",
@@ -264,7 +268,7 @@ export const services: Service[] = [
     plans: [
       {
         name: "Esencial",
-        price: 1400,
+        price: 2800000,
         billing: "unico",
         scope: "Plantilla, hasta 50 productos, 1 pasarela de pago",
         features: [
@@ -278,7 +282,7 @@ export const services: Service[] = [
       },
       {
         name: "Profesional",
-        price: 2200,
+        price: 4400000,
         billing: "unico",
         scope: "Diseño propio, hasta 200 productos, SEO y WhatsApp",
         featured: true,
@@ -294,7 +298,7 @@ export const services: Service[] = [
       },
       {
         name: "Élite",
-        price: 3500,
+        price: 7000000,
         billing: "unico",
         scope: "A medida, catálogo ilimitado, integraciones y capacitación",
         features: [
@@ -309,25 +313,25 @@ export const services: Service[] = [
       },
     ],
     tableCaption:
-      "Planes de desarrollo de tiendas online. Precios en dólares estadounidenses (USD), pago único.",
+      "Planes de desarrollo de tiendas online. Precios en pesos colombianos (COP), pago único.",
     extras: [
-      { label: "Carga de producto adicional", value: "1,50 USD por producto" },
-      { label: "Pasarela de pago adicional", value: "220 USD" },
+      { label: "Carga de producto adicional", value: "$3.000 por producto" },
+      { label: "Pasarela de pago adicional", value: "$440.000" },
       {
         label: "Integración con ERP o facturación electrónica",
-        value: "Desde 600 USD",
+        value: "Desde $1.200.000",
       },
-      { label: "Ronda de revisión adicional", value: "30 USD / hora" },
+      { label: "Ronda de revisión adicional", value: "$60.000 / hora" },
     ],
-    note: "La carga de productos adicionales se cobra a 1,50 USD por producto. Si prefieres cargarlos tú, el panel es tuyo y no hay costo.",
+    note: "La carga de productos adicionales se cobra a $3.000 por producto. Si prefieres cargarlos tú, el panel es tuyo y no hay costo.",
     faq: [
       {
         q: "¿Cuánto cuesta una tienda online en Meridiano?",
-        a: "Hay tres planes: Esencial a 1.400 USD con hasta 50 productos, Profesional a 2.200 USD con hasta 200 productos y diseño propio, y Élite a 3.500 USD con catálogo ilimitado e integraciones. Todos son pago único e incluyen pasarela de pago.",
+        a: "Hay tres planes: Esencial a $2.800.000 con hasta 50 productos, Profesional a $4.400.000 con hasta 200 productos y diseño propio, y Élite a $7.000.000 con catálogo ilimitado e integraciones. Todos son pago único e incluyen pasarela de pago.",
       },
       {
         q: "¿Qué pasa si tengo más productos que los del plan?",
-        a: "La carga de productos por encima del tope del plan se cobra a 1,50 USD por producto. También puedes cargarlos tú desde el panel sin costo adicional. Meridiano ha gestionado catálogos de más de 700 referencias con variantes.",
+        a: "La carga de productos por encima del tope del plan se cobra a $3.000 por producto. También puedes cargarlos tú desde el panel sin costo adicional. Meridiano ha gestionado catálogos de más de 700 referencias con variantes.",
       },
       {
         q: "¿Qué pasarelas de pago integran?",
@@ -347,13 +351,13 @@ export const services: Service[] = [
       },
       {
         q: "¿La tienda incluye facturación electrónica DIAN?",
-        a: "No viene incluida. La integración con facturación electrónica ante la DIAN, o el organismo equivalente de cada país, se cotiza aparte desde 600 USD según el proveedor que use el comercio.",
+        a: "No viene incluida. La integración con facturación electrónica ante la DIAN, o el organismo equivalente de cada país, se cotiza aparte desde $1.200.000 según el proveedor que use el comercio.",
       },
     ],
     meta: {
       title: "Desarrollo de tiendas online y e-commerce",
       description:
-        "E-commerce a medida desde 1.400 USD. Catálogos de más de 700 productos, pasarelas Wompi, Mercado Pago y Stripe, cierre por WhatsApp. Desarrollo e-commerce en Bogotá.",
+        "E-commerce a medida desde $2.800.000. Catálogos de más de 700 productos, pasarelas Wompi, Mercado Pago y Stripe, cierre por WhatsApp. Desarrollo e-commerce en Bogotá.",
     },
     keywords: [
       "crear tienda online Latinoamérica",
@@ -365,6 +369,7 @@ export const services: Service[] = [
 
   {
     slug: "software-restaurantes",
+    cardLine: "Carta con QR y platos en 3D sobre la mesa.",
     nav: "Restaurantes",
     card: "Software para restaurantes",
     kicker: "Servicio 03",
@@ -422,7 +427,7 @@ export const services: Service[] = [
       },
     ],
     excludes: [
-      "Platos en 3D por encima del tope del plan. Cada plato adicional cuesta 65 USD.",
+      "Platos en 3D por encima del tope del plan. Cada plato adicional cuesta $130.000.",
       "Fotografía de los platos. Necesitamos entre 8 y 12 fotos por plato para modelarlo; si no las tienes, te pasamos la guía o recomendamos fotógrafo.",
       "Impresión física de los códigos QR, soportes de mesa o pendones.",
       "Tablets, pantallas o cualquier hardware del local.",
@@ -433,9 +438,9 @@ export const services: Service[] = [
     plans: [
       {
         name: "Menú digital",
-        price: 350,
+        price: 700000,
         billing: "unico",
-        monthly: 45,
+        monthly: 90000,
         scope: "Hasta 40 platos, con código QR diseñado",
         features: [
           "Hasta 40 platos con foto, descripción y precio",
@@ -447,9 +452,9 @@ export const services: Service[] = [
       },
       {
         name: "Menú con realidad aumentada · 15 platos",
-        price: 900,
+        price: 1800000,
         billing: "unico",
-        monthly: 90,
+        monthly: 180000,
         scope: "15 platos modelados en 3D, vistos desde el navegador",
         featured: true,
         features: [
@@ -463,9 +468,9 @@ export const services: Service[] = [
       },
       {
         name: "Menú con realidad aumentada · 30 platos",
-        price: 1600,
+        price: 3200000,
         billing: "unico",
-        monthly: 90,
+        monthly: 180000,
         scope: "30 platos modelados en 3D, vistos desde el navegador",
         features: [
           "30 platos modelados en 3D a escala real",
@@ -478,13 +483,13 @@ export const services: Service[] = [
       },
     ],
     tableCaption:
-      "Menús digitales y menús con realidad aumentada. Implementación de pago único más mensualidad, en dólares estadounidenses (USD).",
+      "Menús digitales y menús con realidad aumentada. Implementación de pago único más mensualidad, en pesos colombianos (COP).",
     extras: [
-      { label: "Plato adicional modelado en 3D", value: "65 USD por plato" },
-      { label: "Sede adicional con la misma carta", value: "120 USD" },
-      { label: "Idioma adicional en la carta", value: "90 USD" },
+      { label: "Plato adicional modelado en 3D", value: "$130.000 por plato" },
+      { label: "Sede adicional con la misma carta", value: "$240.000" },
+      { label: "Idioma adicional en la carta", value: "$180.000" },
     ],
-    note: "Cada plato adicional en 3D cuesta 65 USD. La mensualidad cubre el alojamiento de los modelos 3D, el ancho de banda y los cambios de precio ilimitados.",
+    note: "Cada plato adicional en 3D cuesta $130.000. La mensualidad cubre el alojamiento de los modelos 3D, el ancho de banda y los cambios de precio ilimitados.",
     faq: [
       {
         q: "¿Cómo funciona el menú con realidad aumentada?",
@@ -496,11 +501,11 @@ export const services: Service[] = [
       },
       {
         q: "¿Cuánto cuesta un menú con realidad aumentada?",
-        a: "La versión de 15 platos cuesta 900 USD de implementación más 90 USD al mes. La de 30 platos cuesta 1.600 USD más 90 USD al mes. Cada plato extra modelado en 3D cuesta 65 USD.",
+        a: "La versión de 15 platos cuesta $1.800.000 de implementación más $180.000 al mes. La de 30 platos cuesta $3.200.000 más $180.000 al mes. Cada plato extra modelado en 3D cuesta $130.000.",
       },
       {
         q: "¿Cuánto cuesta un menú digital sin realidad aumentada?",
-        a: "El menú digital con código QR cuesta 350 USD de implementación e incluye hasta 40 platos, más una mensualidad de 45 USD que cubre el alojamiento y los cambios de precio ilimitados.",
+        a: "El menú digital con código QR cuesta $700.000 de implementación e incluye hasta 40 platos, más una mensualidad de $90.000 que cubre el alojamiento y los cambios de precio ilimitados.",
       },
       {
         q: "¿Qué necesito para que modelen mis platos en 3D?",
@@ -518,7 +523,7 @@ export const services: Service[] = [
     meta: {
       title: "Menú digital y menú con realidad aumentada para restaurantes",
       description:
-        "Menú digital con QR desde 350 USD y menú con realidad aumentada desde 900 USD. El comensal ve el plato en 3D sobre su mesa, desde el navegador y sin descargar nada.",
+        "Menú digital con QR desde $700.000 y menú con realidad aumentada desde $1.800.000. El comensal ve el plato en 3D sobre su mesa, desde el navegador y sin descargar nada.",
     },
     keywords: [
       "menú digital para restaurantes",
@@ -530,12 +535,13 @@ export const services: Service[] = [
 
   {
     slug: "mantenimiento",
+    cardLine: "Hosting, copias y horas de cambios cada mes.",
     nav: "Mantenimiento",
     card: "Mantenimiento",
     kicker: "Servicio 04",
     h1: "Mantenimiento de páginas web y tiendas online",
     summary:
-      "Meridiano ofrece mantenimiento de páginas web desde 35 USD al mes, con hosting, copias de seguridad diarias, actualizaciones de seguridad y horas de cambios incluidas.",
+      "Meridiano ofrece mantenimiento de páginas web desde $70.000 al mes, con hosting, copias de seguridad diarias, actualizaciones de seguridad y horas de cambios incluidas.",
     intro: [
       "Un sitio sin mantenimiento no falla el primer mes. Falla el noveno, un viernes, cuando nadie mira.",
       "El mantenimiento cubre lo aburrido y necesario: que el hosting esté al día, que haya copia de seguridad de ayer, que los parches de seguridad se apliquen y que cuando quieras cambiar un precio o una foto haya alguien que lo haga el mismo día.",
@@ -590,14 +596,14 @@ export const services: Service[] = [
       "Desarrollo de funcionalidades nuevas, como agregar un carrito o una pasarela.",
       "Gestión diaria de contenido, redes sociales o publicaciones de blog.",
       "Campañas de marketing, pauta o email marketing.",
-      "Carga masiva de productos, que se cobra a 1,50 USD por producto.",
+      "Carga masiva de productos, que se cobra a $3.000 por producto.",
       "Soporte del hardware, la red o los computadores del cliente.",
       "Las horas no usadas no se acumulan de un mes al siguiente.",
     ],
     plans: [
       {
         name: "Básico",
-        price: 35,
+        price: 70000,
         billing: "mes",
         scope: "Hosting, copias de seguridad, seguridad y 1 hora de cambios",
         features: [
@@ -611,7 +617,7 @@ export const services: Service[] = [
       },
       {
         name: "Activo",
-        price: 75,
+        price: 150000,
         billing: "mes",
         scope: "Todo lo del Básico, más 3 horas de cambios y reportes",
         featured: true,
@@ -625,7 +631,7 @@ export const services: Service[] = [
       },
       {
         name: "Prioritario",
-        price: 150,
+        price: 300000,
         billing: "mes",
         scope: "Todo lo del Activo, más 6 horas y soporte de fin de semana",
         features: [
@@ -638,17 +644,17 @@ export const services: Service[] = [
       },
     ],
     tableCaption:
-      "Planes de mantenimiento web. Precios mensuales en dólares estadounidenses (USD), sin permanencia mínima.",
+      "Planes de mantenimiento web. Precios mensuales en pesos colombianos (COP), sin permanencia mínima.",
     extras: [
-      { label: "Hora adicional de cambios", value: "30 USD / hora" },
-      { label: "Carga de producto adicional", value: "1,50 USD por producto" },
-      { label: "Auditoría técnica de un sitio existente", value: "150 USD" },
+      { label: "Hora adicional de cambios", value: "$60.000 / hora" },
+      { label: "Carga de producto adicional", value: "$3.000 por producto" },
+      { label: "Auditoría técnica de un sitio existente", value: "$300.000" },
     ],
     note: "Sin permanencia mínima: puedes cancelar cualquier mes avisando con 15 días. Si te vas, se entrega el código y una copia de seguridad completa.",
     faq: [
       {
         q: "¿Cuánto cuesta el mantenimiento de una página web?",
-        a: "Meridiano ofrece tres planes mensuales: Básico a 35 USD con 1 hora de cambios, Activo a 75 USD con 3 horas y reportes, y Prioritario a 150 USD con 6 horas y soporte de fin de semana. Los tres incluyen hosting, copias de seguridad y actualizaciones de seguridad.",
+        a: "Meridiano ofrece tres planes mensuales: Básico a $70.000 con 1 hora de cambios, Activo a $150.000 con 3 horas y reportes, y Prioritario a $300.000 con 6 horas y soporte de fin de semana. Los tres incluyen hosting, copias de seguridad y actualizaciones de seguridad.",
       },
       {
         q: "¿Qué entra dentro de las horas de cambios?",
@@ -656,11 +662,11 @@ export const services: Service[] = [
       },
       {
         q: "¿Las horas no usadas se acumulan?",
-        a: "No. Las horas incluidas se renuevan cada mes y no se acumulan. Si necesitas más horas en un mes puntual, se facturan a 30 USD la hora.",
+        a: "No. Las horas incluidas se renuevan cada mes y no se acumulan. Si necesitas más horas en un mes puntual, se facturan a $60.000 la hora.",
       },
       {
         q: "¿Hacen mantenimiento de sitios que no desarrollaron ustedes?",
-        a: "Sí, previa auditoría técnica de 150 USD que se descuenta del primer mes si el sitio entra al plan. La auditoría dice en qué estado está el código y qué hace falta arreglar antes de empezar.",
+        a: "Sí, previa auditoría técnica de $300.000 que se descuenta del primer mes si el sitio entra al plan. La auditoría dice en qué estado está el código y qué hace falta arreglar antes de empezar.",
       },
       {
         q: "¿Hay permanencia mínima?",
@@ -674,7 +680,7 @@ export const services: Service[] = [
     meta: {
       title: "Mantenimiento de páginas web y tiendas online",
       description:
-        "Mantenimiento web desde 35 USD al mes: hosting, copias de seguridad diarias, actualizaciones de seguridad, monitoreo y horas de cambios incluidas. Sin permanencia.",
+        "Mantenimiento web desde $70.000 al mes: hosting, copias de seguridad diarias, actualizaciones de seguridad, monitoreo y horas de cambios incluidas. Sin permanencia.",
     },
     keywords: [
       "mantenimiento de páginas web",

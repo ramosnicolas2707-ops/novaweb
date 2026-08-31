@@ -6,22 +6,22 @@
 export const site = {
   name: "Meridiano",
   legalName: "Meridiano Estudio",
-  url: "https://meridiano.studio",
-  domain: "meridiano.studio",
+  url: "https://meridiano-nrm4.vercel.app",
+  domain: "meridiano-nrm4.vercel.app",
   tagline: "Desarrollo web y e-commerce para marcas de Latinoamérica",
   /** Una frase autocontenida, pensada para que un modelo de lenguaje la pueda citar entera. */
   claim:
     "Meridiano es un estudio de desarrollo web y software con sede en Bogotá, Colombia, que construye páginas web, tiendas online y menús digitales para negocios de Latinoamérica.",
   founder: {
-    name: "Nico",
+    name: "Nicolás Ramos Murcia",
     role: "Desarrollador y fundador",
   },
   contact: {
-    email: "hola@meridiano.studio",
+    email: "ramos.nicolas2707@gmail.com",
     /** Formato internacional sin signos, para el enlace wa.me */
-    whatsapp: "573001234567",
-    whatsappDisplay: "+57 300 123 4567",
-    phone: "+573001234567",
+    whatsapp: "573123445330",
+    whatsappDisplay: "+57 312 344 5330",
+    phone: "+573123445330",
   },
   address: {
     city: "Bogotá",
@@ -41,13 +41,11 @@ export const site = {
     "Panamá",
   ],
   timezone: "America/Bogota",
-  currency: "USD",
+  currency: "COP",
   /** Horario de atención en formato schema.org */
   openingHours: "Mo-Fr 08:00-18:00",
   social: {
-    instagram: "https://instagram.com/meridiano.studio",
-    linkedin: "https://linkedin.com/company/meridiano-studio",
-    github: "https://github.com/meridiano-studio",
+    github: "https://github.com/ramosnicolas2707-ops",
   },
 } as const;
 
@@ -63,13 +61,13 @@ export const conditions = [
     label: "Rondas de revisión",
     value: "2 incluidas",
     detail:
-      "Cada proyecto incluye dos rondas de ajustes sobre el diseño entregado. Las rondas adicionales se facturan a 30 USD la hora.",
+      "Cada proyecto incluye dos rondas de ajustes sobre el diseño entregado. Las rondas adicionales se facturan a $60.000 la hora.",
   },
   {
     label: "Moneda",
-    value: "USD",
+    value: "COP",
     detail:
-      "Todos los precios están en dólares estadounidenses. Se factura desde Colombia y se acepta pago en pesos colombianos a la TRM del día.",
+      "Todos los precios están en pesos colombianos. Se factura desde Colombia; para clientes fuera del país se calcula el equivalente en dólares a la TRM del día.",
   },
 ] as const;
 

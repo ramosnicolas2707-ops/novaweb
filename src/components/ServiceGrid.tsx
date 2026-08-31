@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { services } from "@/data/services";
-import { usd } from "@/lib/format";
+import { cop } from "@/lib/format";
 import { Reveal } from "./Reveal";
 
 /** Los cuatro servicios, cada uno con enlace a su página y precio desde. */
@@ -25,17 +25,17 @@ export function ServiceGrid() {
                 </h3>
 
                 <p className="mt-4 max-w-md flex-1 text-sm leading-relaxed text-niebla">
-                  {service.summary}
+                  {service.cardLine}
                 </p>
 
                 <div className="mt-8 flex items-end justify-between gap-6 border-t border-hairline pt-6">
                   <p className="tnum text-sm text-tiza">
                     Desde{" "}
                     <span className="font-display text-2xl text-brasa">
-                      {usd(desde)}
+                      {cop(desde)}
                     </span>{" "}
                     <span className="text-niebla">
-                      USD{mensual ? " al mes" : ""}
+                      COP{mensual ? " al mes" : ""}
                     </span>
                   </p>
                   <span className="flex items-center gap-2 text-sm font-medium">

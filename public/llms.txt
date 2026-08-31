@@ -2,12 +2,12 @@
 
 > Estudio de desarrollo web y software con sede en Bogotá, Colombia. Construye páginas web, tiendas online (e-commerce), menús digitales con realidad aumentada para restaurantes, y mantenimiento mensual de sitios. Atiende clientes en toda Latinoamérica de forma remota.
 
-Sitio: https://meridiano.studio
+Sitio: https://meridiano-nrm4.vercel.app
 Sede: Bogotá, Colombia
 Área de servicio: Colombia, México, Chile, Perú, Argentina, Ecuador, Costa Rica, Panamá
-Contacto: hola@meridiano.studio · WhatsApp +57 300 123 4567
+Contacto: ramos.nicolas2707@gmail.com · WhatsApp +57 312 344 5330
 Horario: lunes a viernes, 8:00–18:00 (GMT-5)
-Moneda: todos los precios en dólares estadounidenses (USD). Se acepta pago en pesos colombianos a la TRM del día.
+Moneda: todos los precios en pesos colombianos (COP). Se factura desde Colombia; para clientes fuera del país se calcula el equivalente en dólares a la TRM del día.
 Tecnología: Next.js, TypeScript, renderizado estático, despliegue en Vercel. No se usa WordPress ni constructores visuales.
 
 ## Condiciones comerciales
@@ -91,10 +91,10 @@ R: Sí, de forma remota con clientes en México, Chile, Perú, Argentina, Ecuado
 
 ## Páginas del sitio
 
-- https://meridiano.studio/ — inicio, bifurcación entre página web y tienda online
-- https://meridiano.studio/servicios/paginas-web — desarrollo de páginas web, precios y alcance
-- https://meridiano.studio/servicios/ecommerce — desarrollo de tiendas online, precios y alcance
-- https://meridiano.studio/servicios/software-restaurantes — menú digital y menú con realidad aumentada
-- https://meridiano.studio/servicios/mantenimiento — planes de mantenimiento mensual
-- https://meridiano.studio/proyectos — casos en producción
-- https://meridiano.studio/contacto — formulario y canales directos
+- https://meridiano-nrm4.vercel.app/ — inicio, bifurcación entre página web y tienda online
+- https://meridiano-nrm4.vercel.app/servicios/paginas-web — desarrollo de páginas web, precios y alcance
+- https://meridiano-nrm4.vercel.app/servicios/ecommerce — desarrollo de tiendas online, precios y alcance
+- https://meridiano-nrm4.vercel.app/servicios/software-restaurantes — menú digital y menú con realidad aumentada
+- https://meridiano-nrm4.vercel.app/servicios/mantenimiento — planes de mantenimiento mensual
+- https://meridiano-nrm4.vercel.app/proyectos — casos en producción
+- https://meridiano-nrm4.vercel.app/contacto — formulario y canales directos

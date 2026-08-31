@@ -84,7 +84,7 @@ export function ServicePage({ service }: { service: Service }) {
               <dt className="kicker mt-8 text-niebla">Cómo se paga</dt>
               <dd className="mt-3 text-sm leading-relaxed text-tiza">
                 50% de anticipo para iniciar y 50% contra entrega. Dos rondas de
-                revisión incluidas; las adicionales, a 30 USD la hora.
+                revisión incluidas; las adicionales, a $60.000 la hora.
               </dd>
             </dl>
           </div>
@@ -100,7 +100,7 @@ export function ServicePage({ service }: { service: Service }) {
               Precio visible, alcance escrito
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-niebla">
-              Todos los importes están en dólares estadounidenses. No hay
+              Todos los importes están en pesos colombianos. No hay
               «consultar precio»: si el proyecto se sale de estos planes, se
               cotiza sobre estas mismas cifras.
             </p>

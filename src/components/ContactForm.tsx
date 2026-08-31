@@ -5,10 +5,10 @@ import { site, whatsappLink } from "@/data/site";
 import { services } from "@/data/services";
 
 const PRESUPUESTOS = [
-  "Menos de 500 USD",
-  "Entre 500 y 1.500 USD",
-  "Entre 1.500 y 3.000 USD",
-  "Más de 3.000 USD",
+  "Menos de $1 millón",
+  "Entre $1 y $3 millones",
+  "Entre $3 y $6 millones",
+  "Más de $6 millones",
   "Todavía no lo sé",
 ];
 

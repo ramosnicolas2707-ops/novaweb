@@ -1,12 +1,12 @@
 import type { Service } from "@/data/services";
-import { usd } from "@/lib/format";
+import { cop } from "@/lib/format";
 
 /**
  * Tabla de precios. Es una <table> de verdad, con caption, th y scope.
  *
  * No es una decisión estética: los buscadores generativos extraen tablas
  * semánticas y no extraen divs que parecen tablas. Es también la forma correcta
- * de que un lector de pantalla anuncie "Plan Profesional, precio, 2.200 dólares".
+ * de que un lector de pantalla anuncie "Plan Profesional, precio, 4.400.000 pesos".
  */
 export function PriceTable({ service }: { service: Service }) {
   const conMensualidad = service.plans.some((p) => p.monthly !== undefined);
@@ -61,17 +61,17 @@ export function PriceTable({ service }: { service: Service }) {
                     </span>
                   ) : null}
                 </th>
-                <td className="tnum py-6 pr-6 font-display text-2xl text-tiza">
-                  {usd(plan.price)}
+                <td className="tnum whitespace-nowrap py-6 pr-6 font-display text-2xl text-tiza">
+                  {cop(plan.price)}
                   {plan.billing === "mes" ? (
                     <span className="font-body text-sm text-niebla">/mes</span>
                   ) : null}
                 </td>
                 {conMensualidad ? (
-                  <td className="tnum py-6 pr-6 font-display text-2xl text-tiza">
+                  <td className="tnum whitespace-nowrap py-6 pr-6 font-display text-2xl text-tiza">
                     {plan.monthly !== undefined ? (
                       <>
-                        {usd(plan.monthly)}
+                        {cop(plan.monthly)}
                         <span className="font-body text-sm text-niebla">
                           /mes
                         </span>
@@ -105,7 +105,7 @@ export function ExtrasTable({ service }: { service: Service }) {
     <div className="overflow-x-auto">
       <table className="w-full min-w-[17rem] border-collapse text-left">
         <caption className="caption-top pb-5 text-left text-sm leading-relaxed text-niebla">
-          {`Servicios adicionales de ${service.nav.toLowerCase()}, en dólares estadounidenses (USD).`}
+          {`Servicios adicionales de ${service.nav.toLowerCase()}, en pesos colombianos (COP).`}
         </caption>
         <thead>
           <tr className="border-b border-hairline-fuerte">
