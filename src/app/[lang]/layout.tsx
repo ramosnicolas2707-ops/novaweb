@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Archivo } from "next/font/google";
-import { site, claim } from "@/data/site";
+import { site, claim, INDEXAR } from "@/data/site";
 import { servicios } from "@/data/contenido";
 import { negocioJsonLd } from "@/lib/seo";
 import {
@@ -68,10 +68,16 @@ export async function generateMetadata({
       siteName: site.name,
       url: new URL(`/${lang}`, site.url).toString(),
     },
+    // INDEXAR vive en src/data/site.ts. Está en false mientras el nombre sea
+    // provisional: el sitio se ve y se comparte igual, pero no se indexa.
     robots: {
-      index: true,
-      follow: true,
-      googleBot: { index: true, follow: true, "max-image-preview": "large" },
+      index: INDEXAR,
+      follow: INDEXAR,
+      googleBot: {
+        index: INDEXAR,
+        follow: INDEXAR,
+        "max-image-preview": "large",
+      },
     },
     other: { "format-detection": "telephone=no" },
   };

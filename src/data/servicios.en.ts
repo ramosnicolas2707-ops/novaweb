@@ -310,7 +310,7 @@ export const servicios: Servicio[] = [
     cardLine: "You already have a site. It looks old.",
     h1: "Redesigning sites that already exist",
     resumen:
-      "Meridiano redesigns existing websites from COP $1,200,000, keeping the Google ranking the site already has.",
+      "Meridiano redesigns existing websites from COP $950,000, keeping the Google ranking the site already has.",
     intro: [
       "Your site works, but it looks like 2016, it loads slowly and it falls apart on a phone. You don't have to throw it away.",
       "I redesign what you already have without losing what you already earned on Google. That's the whole point: a brand-new site starts from zero in search, and a redesign done properly does not.",
@@ -378,7 +378,7 @@ export const servicios: Servicio[] = [
     planes: [
       {
         name: "Facelift",
-        price: 1200000,
+        price: 950000,
         billing: "unico",
         paraQuien: "The content works. What's wrong is how it looks.",
         entrega: "Ready in 2 weeks",
@@ -392,7 +392,7 @@ export const servicios: Servicio[] = [
       },
       {
         name: "Full redesign",
-        price: 2600000,
+        price: 2100000,
         billing: "unico",
         paraQuien: "The site needs rethinking: what it says and in what order.",
         entrega: "Ready in 4 weeks",
@@ -419,7 +419,7 @@ export const servicios: Servicio[] = [
       },
       {
         q: "How much does a website redesign cost?",
-        a: "From COP $1,200,000 if the content works and only the design needs rebuilding, and COP $2,600,000 if what the site says and in what order also needs rethinking. It's almost always cheaper than starting again, because the content and the ranking are already there.",
+        a: "From COP $950,000 if the content works and only the design needs rebuilding, and COP $2,100,000 if what the site says and in what order also needs rethinking. It's almost always cheaper than starting again, because the content and the ranking are already there.",
       },
       {
         q: "My site is on WordPress. Do I have to move?",
@@ -431,9 +431,9 @@ export const servicios: Servicio[] = [
       },
     ],
     meta: {
-      title: "Website redesign from COP $1,200,000",
+      title: "Website redesign from COP $950,000",
       description:
-        "I redesign your site without losing what you already have on Google. From COP $1,200,000. The phone version, the speed and the design, all fixed.",
+        "I redesign your site without losing what you already have on Google. From COP $950,000. The phone version, the speed and the design, all fixed.",
     },
   },
 

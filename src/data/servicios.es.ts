@@ -302,7 +302,7 @@ export const servicios: Servicio[] = [
     cardLine: "Ya tienes página. Está vieja.",
     h1: "Rediseño de páginas que ya existen",
     resumen:
-      "Meridiano rediseña páginas web existentes desde $1.200.000, conservando el posicionamiento en Google que el sitio ya tiene.",
+      "Meridiano rediseña páginas web existentes desde $950.000, conservando el posicionamiento en Google que el sitio ya tiene.",
     intro: [
       "Tu página funciona, pero se ve del 2016, carga lento y en el celular se descuadra. No hace falta botarla.",
       "Rediseño lo que ya tienes sin perder lo que ya ganaste en Google. Ese es el punto: un sitio nuevo arranca de cero en buscadores, un rediseño bien hecho no.",
@@ -370,7 +370,7 @@ export const servicios: Servicio[] = [
     planes: [
       {
         name: "Lavada de cara",
-        price: 1200000,
+        price: 950000,
         billing: "unico",
         paraQuien: "El contenido sirve. Lo que está mal es cómo se ve.",
         entrega: "Listo en 2 semanas",
@@ -384,7 +384,7 @@ export const servicios: Servicio[] = [
       },
       {
         name: "Rediseño completo",
-        price: 2600000,
+        price: 2100000,
         billing: "unico",
         paraQuien: "Hay que replantear qué dice el sitio y en qué orden.",
         entrega: "Listo en 4 semanas",
@@ -411,7 +411,7 @@ export const servicios: Servicio[] = [
       },
       {
         q: "¿Cuánto cuesta rediseñar una página web?",
-        a: "Desde $1.200.000 si el contenido sirve y solo hay que rehacer el diseño, y $2.600.000 si además hay que replantear qué dice el sitio y en qué orden. Casi siempre sale más barato que hacerla de nuevo, porque el contenido y el posicionamiento ya están.",
+        a: "Desde $950.000 si el contenido sirve y solo hay que rehacer el diseño, y $2.100.000 si además hay que replantear qué dice el sitio y en qué orden. Casi siempre sale más barato que hacerla de nuevo, porque el contenido y el posicionamiento ya están.",
       },
       {
         q: "Mi página está en WordPress. ¿Toca cambiarla?",
@@ -423,9 +423,9 @@ export const servicios: Servicio[] = [
       },
     ],
     meta: {
-      title: "Rediseño de páginas web desde $1.200.000",
+      title: "Rediseño de páginas web desde $950.000",
       description:
-        "Rediseño tu página sin perder lo que ya tienes en Google. Desde $1.200.000. Se arregla el celular, la velocidad y el diseño.",
+        "Rediseño tu página sin perder lo que ya tienes en Google. Desde $950.000. Se arregla el celular, la velocidad y el diseño.",
     },
   },
 

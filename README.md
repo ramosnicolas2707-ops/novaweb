@@ -47,7 +47,7 @@ externo.
 | Qué | Dónde |
 |---|---|
 | **Nombre definitivo** | `src/data/site.ts` → `name`, `legalName`, `url`, `domain`. También a mano en `public/llms.txt`. |
-| **Precios de rediseño** | `src/data/servicios.es.ts` y `.en.ts`, servicio `rediseno`. Son los únicos que no me diste: $1.200.000 y $2.600.000. Confírmalos. |
+| ~~Precios de rediseño~~ | Confirmados el 7 de septiembre de 2026: $950.000 y $2.100.000. |
 | **URLs de los proyectos** | `src/data/proyectos.es.ts` y `.en.ts` → campo `url`, hoy en `null` en los dos. Eclipse está protegida con contraseña y Sexta Rueda solo corre en local. |
 | **Catálogo de Sexta Rueda** | Falta agregar esa captura cuando el sitio tenga fotos de producto reales (hoy son cuadros grises). |
 

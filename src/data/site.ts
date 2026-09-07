@@ -13,6 +13,22 @@ import type { Idioma } from "@/i18n/idiomas";
  * los dos idiomas. No hay ningún otro archivo con el nombre escrito a mano.
  * ─────────────────────────────────────────────────────────────────────────
  */
+/**
+ * ¿Puede Google registrar este sitio?
+ *
+ * En `false` mientras el nombre siga siendo provisional. El sitio funciona
+ * igual y el enlace se puede abrir y compartir: lo único que cambia es que se
+ * le pide a los buscadores que no lo indexen, para no quemar "Meridiano" ni
+ * este dominio antes de que la marca esté decidida. Si Google indexa un
+ * nombre y después lo cambias, cambias también el dominio y ese trabajo se
+ * pierde.
+ *
+ * PARA PUBLICAR DE VERDAD: pon esto en `true` y vuelve a desplegar. Eso es
+ * todo — desde aquí se alimentan el <meta robots> de todas las páginas y el
+ * archivo robots.txt.
+ */
+export const INDEXAR = false;
+
 export const site = {
   name: "Meridiano",
   legalName: "Meridiano Estudio",
