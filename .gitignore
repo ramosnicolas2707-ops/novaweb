@@ -5,3 +5,6 @@ out
 .vercel
 next-env.d.ts
 *.tsbuildinfo
+
+# Build de verificación (npm run build:check)
+.next-check

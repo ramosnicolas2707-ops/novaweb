@@ -3,159 +3,202 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { nav, site, whatsappLink } from "@/data/site";
+import { site, whatsapp } from "@/data/site";
+import type { Idioma } from "@/i18n/idiomas";
+import type { Textos } from "@/i18n/textos";
 
-const MENSAJE_WA =
-  "Hola Meridiano. Vengo de la web y quiero contarles un proyecto.";
+import { CaraMarca } from "./Mascota";
+import SelectorMoneda from "./SelectorMoneda";
+import SelectorIdioma from "./SelectorIdioma";
 
-export function Nav() {
+/**
+ * Nav corre en el cliente, y las funciones no cruzan la frontera
+ * servidor → cliente. El objeto Textos completo tiene funciones (los
+ * mensajes de WhatsApp con parámetros, los títulos con variables), así que
+ * aquí se piden solo las claves que este componente usa, todas cadenas.
+ */
+type TextosNav = Pick<
+  Textos,
+  | "navPrincipal"
+  | "moneda"
+  | "idioma"
+  | "escribeme"
+  | "escribemePorWhatsapp"
+  | "waGeneral"
+  | "abrirMenu"
+  | "cerrarMenu"
+>;
+
+/**
+ * Barra superior. Fija, blanca, con filete que solo aparece al bajar.
+ * En celular es un menú desplegable a pantalla completa.
+ *
+ * Los enlaces llegan ya traducidos desde el layout: este componente no sabe
+ * de contenido, solo de navegación.
+ */
+export default function Nav({
+  lang,
+  t,
+  enlaces,
+}: {
+  lang: Idioma;
+  t: TextosNav;
+  enlaces: { href: string; label: string }[];
+}) {
   const [abierto, setAbierto] = useState(false);
-  const [desplazado, setDesplazado] = useState(false);
-  const pathname = usePathname();
+  const [bajado, setBajado] = useState(false);
+  const ruta = usePathname();
 
+  // El filete inferior aparece recién cuando el contenido pasa por debajo.
   useEffect(() => {
-    const alScroll = () => setDesplazado(window.scrollY > 24);
+    const alScroll = () => setBajado(window.scrollY > 8);
     alScroll();
     window.addEventListener("scroll", alScroll, { passive: true });
     return () => window.removeEventListener("scroll", alScroll);
   }, []);
 
-  // El menú móvil se cierra al navegar y con Escape.
-  useEffect(() => setAbierto(false), [pathname]);
+  // Al cambiar de página el menú se cierra solo.
+  useEffect(() => setAbierto(false), [ruta]);
 
+  // Con el menú abierto la página de atrás no se mueve.
   useEffect(() => {
-    if (!abierto) return;
-    const alTeclado = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setAbierto(false);
-    };
-    document.addEventListener("keydown", alTeclado);
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = abierto ? "hidden" : "";
     return () => {
-      document.removeEventListener("keydown", alTeclado);
       document.body.style.overflow = "";
     };
   }, [abierto]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 motion-reduce:transition-none ${
-        desplazado || abierto
-          ? "border-b border-hairline bg-carbon/85 backdrop-blur-md"
-          : "border-b border-transparent"
-      }`}
-    >
-      <nav
-        aria-label="Principal"
-        className="mx-auto flex h-[4.5rem] w-full max-w-[var(--ancho-contenido)] items-center justify-between px-5 sm:px-8 lg:px-12"
+    // El menú de celular va FUERA del <header> a propósito. El header tiene
+    // backdrop-blur, y un elemento con backdrop-filter se vuelve el bloque
+    // contenedor de sus descendientes "fixed": adentro, el panel quedaba
+    // encerrado en los 72 px de la barra y salía con altura cero.
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 bg-blanco/90 backdrop-blur-md transition-shadow duration-300 ${
+          bajado ? "shadow-[0_1px_0_0_var(--color-filete)]" : ""
+        }`}
       >
-        <Link
-          href="/"
-          className="group flex items-center gap-3"
-          aria-label={`${site.name} — ir al inicio`}
-        >
-          {/* El logotipo es la costura: una línea de 2 px. */}
-          <span
-            aria-hidden="true"
-            className="block h-4 w-0.5 bg-brasa transition-[height] duration-300 group-hover:h-5 motion-reduce:transition-none"
-          />
-          <span className="font-display text-lg tracking-tight">
+        <div className="contenedor flex h-18 items-center justify-between gap-5">
+          {/* Marca. El nombre sale de site.ts: cambiarlo ahí lo cambia acá. */}
+          <Link
+            href={`/${lang}`}
+            className="flex shrink-0 items-center gap-2.5 text-lg font-extrabold tracking-tight"
+          >
+            <CaraMarca className="h-7 w-7 shrink-0" />
             {site.name}
-          </span>
-        </Link>
+          </Link>
 
-        <ul className="hidden items-center gap-7 lg:flex">
-          {nav.map((item) => {
-            const activo = pathname === item.href;
-            return (
-              <li key={item.href}>
+          <nav
+            aria-label={t.navPrincipal}
+            className="hidden items-center gap-6 xl:flex"
+          >
+            {enlaces.map((item) => {
+              const activo = ruta.startsWith(`/${lang}${item.href}`);
+              return (
                 <Link
-                  href={item.href}
+                  key={item.href}
+                  href={`/${lang}${item.href}`}
                   aria-current={activo ? "page" : undefined}
-                  className={`enlace-costura text-sm ${
-                    activo ? "text-brasa" : "text-niebla hover:text-tiza"
+                  className={`subraya text-[0.9375rem] font-semibold transition-colors ${
+                    activo
+                      ? "text-naranja-texto"
+                      : "text-grafito hover:text-tinta"
                   }`}
                 >
                   {item.label}
                 </Link>
-              </li>
-            );
-          })}
-        </ul>
+              );
+            })}
+          </nav>
 
-        <div className="flex items-center gap-3">
-          <Link
-            href="/contacto"
-            className="hidden text-sm text-niebla transition-colors hover:text-tiza sm:block lg:hidden xl:block motion-reduce:transition-none"
-          >
-            Contacto
-          </Link>
-          <a
-            href={whatsappLink(MENSAJE_WA)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden bg-brasa px-4 py-2.5 text-sm font-medium text-carbon transition-colors duration-300 hover:bg-tiza sm:inline-block motion-reduce:transition-none"
-          >
-            Escribir por WhatsApp
-          </a>
+          <div className="flex items-center gap-2">
+            {/* Los dos interruptores. En celular se van al menú desplegable
+                para no apretar la barra. */}
+            <div className="hidden items-center gap-3 lg:flex">
+              <SelectorMoneda etiqueta={t.moneda} />
+              <span aria-hidden="true" className="h-4 w-px bg-filete-fuerte" />
+              <SelectorIdioma lang={lang} etiqueta={t.idioma} />
+            </div>
 
-          <button
-            type="button"
-            onClick={() => setAbierto((v) => !v)}
-            aria-expanded={abierto}
-            aria-controls="menu-movil"
-            className="flex h-10 w-10 items-center justify-center lg:hidden"
-          >
-            <span className="sr-only">
-              {abierto ? "Cerrar el menú" : "Abrir el menú"}
-            </span>
-            <span aria-hidden="true" className="relative block h-3 w-5">
-              <span
-                className={`absolute left-0 h-0.5 w-5 bg-tiza transition-transform duration-300 motion-reduce:transition-none ${
-                  abierto ? "top-1.5 rotate-45" : "top-0"
-                }`}
-              />
-              <span
-                className={`absolute left-0 h-0.5 w-5 bg-tiza transition-transform duration-300 motion-reduce:transition-none ${
-                  abierto ? "top-1.5 -rotate-45" : "top-3"
-                }`}
-              />
-            </span>
-          </button>
-        </div>
-      </nav>
-
-      {abierto ? (
-        <div
-          id="menu-movil"
-          className="border-t border-hairline bg-carbon lg:hidden"
-        >
-          <ul className="mx-auto w-full max-w-[var(--ancho-contenido)] px-5 py-4 sm:px-8">
-            {[...nav, { href: "/contacto", label: "Contacto" }].map((item) => (
-              <li key={item.href} className="border-b border-hairline last:border-0">
-                <Link
-                  href={item.href}
-                  className="flex items-center justify-between py-4 text-base"
-                >
-                  {item.label}
-                  <span aria-hidden="true" className="text-brasa">
-                    →
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="mx-auto w-full max-w-[var(--ancho-contenido)] px-5 pb-6 sm:px-8">
             <a
-              href={whatsappLink(MENSAJE_WA)}
+              href={whatsapp(t.waGeneral)}
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-brasa px-4 py-3.5 text-center text-sm font-medium text-carbon"
+              className="barrido ml-1 hidden bg-naranja px-5 py-2.5 text-[0.9375rem] font-bold tracking-tight text-tinta transition-colors duration-300 hover:text-blanco sm:inline-flex"
             >
-              Escribir por WhatsApp
+              {t.escribeme}
             </a>
+
+            <button
+              type="button"
+              onClick={() => setAbierto((v) => !v)}
+              aria-expanded={abierto}
+              aria-controls="menu-movil"
+              className="-mr-2 p-2 xl:hidden"
+            >
+              <span className="sr-only">
+                {abierto ? t.cerrarMenu : t.abrirMenu}
+              </span>
+              <span aria-hidden="true" className="block space-y-[5px]">
+                <span
+                  className={`block h-0.5 w-6 bg-tinta transition-transform duration-300 ${
+                    abierto ? "translate-y-[7px] rotate-45" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-6 bg-tinta transition-opacity duration-200 ${
+                    abierto ? "opacity-0" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-6 bg-tinta transition-transform duration-300 ${
+                    abierto ? "-translate-y-[7px] -rotate-45" : ""
+                  }`}
+                />
+              </span>
+            </button>
           </div>
         </div>
-      ) : null}
-    </header>
+      </header>
+
+      {/* Menú de celular. Hermano del header, no hijo: ver el comentario de
+          arriba sobre backdrop-filter. */}
+      {abierto && (
+        <div
+          id="menu-movil"
+          className="fixed inset-x-0 top-18 bottom-0 z-40 overflow-y-auto bg-blanco xl:hidden"
+        >
+          <nav aria-label={t.navPrincipal} className="contenedor py-6">
+            {enlaces.map((item) => (
+              <Link
+                key={item.href}
+                href={`/${lang}${item.href}`}
+                className="block border-b border-filete py-5 text-2xl font-extrabold tracking-tight"
+              >
+                {item.label}
+              </Link>
+            ))}
+
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-b border-filete pb-8">
+              <SelectorMoneda etiqueta={t.moneda} />
+              <SelectorIdioma lang={lang} etiqueta={t.idioma} />
+            </div>
+
+            <a
+              href={whatsapp(t.waGeneral)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="barrido mt-8 flex items-center justify-center bg-naranja px-6 py-4 text-base font-bold text-tinta transition-colors duration-300 hover:text-blanco"
+            >
+              {t.escribemePorWhatsapp}
+            </a>
+            <p className="mt-4 text-center text-sm text-grafito">
+              {site.contact.whatsappDisplay}
+            </p>
+          </nav>
+        </div>
+      )}
+    </>
   );
 }

@@ -1,21 +1,29 @@
-/**
- * Datos transversales del negocio.
- * Editar aquí cambia el sitio entero: metadatos, JSON-LD, footer y enlaces de contacto.
- */
+import type { Idioma } from "@/i18n/idiomas";
 
+/**
+ * Datos del negocio.
+ *
+ * Aquí va solo lo que NO se traduce: el número de WhatsApp, el correo, la
+ * ciudad, la moneda. Lo que sí se traduce vive en /src/i18n/textos.ts y en
+ * /src/data/*.es.ts y *.en.ts.
+ *
+ * NOMBRE PENDIENTE ────────────────────────────────────────────────────────
+ * "Meridiano" es provisional. Cuando definas el nombre real, cambia `name`,
+ * `legalName`, `url` y `domain` aquí y el sitio entero se actualiza solo, en
+ * los dos idiomas. No hay ningún otro archivo con el nombre escrito a mano.
+ * ─────────────────────────────────────────────────────────────────────────
+ */
 export const site = {
   name: "Meridiano",
   legalName: "Meridiano Estudio",
   url: "https://meridiano-nrm4.vercel.app",
   domain: "meridiano-nrm4.vercel.app",
-  tagline: "Desarrollo web y e-commerce para marcas de Latinoamérica",
-  /** Una frase autocontenida, pensada para que un modelo de lenguaje la pueda citar entera. */
-  claim:
-    "Meridiano es un estudio de desarrollo web y software con sede en Bogotá, Colombia, que construye páginas web, tiendas online y menús digitales para negocios de Latinoamérica.",
+
   founder: {
     name: "Nicolás Ramos Murcia",
     role: "Desarrollador y fundador",
   },
+
   contact: {
     email: "ramos.nicolas2707@gmail.com",
     /** Formato internacional sin signos, para el enlace wa.me */
@@ -23,61 +31,90 @@ export const site = {
     whatsappDisplay: "+57 312 344 5330",
     phone: "+573123445330",
   },
+
   address: {
     city: "Bogotá",
     region: "Cundinamarca",
     country: "Colombia",
     countryCode: "CO",
   },
-  /** Países donde se atiende. Alimenta areaServed en el JSON-LD. */
+
   serviceArea: [
     "Colombia",
     "México",
     "Chile",
     "Perú",
-    "Argentina",
     "Ecuador",
-    "Costa Rica",
-    "Panamá",
+    "Argentina",
+    "United States",
   ],
   timezone: "America/Bogota",
+  /** La moneda en la que se guardan todos los precios. El dólar se calcula. */
   currency: "COP",
-  /** Horario de atención en formato schema.org */
   openingHours: "Mo-Fr 08:00-18:00",
+
   social: {
     github: "https://github.com/ramosnicolas2707-ops",
   },
 } as const;
 
-/** Condiciones comerciales. Se muestran tal cual en el sitio, sin letra chica. */
-export const conditions = [
-  {
-    label: "Anticipo",
-    value: "50%",
-    detail:
-      "Todo proyecto arranca con el 50% por adelantado. El saldo se paga contra entrega, antes de publicar.",
-  },
-  {
-    label: "Rondas de revisión",
-    value: "2 incluidas",
-    detail:
-      "Cada proyecto incluye dos rondas de ajustes sobre el diseño entregado. Las rondas adicionales se facturan a $60.000 la hora.",
-  },
-  {
-    label: "Moneda",
-    value: "COP",
-    detail:
-      "Todos los precios están en pesos colombianos. Se factura desde Colombia; para clientes fuera del país se calcula el equivalente en dólares a la TRM del día.",
-  },
-] as const;
+/**
+ * La frase autocontenida del negocio, por idioma.
+ * Tiene que poder citarse entera y seguir siendo cierta: es lo que copian
+ * Google y los buscadores con IA.
+ */
+export const claim: Record<Idioma, string> = {
+  es: "Meridiano es un estudio de desarrollo web en Bogotá, Colombia, que hace páginas web, tiendas online y rediseños para negocios de Colombia, Latinoamérica y Estados Unidos, con precios publicados desde $900.000 COP.",
+  en: "Meridiano is a web development studio in Bogotá, Colombia, building websites, online stores and redesigns for businesses in Colombia, Latin America and the United States, with prices published from COP $900,000.",
+};
 
-export const whatsappLink = (mensaje: string) =>
+/** Condiciones comerciales. Se muestran tal cual, sin letra chica. */
+export const condiciones: Record<
+  Idioma,
+  readonly { label: string; value: string; detail: string }[]
+> = {
+  es: [
+    {
+      label: "Para arrancar",
+      value: "50%",
+      detail:
+        "La otra mitad la pagas cuando el sitio está listo, antes de publicarlo.",
+    },
+    {
+      label: "Cambios incluidos",
+      value: "2 rondas",
+      detail:
+        "Dos rondas de ajustes sobre el diseño. Las de más se cobran a $60.000 la hora.",
+    },
+    {
+      label: "Puedes pagar en",
+      value: "COP o USD",
+      detail:
+        "Los precios están en pesos colombianos y el equivalente en dólares se calcula a la tasa del día. Eliges en qué moneda facturamos.",
+    },
+  ],
+  en: [
+    {
+      label: "To start",
+      value: "50%",
+      detail:
+        "You pay the other half when the site is ready, before it goes live.",
+    },
+    {
+      label: "Changes included",
+      value: "2 rounds",
+      detail:
+        "Two rounds of adjustments to the design. Extra rounds are billed at COP $60,000 an hour.",
+    },
+    {
+      label: "You can pay in",
+      value: "COP or USD",
+      detail:
+        "Prices are held in Colombian pesos and the dollar equivalent is calculated at the day's rate. You choose which currency we invoice in.",
+    },
+  ],
+};
+
+/** Arma el enlace de WhatsApp con el mensaje ya escrito. */
+export const whatsapp = (mensaje: string) =>
   `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(mensaje)}`;
-
-export const nav = [
-  { href: "/servicios/paginas-web", label: "Páginas web" },
-  { href: "/servicios/ecommerce", label: "E-commerce" },
-  { href: "/servicios/software-restaurantes", label: "Restaurantes" },
-  { href: "/servicios/mantenimiento", label: "Mantenimiento" },
-  { href: "/proyectos", label: "Proyectos" },
-] as const;

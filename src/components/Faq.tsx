@@ -1,37 +1,52 @@
-import type { Faq } from "@/data/services";
-import { Reveal } from "./Reveal";
+import Link from "next/link";
+import type { Faq as TipoFaq } from "@/data/tipos";
+import type { Idioma } from "@/i18n/idiomas";
 
 /**
- * Preguntas frecuentes en acordeón nativo.
+ * Preguntas frecuentes.
  *
- * Cada respuesta está escrita para poder leerse suelta, fuera de su contexto:
- * repite el sujeto, incluye la cifra y no depende del párrafo anterior. Esa es la
- * diferencia entre una respuesta que un buscador generativo puede citar y una que
- * no. El HTML contiene siempre el texto completo, abierto o cerrado.
+ * <details> nativo: se abre y cierra sin una línea de JavaScript, funciona con
+ * teclado y lector de pantalla, y Google lo lee aunque esté cerrado — que es
+ * justo el punto de tener FAQ.
+ *
+ * Una respuesta puede llevar un enlace al final cuando la respuesta completa
+ * vive en otra página. Es mejor mandar a la página que resumirla mal aquí.
  */
-export function FaqList({
-  faqs,
-  titleId,
+export default function Faq({
+  lang,
+  preguntas,
 }: {
-  faqs: readonly Faq[];
-  titleId?: string;
+  lang: Idioma;
+  preguntas: readonly TipoFaq[];
 }) {
   return (
-    <div aria-labelledby={titleId} className="border-t border-hairline">
-      {faqs.map((faq, i) => (
-        <Reveal key={faq.q} delay={Math.min(i, 5) * 0.04}>
-          <details className="group border-b border-hairline">
-            <summary className="flex items-start justify-between gap-6 py-6 text-left">
-              <h3 className="max-w-2xl text-balance font-display text-lg leading-snug text-tiza transition-colors duration-300 group-hover:text-brasa motion-reduce:transition-none sm:text-xl">
-                {faq.q}
-              </h3>
-              <span aria-hidden="true" className="faq-marca" />
-            </summary>
-            <p className="max-w-2xl pb-7 text-sm leading-relaxed text-niebla sm:text-base">
-              {faq.a}
-            </p>
-          </details>
-        </Reveal>
+    <div className="border-t border-filete">
+      {preguntas.map((f) => (
+        <details key={f.q} className="group border-b border-filete">
+          <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-lg font-bold tracking-tight [&::-webkit-details-marker]:hidden">
+            {f.q}
+            <span
+              aria-hidden="true"
+              className="mt-1 shrink-0 text-2xl font-normal leading-none text-naranja transition-transform duration-300 group-open:rotate-45"
+            >
+              +
+            </span>
+          </summary>
+
+          <div className="max-w-2xl pb-7">
+            <p className="leading-relaxed text-grafito">{f.a}</p>
+
+            {f.ir && (
+              <Link
+                href={`/${lang}${f.ir.href}`}
+                className="mt-4 inline-flex items-center gap-2 font-bold tracking-tight text-naranja-texto underline decoration-2 underline-offset-4 transition-colors hover:text-tinta"
+              >
+                {f.ir.label}
+                <span aria-hidden="true">→</span>
+              </Link>
+            )}
+          </div>
+        </details>
       ))}
     </div>
   );

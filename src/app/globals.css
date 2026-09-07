@@ -1,278 +1,346 @@
 /* =============================================================================
-   MERIDIANO — sistema visual
+   SISTEMA VISUAL — blanco, naranja, negro
    =============================================================================
 
-   TIPOGRAFÍA. Por qué estas dos y no Inter.
+   COLOR. Blanco manda. Naranja señala. Negro sostiene.
 
-   Casi todo estudio de desarrollo apila grotescas: Inter, Space Grotesk, Geist.
-   El resultado es competente y anónimo, y anónimo es exactamente lo que no
-   podemos ser cuando el argumento de venta es "no somos el proveedor barato".
+   El blanco no es un fondo: es el 80% de la página. El naranja aparece solo
+   donde hay que hacer clic o mirar, y el negro carga el peso del texto y de
+   los bloques que tienen que frenar el scroll.
 
-   - Display: FRAUNCES. Serif variable de alto contraste. Mueve la lectura de
-     "startup" a "estudio": dice oficio y criterio, que es lo que compra una
-     marca mediana o grande. Se usa con WONK en 0 y SOFT bajo, con tracking
-     negativo en tamaños grandes, para que quede en registro editorial frío y no
-     en registro artesanal.
-   - Cuerpo: ARCHIVO. Grotesca neutra de caja ancha, muy legible entre 14 y 18 px
-     sobre fondo oscuro, y con cifras tabulares. Sostiene la parte técnica y la
-     densidad de datos de las tablas de precios.
-   - Las cifras y los precios usan Archivo con "tnum": números tabulares que se
-     alinean en columna. Eso evita meter una tercera familia monoespaciada.
+   El naranja tiene una trampa que hay que conocer: --naranja (#ff5a00) sobre
+   blanco da 3.1:1 de contraste. Alcanza para un titular grande o un bloque de
+   color, NO para texto normal. Por eso hay dos naranjas:
 
-   Ambas se sirven desde el propio dominio: next/font descarga los binarios en
-   tiempo de build y no queda ninguna petición a Google en tiempo de ejecución.
+     --naranja        bloques, botones, líneas, números grandes. Nunca texto chico.
+     --naranja-texto  el mismo tono oscurecido, 5.1:1 sobre blanco. Ese sí es texto.
 
-   COLOR. Seis valores, un solo acento.
+   Y por eso los botones naranjas llevan texto NEGRO, no blanco: negro sobre
+   naranja da 6:1 y se lee de lejos; blanco sobre naranja da 2.9:1 y no pasa.
+   Además el negro sobre naranja se ve más técnico, que es justo el punto.
 
-   El texto no es blanco puro: el blanco puro sobre negro puro vibra y cansa.
-   --tiza es un blanco cálido roto, con 16.5:1 de contraste sobre --carbon.
-   El acento no es azul eléctrico porque el azul eléctrico es el ajuste por
-   defecto de la categoría. --brasa es calor: enlaza con la línea de
-   restaurantes y sobre negro se lee como luz, no como una mancha de marca.
-   Contraste de --brasa sobre --carbon: 6.4:1, suficiente para texto normal AA.
-   El tono más ajustado de la paleta es --niebla sobre --humo, a 4.9:1: pasa AA.
+   TIPOGRAFÍA. Una sola familia.
 
-   La separación entre secciones se hace por cambio de plano
-   (carbon → pizarra → humo) y por aire. Nunca por borde visible.
+   ARCHIVO, y nada más. Es una grotesca de caja ancha con pesos de 400 a 900 y
+   cifras tabulares. Los titulares van en 800/900 con tracking negativo: sobre
+   blanco eso lee como software, no como agencia. Meter una segunda familia
+   solo agregaría carga y ruido.
+
+   Las cifras y los precios usan "tnum": números tabulares que se alinean en
+   columna, para que la tabla de precios no baile.
+
+   RITMO. La separación entre secciones se hace con aire y con cambio de plano
+   (blanco → nieve → negro). Casi nunca con borde, nunca con sombra.
    ========================================================================== */
 
 @import "tailwindcss";
 
 @theme {
   /* --- Paleta ------------------------------------------------------------ */
-  --color-carbon: #0a0a0a; /* fondo base */
-  --color-pizarra: #141414; /* secciones alternas */
-  --color-humo: #1c1c1c; /* superficies elevadas: tarjetas, filas de tabla */
-  --color-tiza: #edeae3; /* texto primario  — 16.5:1 sobre carbon */
-  --color-niebla: #8a8a85; /* texto secundario — 5.7:1 sobre carbon, 4.9:1 sobre humo */
-  --color-brasa: #ff5c1a; /* único acento    — 6.4:1 sobre carbon, 5.5:1 sobre humo */
+  --color-blanco: #ffffff; /* fondo base */
+  --color-nieve: #f5f4f1; /* secciones alternas, superficies */
+  --color-tinta: #0d0d0d; /* texto y bloques oscuros */
+  --color-grafito: #5c5c5c; /* texto secundario — 6.6:1 sobre blanco */
+  --color-naranja: #ff5a00; /* bloques y botones — 6:1 con texto negro encima */
+  --color-naranja-texto: #c73f00; /* texto naranja — 5.1:1 sobre blanco */
 
-  /* Filete derivado de --tiza. No es un séptimo color: es tiza al 8%. */
-  --color-hairline: rgb(237 234 227 / 0.09);
-  --color-hairline-fuerte: rgb(237 234 227 / 0.18);
+  /* Filetes derivados de tinta. No son colores nuevos: son tinta con alfa. */
+  --color-filete: rgb(13 13 13 / 0.1);
+  --color-filete-fuerte: rgb(13 13 13 / 0.22);
+  /* Y su equivalente sobre fondo oscuro. */
+  --color-filete-claro: rgb(255 255 255 / 0.16);
 
   /* --- Tipografía -------------------------------------------------------- */
-  --font-display: var(--fuente-display), Georgia, "Times New Roman", serif;
-  --font-body: var(--fuente-body), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--fuente), ui-sans-serif, system-ui, sans-serif;
 
   /* --- Ritmo ------------------------------------------------------------- */
-  --ancho-contenido: 78rem; /* 1248 px */
-  --duracion-revelado: 620ms;
+  --ancho: 76rem; /* 1216 px */
   --curva: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
-    /* La nav mide 4.5rem; el ancla no debe quedar debajo. */
+    /* La barra superior mide 4.5rem; el ancla no puede quedar debajo. */
     scroll-padding-top: 6rem;
   }
 
   body {
-    background-color: var(--color-carbon);
-    color: var(--color-tiza);
-    font-family: var(--font-body);
+    background-color: var(--color-blanco);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
     font-synthesis-weight: none;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* Evita el salto horizontal del hero mientras se anima la costura. */
-    overflow-x: hidden;
   }
 
+  /* Titulares: pesados y apretados. Sobre blanco eso es lo que da carácter. */
   h1,
   h2,
-  h3,
-  h4 {
-    font-family: var(--font-display);
-    font-variation-settings: "SOFT" 18, "WONK" 0, "opsz" 120;
-    font-weight: 400;
-    letter-spacing: -0.02em;
+  h3 {
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
     text-wrap: balance;
   }
 
-  p,
-  li {
+  /* Los párrafos no se equilibran, se acortan: pretty evita líneas huérfanas. */
+  p {
     text-wrap: pretty;
   }
 
-  /* Foco visible siempre, en cualquier elemento, sin excepción. */
+  /* Cifras alineadas en columna. Lo usan precios y tablas. */
+  .cifra {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  /* Foco visible y del color de la marca, sin matar el estilo del navegador. */
   :focus-visible {
-    outline: 2px solid var(--color-brasa);
+    outline: 2px solid var(--color-naranja);
     outline-offset: 3px;
     border-radius: 2px;
   }
 
-  ::selection {
-    background-color: var(--color-brasa);
-    color: var(--color-carbon);
-  }
-
-  /* Respeto a prefers-reduced-motion: se apaga todo movimiento, no la interfaz.
-     Los elementos revelados por scroll quedan visibles, nunca ocultos. */
+  /* Quien pidió menos movimiento no lo recibe. */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
+
     *,
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
     }
   }
 }
 
-/* Cifras tabulares: precios en columna, alineados. */
-@utility tnum {
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum" 1;
-}
+@layer components {
+  /* ── Las dos monedas ─────────────────────────────────────────────────────
 
-/* Texto display en tamaños grandes: menos SOFT, más tracking negativo. */
-@utility display-xl {
-  font-family: var(--font-display);
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
-  letter-spacing: -0.035em;
-  line-height: 0.94;
-}
+     Cada precio se escribe dos veces en el HTML (ver Precio.tsx) y aquí se
+     decide cuál se ve. Por defecto pesos: es lo que espera la mayoría, y es
+     lo que se ve si el JavaScript no carga.
 
-/* Etiqueta de sección: versalitas espaciadas, en niebla o brasa. */
-@utility kicker {
-  font-family: var(--font-body);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
+     El interruptor solo cambia data-precios en <html>. Sin recargar, sin
+     parpadeo y sin pedirle nada al servidor.                              */
 
-/* --- LA COSTURA -------------------------------------------------------------
-   El elemento de firma. Nace de la decisión del hero y baja por todo el sitio:
-   filete izquierdo de cada encabezado, divisor de tablas, barra de progreso.
-   -------------------------------------------------------------------------- */
-
-@utility costura-filete {
-  position: relative;
-  padding-left: 1.25rem;
-}
-
-.costura-filete::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.35em;
-  bottom: 0.2em;
-  width: 2px;
-  background-color: var(--color-brasa);
-}
-
-/* Enlace de texto: subrayado que se dibuja desde la izquierda al pasar. */
-@utility enlace-costura {
-  position: relative;
-  color: var(--color-tiza);
-  text-decoration: none;
-}
-
-.enlace-costura::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.15em;
-  height: 1px;
-  width: 100%;
-  background-color: var(--color-brasa);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 320ms var(--curva);
-}
-
-.enlace-costura:hover::after,
-.enlace-costura:focus-visible::after {
-  transform: scaleX(1);
-}
-
-/* --- Acordeón de preguntas frecuentes ---------------------------------------
-   Se usa <details> nativo: el contenido queda siempre en el HTML, que es lo que
-   necesitan los buscadores y los modelos que citan respuestas. La apertura se
-   anima sólo donde el navegador lo soporta; donde no, abre al instante.
-   -------------------------------------------------------------------------- */
-
-@media (prefers-reduced-motion: no-preference) {
-  :root {
-    interpolate-size: allow-keywords;
+  [data-moneda="usd"] {
+    display: none;
   }
 
-  details::details-content {
-    block-size: 0;
-    overflow: clip;
+  :root[data-precios="usd"] [data-moneda="cop"] {
+    display: none;
+  }
+
+  :root[data-precios="usd"] [data-moneda="usd"] {
+    display: inline;
+  }
+}
+
+@layer utilities {
+  /* Ancho de contenido con el aire lateral correcto en cada tamaño. */
+  .contenedor {
+    width: 100%;
+    max-width: var(--ancho);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .contenedor {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Aire vertical de sección. Un solo valor para todo el sitio. */
+  .seccion {
+    padding-block: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .seccion {
+      padding-block: 7.5rem;
+    }
+  }
+
+  /* ── Hovers con movimiento ───────────────────────────────────────────────
+
+     Un hover que solo cambia de color se siente plano: el elemento pasa de un
+     estado a otro sin que nada haya pasado. Estas tres utilidades hacen que
+     algo se MUEVA — un fondo que entra, un panel que sube, una línea que
+     crece. El cambio de color sigue ahí, pero como consecuencia del
+     movimiento, no como el efecto.
+
+     Las tres usan transform (no width ni height): el navegador lo resuelve en
+     la tarjeta gráfica y no recalcula la página en cada cuadro.
+
+     El bloque de prefers-reduced-motion de más arriba les pone la transición
+     en 0,01 ms, así que para quien pidió menos movimiento el cambio sigue
+     ocurriendo, pero de golpe. Nadie se queda sin el estado de hover.       */
+
+  /* Un fondo que barre de izquierda a derecha. Para botones. */
+  .barrido {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .barrido::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-barrido, var(--color-tinta));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 420ms var(--curva);
+  }
+
+  .barrido:hover::before,
+  .barrido:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  /* Un panel que sube desde abajo. Para tarjetas grandes. */
+  .panel-sube {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .panel-sube::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-tinta);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 520ms var(--curva);
+  }
+
+  .panel-sube:hover::before,
+  .panel-sube:focus-visible::before {
+    transform: scaleY(1);
+  }
+
+  /* La tarjeta se levanta, se ilumina y le entra una línea naranja por
+     arriba. Para las cuadrículas de "qué incluye" y las tarjetas de plan,
+     donde un simple cambio de color no alcanzaba para llamar la atención.
+
+     El z-index es necesario: las tarjetas van pegadas con gap-px, y sin él
+     la que se levanta queda por debajo de sus vecinas. */
+  .realza {
+    position: relative;
     transition:
-      block-size 380ms var(--curva),
-      content-visibility 380ms allow-discrete;
+      transform 380ms var(--curva),
+      box-shadow 380ms var(--curva);
   }
 
-  details[open]::details-content {
-    block-size: auto;
+  .realza::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 3px;
+    background: var(--color-naranja);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 420ms var(--curva);
   }
-}
 
-details > summary {
-  list-style: none;
-  cursor: pointer;
-}
+  .realza:hover,
+  .realza:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 44px -22px rgb(13 13 13 / 0.34);
+    z-index: 2;
+  }
 
-details > summary::-webkit-details-marker {
-  display: none;
-}
+  .realza:hover::after,
+  .realza:focus-within::after {
+    transform: scaleX(1);
+  }
 
-/* Marca +/− del acordeón. En CSS plano para no depender de variantes de Tailwind. */
-.faq-marca {
-  position: relative;
-  flex-shrink: 0;
-  width: 0.75rem;
-  height: 0.75rem;
-  margin-top: 0.5rem;
-}
+  /* Una línea que crece bajo el texto. Para enlaces de navegación. */
+  .subraya {
+    position: relative;
+  }
 
-.faq-marca::before,
-.faq-marca::after {
-  content: "";
-  position: absolute;
-  background-color: var(--color-brasa);
-}
+  .subraya::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -0.4rem;
+    height: 2px;
+    background: var(--color-naranja);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms var(--curva);
+  }
 
-.faq-marca::before {
-  left: 0;
-  right: 0;
-  top: calc(50% - 1px);
-  height: 2px;
-}
+  .subraya:hover::after,
+  .subraya:focus-visible::after,
+  .subraya[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
 
-.faq-marca::after {
-  top: 0;
-  bottom: 0;
-  left: calc(50% - 1px);
-  width: 2px;
-  transition: transform 300ms var(--curva);
-}
+  /* ── El rebote del final ─────────────────────────────────────────────────
 
-details[open] .faq-marca::after {
-  transform: scaleY(0);
-}
+     La sección del personaje que va debajo del pie. Tiene altura propia para
+     que haya algo que recoger, y se recoge sola dos segundos después de que
+     la ves (lo dispara ReboteDelFinal.tsx poniendo data-encogido).
 
-/* Red de seguridad del revelado por scroll.
-   El HTML sale del servidor con el estado inicial de la animación (opacidad 0).
-   Si la persona tiene el movimiento reducido, React no limpia ese estilo en
-   línea al hidratar y la sección se quedaría en blanco. Esta regla lo impide:
-   con prefers-reduced-motion el contenido siempre es visible. */
-@media (prefers-reduced-motion: reduce) {
-  .revelado {
-    opacity: 1 !important;
-    transform: none !important;
+     Al achicarse, el documento se acorta y el navegador sube la vista él
+     mismo. Ese es todo el truco: no se toca la posición del scroll, así que
+     no hay nada que pueda desincronizarse.
+
+     La altura se anima en píxeles y no en porcentaje porque el navegador no
+     interpola una transición entre dos valores relativos.                  */
+
+  .fin-scroll {
+    height: 17rem;
+    overflow: hidden;
+    /* Sale disparada y asienta al final, como un resorte. La curva por
+       defecto del sitio (--curva) es más lenta y aquí se sentía pesada.
+       will-change le avisa al navegador que prepare la capa antes de que
+       empiece, que es de donde salían los tirones del primer cuadro. */
+    will-change: height;
+    transition:
+      height 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 240ms ease-out;
+  }
+
+  .fin-scroll[data-encogido="true"] {
+    height: 0;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* Se recoge igual —el visitante sale del fondo— pero sin animación. */
+    .fin-scroll {
+      transition: none;
+    }
+  }
+
+  /* Aparición al hacer scroll. La activa Revelar con IntersectionObserver. */
+  .revelar {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition:
+      opacity 700ms var(--curva),
+      transform 700ms var(--curva);
+  }
+
+  .revelar[data-visible="true"] {
+    opacity: 1;
+    transform: none;
   }
 }

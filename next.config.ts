@@ -7,8 +7,27 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [375, 640, 828, 1080, 1280, 1920],
   },
-  // No se usa optimizePackageImports con framer-motion: partía el módulo en dos
-  // instancias y los valores de useSpring dejaban de seguir a su fuente.
+  /**
+   * Por defecto compila en .next, como siempre.
+   *
+   * `npm run build:check` le pasa otra carpeta por NEXT_DIST_DIR. Eso permite
+   * compilar con `npm run dev` corriendo: si los dos escriben en .next, el
+   * build le borra al servidor de desarrollo los trozos que tiene cargados y
+   * este empieza a devolver "Cannot find module './611.js'" en media web,
+   * hasta que lo reinicias. Con carpetas distintas no se pisan.
+   */
+  distDir: process.env.NEXT_DIST_DIR || ".next",
+
+  /**
+   * "/" pelado no existe: todo el sitio vive dentro de /es o /en.
+   *
+   * No es permanente a propósito. Si algún día se detecta el idioma del
+   * navegador para mandar a cada quien al suyo, una redirección 308 ya
+   * cacheada en los navegadores de medio mundo sería un dolor de cabeza.
+   */
+  async redirects() {
+    return [{ source: "/", destination: "/es", permanent: false }];
+  },
 };
 
 export default nextConfig;

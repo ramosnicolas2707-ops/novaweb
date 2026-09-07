@@ -1,22 +1,28 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/data/site";
 
-export const ogSize = { width: 1200, height: 630 };
-export const ogContentType = "image/png";
-
 /**
- * Imagen de Open Graph generada en tiempo de build con next/og.
- * Reproduce el sistema del sitio: fondo carbón, costura de brasa a la izquierda,
- * jerarquía tipográfica y el precio desde, cuando lo hay.
+ * La imagen que aparece cuando alguien pega un enlace del sitio en WhatsApp,
+ * en Instagram o en un chat. Se genera al compilar, una por página.
+ *
+ * Mismo lenguaje que el sitio: blanco, un bloque naranja y el texto en negro.
+ * No se cargan fuentes externas a propósito — traer un binario de tipografía
+ * en tiempo de build hace que el deploy dependa de que Google esté arriba.
  */
-export function renderOg({
-  kicker,
-  title,
-  price,
+
+export const tamanoOg = { width: 1200, height: 630 };
+export const tipoOg = "image/png";
+
+export function imagenOg({
+  titulo,
+  precio,
+  etiqueta,
 }: {
-  kicker: string;
-  title: string;
-  price?: string;
+  titulo: string;
+  /** El "desde $X", si la página tiene precio. */
+  precio?: string;
+  /** El renglón chico de arriba. */
+  etiqueta?: string;
 }) {
   return new ImageResponse(
     (
@@ -25,76 +31,112 @@ export function renderOg({
           width: "100%",
           height: "100%",
           display: "flex",
-          backgroundColor: "#0A0A0A",
-          color: "#EDEAE3",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          backgroundColor: "#ffffff",
           padding: "72px",
+          fontFamily: "sans-serif",
         }}
       >
-        {/* La costura. */}
-        <div
-          style={{
-            width: "6px",
-            backgroundColor: "#FF5C1A",
-            marginRight: "48px",
-          }}
-        />
-
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            flex: 1,
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                fontSize: 22,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#FF5C1A",
-              }}
-            >
-              {kicker}
-            </div>
-            <div
-              style={{
-                marginTop: 28,
-                fontSize: 68,
-                lineHeight: 1.05,
-                letterSpacing: "-0.02em",
-                maxWidth: 900,
-              }}
-            >
-              {title}
-            </div>
-          </div>
-
+        {/* Marca */}
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          {/* El personaje, en su versión escrita. Satori no dibuja bien los
+              trazos del SVG, pero esta cara justamente funciona como texto:
+              ese es medio el punto del personaje. */}
           <div
             style={{
               display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "56px",
+              height: "56px",
+              borderRadius: "17px",
+              backgroundColor: "#ff5a00",
+              color: "#0d0d0d",
+              fontSize: "30px",
+              fontWeight: 800,
+              letterSpacing: "-1px",
+              paddingBottom: "4px",
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontSize: 34, letterSpacing: "-0.01em" }}>
-                {site.name}
-              </div>
-              <div style={{ fontSize: 22, color: "#8A8A85", marginTop: 8 }}>
-                {`${site.address.city}, ${site.address.country} · Latinoamérica`}
-              </div>
+            &lt;_&gt;
+          </div>
+          <div
+            style={{ display: "flex", fontSize: "34px", fontWeight: 800, color: "#0d0d0d" }}
+          >
+            {site.name}
+          </div>
+        </div>
+
+        {/* Título */}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {etiqueta && (
+            <div
+              style={{
+                display: "flex",
+                fontSize: "24px",
+                fontWeight: 700,
+                letterSpacing: "4px",
+                textTransform: "uppercase",
+                color: "#c73f00",
+                marginBottom: "24px",
+              }}
+            >
+              {etiqueta}
             </div>
-            {price ? (
-              <div style={{ fontSize: 30, color: "#FF5C1A" }}>{price}</div>
-            ) : (
-              <div style={{ fontSize: 22, color: "#8A8A85" }}>{site.domain}</div>
-            )}
+          )}
+          <div
+            style={{
+              display: "flex",
+              fontSize: titulo.length > 46 ? "72px" : "88px",
+              fontWeight: 800,
+              letterSpacing: "-3px",
+              lineHeight: 1.02,
+              color: "#0d0d0d",
+              maxWidth: "1000px",
+            }}
+          >
+            {titulo}
+          </div>
+        </div>
+
+        {/* Pie: precio a la izquierda, ciudad a la derecha */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            borderTop: "3px solid #0d0d0d",
+            paddingTop: "28px",
+          }}
+        >
+          {precio ? (
+            <div
+              style={{
+                display: "flex",
+                backgroundColor: "#ff5a00",
+                color: "#0d0d0d",
+                fontSize: "32px",
+                fontWeight: 800,
+                padding: "12px 24px",
+              }}
+            >
+              {precio}
+            </div>
+          ) : (
+            <div style={{ display: "flex", fontSize: "28px", color: "#5c5c5c" }}>
+              {site.domain}
+            </div>
+          )}
+
+          {/* Una sola cadena, no {ciudad}, {país}: Satori cuenta cada trozo
+              como un hijo y exige display:flex apenas hay más de uno. */}
+          <div style={{ display: "flex", fontSize: "28px", color: "#5c5c5c" }}>
+            {`${site.address.city}, ${site.address.country}`}
           </div>
         </div>
       </div>
     ),
-    ogSize,
+    tamanoOg,
   );
 }

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <!--
+    FAVICON — la cara reducida a lo que sobrevive a 16 píxeles.
+
+    Se le cae la boca a propósito. Probado a 40, 32, 24, 20 y 16 px: con boca,
+    de 24 para abajo los tres trazos se empastan en una sola mancha y no se
+    entiende nada. Sin boca, los chevrones aguantan limpios hasta 16.
+
+    Los otros dos ajustes van en la misma dirección: la cabeza casi llena la
+    caja (borde de 3) y los ojos son más altos y de trazo 4,2, porque en un
+    favicon cada píxel de grosor cuenta.
+
+    Las tres versiones de la cara y por qué son distintas:
+      · hero       src/components/Mascota.tsx  <Mascota>     grande, con boca y expresiones
+      · marca      src/components/Mascota.tsx  <CaraMarca>   24-48 px, con boca ajustada
+      · favicon    este archivo                              16-32 px, sin boca
+
+    Si cambias la cara, cámbiala en los tres.
+  -->
+  <rect x="3" y="3" width="34" height="34" rx="11.5" fill="#ff5a00"/>
+  <g fill="none" stroke="#0d0d0d" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 12.5 L11 20 L16 27.5"/>
+    <path d="M24 12.5 L29 20 L24 27.5"/>
+  </g>
+</svg>

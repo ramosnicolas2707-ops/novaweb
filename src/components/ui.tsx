@@ -1,194 +1,155 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Reveal } from "./Reveal";
-
-export function Container({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`mx-auto w-full max-w-[var(--ancho-contenido)] px-5 sm:px-8 lg:px-12 ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
 
 /**
- * Sección con plano de profundidad. La separación entre secciones se hace por
- * cambio de fondo y por aire, nunca con un borde visible.
+ * Piezas sueltas que se repiten en todo el sitio.
+ * Si algo se usa en dos páginas, vive aquí.
  */
-export function Section({
-  children,
-  plano = "carbon",
-  className = "",
-  id,
-  as: Tag = "section",
-}: {
-  children: ReactNode;
-  plano?: "carbon" | "pizarra" | "humo";
-  className?: string;
-  id?: string;
-  as?: "section" | "div";
-}) {
-  const fondo = {
-    carbon: "bg-carbon",
-    pizarra: "bg-pizarra",
-    humo: "bg-humo",
-  }[plano];
 
-  return (
-    <Tag
-      id={id}
-      className={`relative ${fondo} py-20 md:py-28 lg:py-32 ${className}`}
-    >
-      {children}
-    </Tag>
-  );
-}
+/* ─────────────────────────────────────────────────────────────── Botones ── */
 
-export function Kicker({ children }: { children: ReactNode }) {
-  return <p className="kicker text-brasa">{children}</p>;
-}
-
-/**
- * Encabezado de sección. El filete izquierdo es la costura del hero,
- * ya convertida en regla de 2 px.
- */
-export function SectionHeader({
-  kicker,
-  title,
-  intro,
-  level = 2,
-  className = "",
-}: {
-  kicker?: string;
-  title: string;
-  intro?: string;
-  level?: 2 | 3;
-  className?: string;
-}) {
-  const Heading = level === 2 ? "h2" : "h3";
-
-  return (
-    <Reveal className={`costura-filete max-w-3xl ${className}`}>
-      {kicker ? <Kicker>{kicker}</Kicker> : null}
-      <Heading
-        className={`mt-4 text-balance text-3xl leading-[1.08] sm:text-4xl lg:text-5xl`}
-      >
-        {title}
-      </Heading>
-      {intro ? (
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-niebla sm:text-lg">
-          {intro}
-        </p>
-      ) : null}
-    </Reveal>
-  );
-}
-
-type CtaProps = {
+type BotonProps = {
   href: string;
   children: ReactNode;
-  variant?: "solid" | "ghost";
-  /** true para wa.me, mailto y enlaces fuera del sitio. */
-  external?: boolean;
+  /** "naranja" es el botón principal. Solo uno por pantalla. */
+  tono?: "naranja" | "negro" | "linea";
+  /** Los enlaces a WhatsApp salen en pestaña nueva. */
+  externo?: boolean;
   className?: string;
 };
 
 /**
- * Botón. El texto dice exactamente qué pasa al pulsarlo y se mantiene igual
- * en todo el flujo: si aquí dice "Escribir por WhatsApp", en el destino
- * también dice "Escribir por WhatsApp".
+ * El fondo del hover no aparece: entra barriendo de izquierda a derecha (ver
+ * .barrido en globals.css). El color del texto cambia con él porque tiene que
+ * hacerlo para seguir siendo legible, no porque el color sea el efecto.
+ *
+ * --color-barrido es lo que entra. El texto NEGRO sobre naranja da 6:1 de
+ * contraste; blanco sobre naranja no pasa accesibilidad, por eso el botón
+ * principal arranca en negro y se va a blanco cuando entra el fondo oscuro.
  */
-export function Cta({
+const tonos = {
+  naranja:
+    "barrido bg-naranja text-tinta [--color-barrido:var(--color-tinta)] hover:text-blanco",
+  negro:
+    "barrido bg-tinta text-blanco [--color-barrido:var(--color-naranja)] hover:text-tinta",
+  linea:
+    "barrido border border-filete-fuerte text-tinta [--color-barrido:var(--color-tinta)] hover:border-tinta hover:text-blanco",
+} as const;
+
+export function Boton({
   href,
   children,
-  variant = "solid",
-  external = false,
+  tono = "naranja",
+  externo = false,
   className = "",
-}: CtaProps) {
-  const base =
-    "group inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-medium tracking-wide transition-colors duration-300 motion-reduce:transition-none";
+}: BotonProps) {
+  const clases = `inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[0.9375rem] font-bold tracking-tight transition-colors duration-300 ${tonos[tono]} ${className}`;
 
-  const estilos =
-    variant === "solid"
-      ? "bg-brasa text-carbon hover:bg-tiza"
-      : "border border-hairline-fuerte text-tiza hover:border-brasa hover:text-brasa";
-
-  const contenido = (
-    <>
-      <span>{children}</span>
-      <span
-        aria-hidden="true"
-        className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-      >
-        →
-      </span>
-    </>
-  );
-
-  if (external) {
+  if (externo) {
     return (
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${base} ${estilos} ${className}`}
+        className={clases}
       >
-        {contenido}
+        {children}
       </a>
     );
   }
 
   return (
-    <Link href={href} className={`${base} ${estilos} ${className}`}>
-      {contenido}
+    <Link href={href} className={clases}>
+      {children}
     </Link>
   );
 }
 
-/** Lista con marca de check. Se usa en "qué incluye" y en los planes. */
+/* ───────────────────────────────────────────────────────── Encabezados ── */
+
+/** El renglón chico en mayúsculas que va encima de un título. */
+export function Antetitulo({
+  children,
+  sobreOscuro = false,
+}: {
+  children: ReactNode;
+  sobreOscuro?: boolean;
+}) {
+  return (
+    <p
+      className={`mb-4 text-xs font-bold uppercase tracking-[0.18em] ${
+        sobreOscuro ? "text-naranja" : "text-naranja-texto"
+      }`}
+    >
+      {children}
+    </p>
+  );
+}
+
+/** Título de sección con su antetítulo y su bajada opcional. */
+export function TituloSeccion({
+  antetitulo,
+  titulo,
+  bajada,
+  sobreOscuro = false,
+}: {
+  antetitulo?: string;
+  titulo: string;
+  bajada?: string;
+  sobreOscuro?: boolean;
+}) {
+  return (
+    <header className="max-w-2xl">
+      {antetitulo && (
+        <Antetitulo sobreOscuro={sobreOscuro}>{antetitulo}</Antetitulo>
+      )}
+      <h2 className="text-[clamp(2rem,5vw,3.25rem)]">{titulo}</h2>
+      {bajada && (
+        <p
+          className={`mt-5 text-lg leading-relaxed ${
+            sobreOscuro ? "text-white/70" : "text-grafito"
+          }`}
+        >
+          {bajada}
+        </p>
+      )}
+    </header>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────── Listas ── */
+
+/** Lista con palomita naranja. Para lo que sí está incluido. */
 export function ListaSi({ items }: { items: readonly string[] }) {
   return (
     <ul className="space-y-3">
       {items.map((item) => (
-        <li key={item} className="flex gap-3 text-sm leading-relaxed text-tiza">
-          <span aria-hidden="true" className="mt-[0.35rem] shrink-0 text-brasa">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path
-                d="M1 6.2 4.3 9.5 11 2.5"
-                stroke="currentColor"
-                strokeWidth="1.6"
-              />
-            </svg>
-          </span>
-          {item}
+        <li key={item} className="flex gap-3 text-[0.9375rem] leading-relaxed">
+          <span
+            aria-hidden="true"
+            className="mt-[0.4rem] h-2 w-2 shrink-0 bg-naranja"
+          />
+          <span>{item}</span>
         </li>
       ))}
     </ul>
   );
 }
 
-/** Lista de exclusiones. Sin color de alarma: es información, no advertencia. */
+/** Lista con raya gris. Para lo que no está incluido. */
 export function ListaNo({ items }: { items: readonly string[] }) {
   return (
-    <ul className="space-y-4">
+    <ul className="space-y-3">
       {items.map((item) => (
         <li
           key={item}
-          className="flex gap-3 border-b border-hairline pb-4 text-sm leading-relaxed text-niebla last:border-0"
+          className="flex gap-3 text-[0.9375rem] leading-relaxed text-grafito"
         >
-          <span aria-hidden="true" className="mt-[0.45rem] shrink-0">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M1 6h10" stroke="currentColor" strokeWidth="1.6" />
-            </svg>
-          </span>
-          {item}
+          <span
+            aria-hidden="true"
+            className="mt-[0.72rem] h-px w-2 shrink-0 bg-grafito"
+          />
+          <span>{item}</span>
         </li>
       ))}
     </ul>

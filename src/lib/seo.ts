@@ -1,75 +1,86 @@
 import type { Metadata } from "next";
-import { site } from "@/data/site";
-import type { Faq, Service } from "@/data/services";
-
-export const absoluteUrl = (path = "/") => new URL(path, site.url).toString();
-
-type PageMeta = {
-  title: string;
-  description: string;
-  /** Ruta relativa, con barra inicial. Se usa para la canónica y para el OG. */
-  path: string;
-  keywords?: readonly string[];
-};
+import { site, claim } from "@/data/site";
+import type { Servicio } from "@/data/tipos";
+import { IDIOMAS, LOCALE, type Idioma } from "@/i18n/idiomas";
+import { precioPlano } from "./format";
 
 /**
- * Construye los metadatos de una página. El title lleva sufijo de marca salvo en
- * el home, donde el título ya empieza por el nombre.
+ * Metadatos y datos estructurados.
+ *
+ * El SEO de este sitio no es un plugin: son estas cosas hechas a mano.
+ * 1. Un título y una descripción propios por página y por idioma.
+ * 2. hreflang: le dice a Google que /es y /en son la misma página en dos
+ *    idiomas y no contenido duplicado. Sin esto, tener el sitio en dos
+ *    idiomas resta en vez de sumar.
+ * 3. JSON-LD que describe el negocio, sus servicios y sus precios en un
+ *    formato que Google y los buscadores con IA pueden citar.
  */
-export function buildMetadata({
+
+const URL_BASE = site.url;
+
+const absoluta = (path: string) => new URL(path, URL_BASE).toString();
+
+/**
+ * Las direcciones equivalentes de una misma página en todos los idiomas.
+ * `path` va sin idioma: "/proyectos", "/servicios/rediseno", "/".
+ */
+const alternativas = (path: string) => {
+  const languages: Record<string, string> = {};
+  for (const l of IDIOMAS) {
+    languages[LOCALE[l]] = absoluta(path === "/" ? `/${l}` : `/${l}${path}`);
+  }
+  // x-default es a dónde manda Google a quien no encaja en ningún idioma.
+  languages["x-default"] = absoluta("/es");
+  return languages;
+};
+
+export function meta({
+  lang,
   title,
   description,
-  path,
-  keywords,
-}: PageMeta): Metadata {
-  const url = absoluteUrl(path);
-  const fullTitle = path === "/" ? title : `${title} | ${site.name}`;
+  path = "/",
+}: {
+  lang: Idioma;
+  title: string;
+  description: string;
+  /** Sin el idioma delante: "/contacto", no "/es/contacto". */
+  path?: string;
+}): Metadata {
+  const url = absoluta(path === "/" ? `/${lang}` : `/${lang}${path}`);
 
   return {
-    // absolute evita que la plantilla del layout vuelva a añadir la marca.
-    title: { absolute: fullTitle },
+    title,
     description,
-    keywords: keywords ? [...keywords] : undefined,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: alternativas(path),
+    },
     openGraph: {
-      type: "website",
-      locale: "es_CO",
+      title,
+      description,
       url,
       siteName: site.name,
-      title: fullTitle,
-      description,
+      locale: LOCALE[lang].replace("-", "_"),
+      type: "website",
     },
-    twitter: {
-      card: "summary_large_image",
-      title: fullTitle,
-      description,
-    },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
-/* ---------------------------------------------------------------------------
- * JSON-LD
- * ------------------------------------------------------------------------- */
-
-const ORG_ID = `${site.url}/#organizacion`;
-const SITE_ID = `${site.url}/#sitio`;
-
-export function organizationLd() {
+/** La ficha del negocio. Va en el layout, o sea en todas las páginas. */
+export function negocioJsonLd(lang: Idioma) {
   return {
     "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
-    "@id": ORG_ID,
+    "@type": "ProfessionalService",
+    "@id": `${URL_BASE}/#negocio`,
     name: site.name,
     legalName: site.legalName,
-    url: site.url,
-    description: site.claim,
-    slogan: site.tagline,
+    description: claim[lang],
+    url: absoluta(`/${lang}`),
     email: site.contact.email,
     telephone: site.contact.phone,
-    priceRange: "$$$",
-    currenciesAccepted: "COP",
-    paymentAccepted: "Transferencia bancaria, tarjeta de crédito",
-    openingHours: site.openingHours,
+    priceRange: "$$",
+    currenciesAccepted: "COP, USD",
     founder: {
       "@type": "Person",
       name: site.founder.name,
@@ -81,107 +92,51 @@ export function organizationLd() {
       addressRegion: site.address.region,
       addressCountry: site.address.countryCode,
     },
-    areaServed: site.serviceArea.map((name) => ({ "@type": "Country", name })),
-    knowsLanguage: ["es", "en"],
+    areaServed: site.serviceArea.map((pais) => ({
+      "@type": "Country",
+      name: pais,
+    })),
+    openingHours: site.openingHours,
     sameAs: Object.values(site.social),
-    makesOffer: [
-      {
-        "@type": "Offer",
-        name: "Desarrollo de páginas web",
-        priceCurrency: "COP",
-        price: 900000,
-        url: absoluteUrl("/servicios/paginas-web"),
-      },
-      {
-        "@type": "Offer",
-        name: "Desarrollo de tiendas online",
-        priceCurrency: "COP",
-        price: 2800000,
-        url: absoluteUrl("/servicios/ecommerce"),
-      },
-      {
-        "@type": "Offer",
-        name: "Menú digital y menú con realidad aumentada",
-        priceCurrency: "COP",
-        price: 700000,
-        url: absoluteUrl("/servicios/software-restaurantes"),
-      },
-      {
-        "@type": "Offer",
-        name: "Mantenimiento web mensual",
-        priceCurrency: "COP",
-        price: 70000,
-        url: absoluteUrl("/servicios/mantenimiento"),
-      },
-    ],
   };
 }
 
-export function websiteLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": SITE_ID,
-    url: site.url,
-    name: site.name,
-    inLanguage: "es",
-    publisher: { "@id": ORG_ID },
-  };
-}
-
-export function serviceLd(service: Service) {
-  const prices = service.plans.map((p) => p.price);
-
+/** Un servicio con sus planes, para que Google muestre el precio. */
+export function servicioJsonLd(lang: Idioma, s: Servicio) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${absoluteUrl(`/servicios/${service.slug}`)}#servicio`,
-    name: service.h1,
-    description: service.summary,
-    serviceType: service.nav,
-    url: absoluteUrl(`/servicios/${service.slug}`),
-    provider: { "@id": ORG_ID },
-    areaServed: site.serviceArea.map((name) => ({ "@type": "Country", name })),
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "COP",
-      lowPrice: Math.min(...prices),
-      highPrice: Math.max(...prices),
-      offerCount: service.plans.length,
-      offers: service.plans.map((plan) => ({
-        "@type": "Offer",
-        name: plan.name,
-        description: plan.scope,
-        price: plan.price,
-        priceCurrency: "COP",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl(`/servicios/${service.slug}`),
-        ...(plan.billing === "mes"
-          ? {
-              priceSpecification: {
-                "@type": "UnitPriceSpecification",
-                price: plan.price,
-                priceCurrency: "COP",
-                billingIncrement: 1,
-                unitCode: "MON",
-                referenceQuantity: {
-                  "@type": "QuantitativeValue",
-                  value: 1,
-                  unitCode: "MON",
-                },
-              },
-            }
-          : {}),
-      })),
-    },
+    name: s.h1,
+    description: s.resumen,
+    serviceType: s.nav,
+    provider: { "@id": `${URL_BASE}/#negocio` },
+    areaServed: site.serviceArea.map((pais) => ({
+      "@type": "Country",
+      name: pais,
+    })),
+    offers: s.planes.map((p) => ({
+      "@type": "Offer",
+      name: p.name,
+      price: precioPlano(p.price),
+      // Los precios se declaran en pesos, que es la moneda en la que se
+      // guardan. El dólar es una conversión de cara al visitante.
+      priceCurrency: site.currency,
+      description: p.paraQuien,
+      url: absoluta(`/${lang}/servicios/${s.slug}`),
+    })),
   };
 }
 
-export function faqLd(faqs: readonly Faq[]) {
+/**
+ * Preguntas frecuentes.
+ * Es lo que hace que Google muestre las respuestas desplegables en los
+ * resultados, y de donde los buscadores con IA sacan la cita.
+ */
+export function faqJsonLd(preguntas: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: preguntas.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -189,7 +144,8 @@ export function faqLd(faqs: readonly Faq[]) {
   };
 }
 
-export function breadcrumbLd(items: { name: string; path: string }[]) {
+/** Migas de pan. Google las usa para dibujar la ruta bajo el título. */
+export function migasJsonLd(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -197,7 +153,7 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: absoluteUrl(item.path),
+      item: absoluta(item.path),
     })),
   };
 }

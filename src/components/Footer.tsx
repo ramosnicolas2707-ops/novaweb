@@ -1,54 +1,58 @@
 import Link from "next/link";
-import { conditions, site, whatsappLink } from "@/data/site";
-import { services } from "@/data/services";
-import { Container } from "./ui";
+import { site, whatsapp } from "@/data/site";
+import type { Idioma } from "@/i18n/idiomas";
+import type { Textos } from "@/i18n/textos";
+import { CaraMarca } from "./Mascota";
 
-const MENSAJE_WA = "Hola Meridiano. Quiero cotizar un proyecto.";
+/** Pie de página. Negro, porque cierra el sitio y frena el scroll. */
+export default function Footer({
+  lang,
+  t,
+  enlaces,
+}: {
+  lang: Idioma;
+  t: Textos;
+  enlaces: { href: string; label: string }[];
+}) {
+  const anio = new Date().getFullYear();
 
-export function Footer() {
   return (
-    <footer className="border-t border-hairline bg-carbon">
-      <Container className="py-16 md:py-20">
-        {/* Las condiciones comerciales van en el pie, visibles en todas las páginas. */}
-        <dl className="grid gap-8 border-b border-hairline pb-12 sm:grid-cols-3">
-          {conditions.map((c) => (
-            <div key={c.label}>
-              <dt className="kicker text-niebla">{c.label}</dt>
-              <dd className="tnum mt-2 font-display text-2xl text-brasa">
-                {c.value}
-              </dd>
-              <dd className="mt-2 text-sm leading-relaxed text-niebla">
-                {c.detail}
-              </dd>
-            </div>
-          ))}
-        </dl>
-
-        <div className="grid gap-12 pt-12 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="bg-tinta text-blanco">
+      <div className="contenedor py-16 md:py-20">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-3">
-              <span aria-hidden="true" className="block h-4 w-0.5 bg-brasa" />
-              <span className="font-display text-lg">{site.name}</span>
-            </div>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-niebla">
-              {site.claim}
+            <p className="flex items-center gap-2.5 text-lg font-extrabold tracking-tight">
+              <CaraMarca
+                className="h-7 w-7 shrink-0"
+                tono="var(--color-blanco)"
+              />
+              {site.name}
             </p>
-            <p className="mt-6 text-sm text-niebla">
-              {site.address.city}, {site.address.country} · Atendemos toda
-              Latinoamérica de forma remota.
+            <p className="mt-5 max-w-sm leading-relaxed text-white/60">
+              {t.pieTagline(site.address.city)}
             </p>
+            <a
+              href={whatsapp(t.waCotizar)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="barrido mt-7 inline-flex bg-naranja px-6 py-3.5 text-[0.9375rem] font-bold tracking-tight text-tinta transition-colors duration-300 [--color-barrido:var(--color-blanco)]"
+            >
+              {t.escribemePorWhatsapp}
+            </a>
           </div>
 
-          <nav aria-label="Servicios">
-            <h2 className="kicker text-niebla">Servicios</h2>
+          <nav aria-label={t.queHago}>
+            <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-naranja">
+              {t.queHago}
+            </h2>
             <ul className="mt-5 space-y-3">
-              {services.map((s) => (
-                <li key={s.slug}>
+              {enlaces.map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={`/servicios/${s.slug}`}
-                    className="enlace-costura text-sm text-niebla hover:text-tiza"
+                    href={`/${lang}${item.href}`}
+                    className="text-[0.9375rem] text-white/70 transition-colors hover:text-blanco"
                   >
-                    {s.card}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -56,59 +60,43 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="kicker text-niebla">Contacto</h2>
-            <ul className="mt-5 space-y-3 text-sm">
+            <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-naranja">
+              {t.contacto}
+            </h2>
+            <ul className="mt-5 space-y-3 text-[0.9375rem] text-white/70">
               <li>
                 <a
-                  href={whatsappLink(MENSAJE_WA)}
+                  href={`https://wa.me/${site.contact.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="enlace-costura text-niebla hover:text-tiza"
+                  className="transition-colors hover:text-blanco"
                 >
-                  Escribir por WhatsApp
+                  {site.contact.whatsappDisplay}
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${site.contact.email}`}
-                  className="enlace-costura text-niebla hover:text-tiza"
+                  className="break-all transition-colors hover:text-blanco"
                 >
                   {site.contact.email}
                 </a>
               </li>
-              <li>
-                <Link
-                  href="/proyectos"
-                  className="enlace-costura text-niebla hover:text-tiza"
-                >
-                  Proyectos
-                </Link>
+              <li className="pt-1">
+                {site.address.city}, {site.address.country}
               </li>
-              <li>
-                <Link
-                  href="/contacto"
-                  className="enlace-costura text-niebla hover:text-tiza"
-                >
-                  Formulario de contacto
-                </Link>
-              </li>
+              <li>{t.pieHorario}</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-hairline pt-8 text-xs text-niebla sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-filete-claro pt-8 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.legalName}. Precios en pesos
-            colombianos.
+            © {anio} {site.legalName}
           </p>
-          <p>
-            Hecho en Next.js, servido estático.{" "}
-            <a href="/llms.txt" className="enlace-costura hover:text-tiza">
-              /llms.txt
-            </a>
-          </p>
+          <p>{t.pieHecho}</p>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

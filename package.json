@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:check": "node scripts/build-check.mjs",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "framer-motion": "^12.23.12",
     "next": "^15.5.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
