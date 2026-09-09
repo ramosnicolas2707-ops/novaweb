@@ -1,13 +1,24 @@
 import { whatsapp } from "@/data/site";
 import type { Textos } from "@/i18n/textos";
 import { Boton } from "./ui";
-import Mascota from "./Mascota";
+import { CaraSello } from "./Mascota";
+import MascotaHero from "./MascotaHero";
 
 /**
  * Hero. Dos columnas: la promesa a la izquierda, el personaje a la derecha.
  *
  * Una sola frase, un solo botón principal. Todo lo que se agregue aquí le
  * resta fuerza a lo único que el visitante tiene que entender.
+ *
+ * EL PERSONAJE CAMBIA DE TAMAÑO SEGÚN LA PANTALLA, y no es lo mismo encogido:
+ *
+ *   · de lg para arriba   <MascotaHero>, grande y esquivando el cursor.
+ *   · debajo de lg        <CaraSello>, chiquito, pegado a la línea de "te
+ *                         respondo el mismo día".
+ *
+ * En el teléfono la cara grande ocupaba media pantalla debajo del titular y
+ * empujaba los botones fuera de la vista. Ahí no hay cursor que esquivar ni
+ * espacio que gastar: el mismo gesto cabe en 44 px al lado del texto.
  */
 export default function Hero({ t }: { t: Textos }) {
   return (
@@ -35,14 +46,17 @@ export default function Hero({ t }: { t: Textos }) {
               </Boton>
             </div>
 
-            <p className="mt-6 text-sm text-grafito">{t.heroRespuesta}</p>
+            <p className="mt-6 flex items-center gap-3 text-sm text-grafito">
+              <CaraSello className="h-11 w-11 shrink-0 lg:hidden" />
+              {t.heroRespuesta}
+            </p>
           </div>
 
-          {/* El personaje. Ver Mascota.tsx: es el único archivo a cambiar.
-              En celular va DEBAJO del titular, no encima: la primera pantalla
-              del teléfono tiene que ser la promesa, no la decoración. */}
-          <div className="max-w-[17rem] lg:max-w-none">
-            <Mascota />
+          {/* El personaje grande. Ver MascotaHero.tsx para el comportamiento y
+              Mascota.tsx para el dibujo. Debajo de lg no se monta: en su lugar
+              está el sello de arriba. */}
+          <div className="hidden lg:block">
+            <MascotaHero />
           </div>
         </div>
       </div>
