@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site, whatsapp } from "@/data/site";
 import type { Idioma } from "@/i18n/idiomas";
 import type { Textos } from "@/i18n/textos";
-import { CaraMarca } from "./Mascota";
+import { Marca } from "./Logo";
 
 /** Pie de página. Negro, porque cierra el sitio y frena el scroll. */
 export default function Footer({
@@ -21,13 +21,7 @@ export default function Footer({
       <div className="contenedor py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <p className="flex items-center gap-2.5 text-lg font-extrabold tracking-tight">
-              <CaraMarca
-                className="h-7 w-7 shrink-0"
-                tono="var(--color-blanco)"
-              />
-              {site.name}
-            </p>
+            <Marca tono="text-blanco" />
             <p className="mt-5 max-w-sm leading-relaxed text-white/60">
               {t.pieTagline(site.address.city)}
             </p>

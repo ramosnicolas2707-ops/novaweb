@@ -40,9 +40,9 @@ export function imagenOg({
       >
         {/* Marca */}
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          {/* El personaje, en su versión escrita. Satori no dibuja bien los
-              trazos del SVG, pero esta cara justamente funciona como texto:
-              ese es medio el punto del personaje. */}
+          {/* El isotipo, escrito en vez de dibujado. Satori no traza bien los
+              paths de un SVG, y las pistas doradas del logo se le pierden;
+              una N en la caja naranja sí sale igual que en el sitio. */}
           <div
             style={{
               display: "flex",
@@ -53,18 +53,20 @@ export function imagenOg({
               borderRadius: "17px",
               backgroundColor: "#ff5a00",
               color: "#0d0d0d",
-              fontSize: "30px",
+              fontSize: "38px",
               fontWeight: 800,
               letterSpacing: "-1px",
-              paddingBottom: "4px",
             }}
           >
-            &lt;_&gt;
+            N
           </div>
-          <div
-            style={{ display: "flex", fontSize: "34px", fontWeight: 800, color: "#0d0d0d" }}
-          >
-            {site.name}
+          {/* NOVA pesado y WEB normal, como en la barra. Los pesos van
+              declarados, pero aquí no se ven: sin fuente propia, Satori cae
+              en la sans del sistema, que trae un solo grosor. Se dejan
+              puestos para el día que esta imagen sí cargue Archivo. */}
+          <div style={{ display: "flex", fontSize: "34px", color: "#0d0d0d" }}>
+            <div style={{ display: "flex", fontWeight: 800 }}>NOVA</div>
+            <div style={{ display: "flex", fontWeight: 400 }}>WEB</div>
           </div>
         </div>
 

@@ -7,21 +7,28 @@ import type { Idioma } from "@/i18n/idiomas";
  * ciudad, la moneda. Lo que sí se traduce vive en /src/i18n/textos.ts y en
  * /src/data/*.es.ts y *.en.ts.
  *
- * NOMBRE PENDIENTE ────────────────────────────────────────────────────────
- * "Meridiano" es provisional. Cuando definas el nombre real, cambia `name`,
- * `legalName`, `url` y `domain` aquí y el sitio entero se actualiza solo, en
- * los dos idiomas. No hay ningún otro archivo con el nombre escrito a mano.
+ * EL NOMBRE ─────────────────────────────────────────────────────────────────
+ * "NovaWeb" se decidió el 9 de septiembre de 2026 y reemplazó a
+ * "Meridiano", que era provisional. Sale de `name` y desde aquí se propaga
+ * a todo el sitio en los dos idiomas: títulos, datos estructurados,
+ * imágenes de compartir y pie de página.
+ *
+ * El logotipo NO sale de aquí: cómo se escribe la marca —NOVA en negrita y
+ * WEB normal— vive en src/components/Logo.tsx, porque es dibujo y no dato.
+ *
+ * `url` y `domain` siguen apuntando al dominio viejo de Vercel. Eso se
+ * cambia del lado de Vercel primero; mientras tanto son el único rastro del
+ * nombre anterior.
  * ─────────────────────────────────────────────────────────────────────────
  */
 /**
  * ¿Puede Google registrar este sitio?
  *
- * En `false` mientras el nombre siga siendo provisional. El sitio funciona
+ * En `false` mientras el dominio siga siendo el de Vercel. El sitio funciona
  * igual y el enlace se puede abrir y compartir: lo único que cambia es que se
- * le pide a los buscadores que no lo indexen, para no quemar "Meridiano" ni
- * este dominio antes de que la marca esté decidida. Si Google indexa un
- * nombre y después lo cambias, cambias también el dominio y ese trabajo se
- * pierde.
+ * le pide a los buscadores que no lo indexen. El nombre ya está decidido,
+ * pero el dominio todavía dice "meridiano": si Google indexa esa dirección
+ * y después se cambia, ese trabajo se pierde.
  *
  * PARA PUBLICAR DE VERDAD: pon esto en `true` y vuelve a desplegar. Eso es
  * todo — desde aquí se alimentan el <meta robots> de todas las páginas y el
@@ -30,8 +37,8 @@ import type { Idioma } from "@/i18n/idiomas";
 export const INDEXAR = false;
 
 export const site = {
-  name: "Meridiano",
-  legalName: "Meridiano Estudio",
+  name: "NovaWeb",
+  legalName: "NovaWeb Estudio",
   url: "https://meridiano-nrm4.vercel.app",
   domain: "meridiano-nrm4.vercel.app",
 
@@ -80,8 +87,8 @@ export const site = {
  * Google y los buscadores con IA.
  */
 export const claim: Record<Idioma, string> = {
-  es: "Meridiano es un estudio de desarrollo web en Bogotá, Colombia, que hace páginas web, tiendas online y rediseños para negocios de Colombia, Latinoamérica y Estados Unidos, con precios publicados desde $900.000 COP.",
-  en: "Meridiano is a web development studio in Bogotá, Colombia, building websites, online stores and redesigns for businesses in Colombia, Latin America and the United States, with prices published from COP $900,000.",
+  es: "NovaWeb es un estudio de desarrollo web en Bogotá, Colombia, que hace páginas web, tiendas online y rediseños para negocios de Colombia, Latinoamérica y Estados Unidos, con precios publicados desde $900.000 COP.",
+  en: "NovaWeb is a web development studio in Bogotá, Colombia, building websites, online stores and redesigns for businesses in Colombia, Latin America and the United States, with prices published from COP $900,000.",
 };
 
 /** Condiciones comerciales. Se muestran tal cual, sin letra chica. */

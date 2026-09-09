@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
   <!--
-    FAVICON — la cara reducida a lo que sobrevive a 16 píxeles.
+    FAVICON — la N de NovaWeb reducida a lo que sobrevive a 16 píxeles.
 
-    Se le cae la boca a propósito. Probado a 40, 32, 24, 20 y 16 px: con boca,
-    de 24 para abajo los tres trazos se empastan en una sola mancha y no se
-    entiende nada. Sin boca, los chevrones aguantan limpios hasta 16.
+    Se le caen las pistas doradas a propósito. A 16 px una línea de 1,8 mide
+    0,7 píxeles: no se ve como pista, se ve como suciedad sobre la N. Lo que
+    sí aguanta es un solo nodo, y con ese basta para que se lea como circuito
+    y no como una N cualquiera.
 
-    Los otros dos ajustes van en la misma dirección: la cabeza casi llena la
-    caja (borde de 3) y los ojos son más altos y de trazo 4,2, porque en un
-    favicon cada píxel de grosor cuenta.
+    Los otros dos ajustes van en la misma dirección: el cuadro casi llena la
+    caja (borde de 3) y la N engorda a 5,2, porque en un favicon cada píxel
+    de grosor cuenta.
 
-    Las tres versiones de la cara y por qué son distintas:
-      · hero       src/components/Mascota.tsx  <Mascota>     grande, con boca y expresiones
-      · marca      src/components/Mascota.tsx  <CaraMarca>   24-48 px, con boca ajustada
-      · favicon    este archivo                              16-32 px, sin boca
+    Las dos versiones del logo y por qué son distintas:
+      · marca    src/components/Logo.tsx  <Isotipo>   24-48 px, con pistas
+      · favicon  este archivo                         16-32 px, solo un nodo
 
-    Si cambias la cara, cámbiala en los tres.
+    Si cambias la N, cámbiala en las dos.
   -->
   <rect x="3" y="3" width="34" height="34" rx="11.5" fill="#ff5a00"/>
-  <g fill="none" stroke="#0d0d0d" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M16 12.5 L11 20 L16 27.5"/>
-    <path d="M24 12.5 L29 20 L24 27.5"/>
-  </g>
+  <path d="M12.5 28.5 L12.5 12 L27.5 28.5 L27.5 12"
+        fill="none" stroke="#0d0d0d" stroke-width="5.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="27.5" cy="14.6" r="2" fill="#eab765"/>
 </svg>

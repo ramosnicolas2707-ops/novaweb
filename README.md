@@ -2,9 +2,13 @@
 
 Next.js 15 (App Router) · TypeScript · Tailwind CSS 4 · 100% estático.
 
-> **El nombre está sin definir.** "Meridiano" es un texto provisional y vive en
-> una sola variable de `src/data/site.ts`. El personaje **ya está elegido y
-> dibujado**: es la cara de código `<_>`, y no depende del nombre.
+> **El nombre es NovaWeb** y vive en una sola variable de `src/data/site.ts`.
+> El logo —la N de circuito y el logotipo NOVA/WEB— está en
+> `src/components/Logo.tsx`. El personaje `<_>` sigue existiendo, pero ya no
+> firma nada: vive en la portada y al final del scroll.
+>
+> **El dominio todavía dice `meridiano`.** Hay que renombrar el proyecto en
+> Vercel y después actualizar `url` y `domain` en `src/data/site.ts`.
 
 ---
 

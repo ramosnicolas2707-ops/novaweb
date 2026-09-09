@@ -28,17 +28,17 @@
    La cara NO guiña ni sonríe. Se probó y se quitó: el personaje funciona
    mejor impasible —parpadea, se asusta y ya— que haciéndose el simpático.
 
+   ESTO NO ES EL LOGO. El logo de NovaWeb —la N de circuito— vive en
+   Logo.tsx y es lo que va en la barra, en el pie y en el favicon. El
+   personaje es otra cosa: es el que recibe en la portada y el que se
+   encuentra quien baja hasta el final. Nunca firma nada.
+
    QUIÉN ES QUIÉN
    · <MascotaHero>  (otro archivo) la versión grande del hero. Esquiva el
      cursor. Solo aparece de lg para arriba.
    · <CaraSello>    la versión chica CON VIDA: parpadea, pero no se mueve de
      su sitio. Es la que va en el hero del celular, pegada a la línea de "te
      respondo el mismo día".
-   · <CaraMarca>    la versión chica y quieta: barra de navegación, pie de
-     página y cualquier lugar donde haga de logo.
-   · El favicon es el mismo dibujo en src/app/icon.svg. Si cambias la cara
-     aquí, cámbiala también allá — es el único sitio duplicado, y está
-     duplicado porque un favicon no puede ser un componente de React.
    ========================================================================== */
 
 /* ───────────────────────────────────────────────────── GEOMETRÍA GRANDE ──
@@ -156,66 +156,21 @@ export const CSS_CARA = `
 
    NO es el mismo dibujo encogido, y eso es a propósito. A tamaño chico la
    cara del hero se empasta: la boca se pega a los ojos y queda un borrón.
-   Esta versión está corregida ópticamente para los 24–48 px en los que se
-   usa:
+   Esta versión está corregida ópticamente para los 44 px del sello:
 
      · la cabeza llena más la caja (borde de 2,5 contra 4)
      · los ojos son más chicos y suben, para abrir el espacio de la boca
      · la boca baja a y=29,5 y adelgaza, para que se lea como boca y no como
-       una tercera mancha
-
-   Debajo de unos 28 px la boca deja de funcionar por más que se ajuste. Ahí
-   ya se usa la versión del favicon (src/app/icon.svg), que la suelta y se
-   queda solo con los ojos.                                                 */
+       una tercera mancha                                                   */
 
 const CHICA_ABIERTOS = ["M15.5 12 L11 17 L15.5 22", "M24.5 12 L29 17 L24.5 22"];
 const CHICA_CERRADOS = ["M11.4 17 L15.5 17", "M24.5 17 L28.6 17"];
 const CHICA_BOCA = "M14.5 29.5 L25.5 29.5";
 
-/* ────────────────────────────────────────────────────────────── MARCA ── */
-
-/**
- * La versión chica y quieta. Va donde el personaje hace de logo: la barra de
- * navegación y el pie de página. Sin animación y sin JavaScript: en una barra
- * fija, una cara parpadeando en la esquina distrae.
- */
-export function CaraMarca({
-  className = "",
-  tono = "var(--color-tinta)",
-}: {
-  /** Tamaño y color se controlan desde afuera con clases. */
-  className?: string;
-  /** El color de los ojos y la boca. Sobre fondo negro, pásale el blanco. */
-  tono?: string;
-}) {
-  return (
-    <svg
-      viewBox="0 0 40 40"
-      aria-hidden="true"
-      className={className}
-      focusable="false"
-    >
-      <rect x="2.5" y="2.5" width="35" height="35" rx="11.5" fill="var(--color-naranja)" />
-      <g
-        fill="none"
-        stroke={tono}
-        strokeWidth="3.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        {CHICA_ABIERTOS.map((d) => (
-          <path key={d} d={d} />
-        ))}
-        <path d={CHICA_BOCA} />
-      </g>
-    </svg>
-  );
-}
-
 /* ────────────────────────────────────────────────────────────── SELLO ── */
 
 /**
- * La versión chica CON VIDA. El mismo dibujo corregido de <CaraMarca>, pero
+ * La versión chica CON VIDA: el dibujo corregido ópticamente de aquí arriba,
  * parpadeando en el ciclo de 14 s del personaje grande.
  *
  * Existe por el celular. En el teléfono el personaje grande ocupaba media

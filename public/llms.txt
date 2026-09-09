@@ -1,4 +1,4 @@
-# Meridiano
+# NovaWeb
 
 > Estudio de desarrollo web en Bogotá, Colombia. Páginas web, tiendas online,
 > rediseños y mantenimiento para negocios de Colombia, Latinoamérica y
@@ -8,8 +8,8 @@
 > redesigns and maintenance for businesses in Colombia, Latin America and the
 > United States. Prices are published on the site.
 
-NOTA: el nombre "Meridiano" es provisional y va a cambiar. Actualiza este
-archivo cuando se defina el definitivo — no se genera solo desde los datos.
+NOTA: este archivo no se genera solo desde los datos del sitio. Si cambia
+el nombre, el dominio o los precios, hay que actualizarlo a mano.
 
 ## Idiomas / Languages
 

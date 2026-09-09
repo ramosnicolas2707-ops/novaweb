@@ -18,7 +18,7 @@ export const servicios: Servicio[] = [
     cardLine: "So people find you and write to you.",
     h1: "Websites that actually bring in clients",
     resumen:
-      "Meridiano builds custom websites from COP $900,000 for a landing page and COP $2,200,000 for a full site, delivered in 2 to 5 weeks.",
+      "NovaWeb builds custom websites from COP $900,000 for a landing page and COP $2,200,000 for a full site, delivered in 2 to 5 weeks.",
     intro: [
       "A website has two jobs: getting you found on Google, and getting people to write to you. Everything I build points at those two.",
       "You get a fast site that looks right on a phone and has the WhatsApp button where it belongs. No recycled templates and no plugins that break in six months.",
@@ -158,7 +158,7 @@ export const servicios: Servicio[] = [
     cardLine: "So people buy without writing to you.",
     h1: "Online stores that sell on their own",
     resumen:
-      "Meridiano builds online stores from COP $2,800,000, with a payment gateway, instalments and WhatsApp checkout, delivered in 4 to 10 weeks.",
+      "NovaWeb builds online stores from COP $2,800,000, with a payment gateway, instalments and WhatsApp checkout, delivered in 4 to 10 weeks.",
     intro: [
       "If you sell on WhatsApp, every sale costs you a conversation. An online store takes money while you sleep.",
       "I set up the store with a real catalogue, a payment gateway, instalment payments and the WhatsApp button left exactly where it is for the people who still want to be walked through it. Both doors open.",
@@ -310,7 +310,7 @@ export const servicios: Servicio[] = [
     cardLine: "You already have a site. It looks old.",
     h1: "Redesigning sites that already exist",
     resumen:
-      "Meridiano redesigns existing websites from COP $950,000, keeping the Google ranking the site already has.",
+      "NovaWeb redesigns existing websites from COP $950,000, keeping the Google ranking the site already has.",
     intro: [
       "Your site works, but it looks like 2016, it loads slowly and it falls apart on a phone. You don't have to throw it away.",
       "I redesign what you already have without losing what you already earned on Google. That's the whole point: a brand-new site starts from zero in search, and a redesign done properly does not.",
@@ -445,7 +445,7 @@ export const servicios: Servicio[] = [
     cardLine: "So it doesn't go down and nobody notices.",
     h1: "Monthly maintenance",
     resumen:
-      "Meridiano offers monthly website maintenance from COP $95,000 a month, with hosting, backups, monitoring and hours of changes included.",
+      "NovaWeb offers monthly website maintenance from COP $95,000 a month, with hosting, backups, monitoring and hours of changes included.",
     intro: [
       "A published site doesn't look after itself. It goes down, it goes stale, someone changes a price and nobody puts it up.",
       "The monthly plan exists so you don't have to think about that. Changes are requested on WhatsApp and they get done.",

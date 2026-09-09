@@ -3,7 +3,7 @@ import { esIdioma, paramsDeIdioma, type Idioma } from "@/i18n/idiomas";
 import { textos } from "@/i18n/textos";
 
 export const generateStaticParams = paramsDeIdioma;
-export const alt = "Meridiano";
+export const alt = "NovaWeb";
 export const size = tamanoOg;
 export const contentType = tipoOg;
 

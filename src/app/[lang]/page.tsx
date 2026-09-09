@@ -26,8 +26,8 @@ export async function generateMetadata({
     lang,
     title:
       lang === "es"
-        ? "Meridiano · Páginas web y tiendas online en Colombia"
-        : "Meridiano · Websites and online stores, built in Colombia",
+        ? "NovaWeb · Páginas web y tiendas online en Colombia"
+        : "NovaWeb · Websites and online stores, built in Colombia",
     description: claim[lang],
     path: "/",
   });

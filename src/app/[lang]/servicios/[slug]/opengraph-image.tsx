@@ -10,7 +10,7 @@ export function generateStaticParams() {
   );
 }
 
-export const alt = "Meridiano";
+export const alt = "NovaWeb";
 export const size = tamanoOg;
 export const contentType = tipoOg;
 
@@ -24,7 +24,7 @@ export default async function Image({
   const t = textos(lang);
   const s = servicioPorSlug(lang, slug);
 
-  if (!s) return imagenOg({ titulo: "Meridiano" });
+  if (!s) return imagenOg({ titulo: "NovaWeb" });
 
   return imagenOg({
     titulo: s.h1,

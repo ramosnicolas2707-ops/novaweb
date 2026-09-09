@@ -7,7 +7,7 @@ import { site, whatsapp } from "@/data/site";
 import type { Idioma } from "@/i18n/idiomas";
 import type { Textos } from "@/i18n/textos";
 
-import { CaraMarca } from "./Mascota";
+import { Marca } from "./Logo";
 import SelectorMoneda from "./SelectorMoneda";
 import SelectorIdioma from "./SelectorIdioma";
 
@@ -80,13 +80,9 @@ export default function Nav({
         }`}
       >
         <div className="contenedor flex h-18 items-center justify-between gap-5">
-          {/* Marca. El nombre sale de site.ts: cambiarlo ahí lo cambia acá. */}
-          <Link
-            href={`/${lang}`}
-            className="flex shrink-0 items-center gap-2.5 text-lg font-extrabold tracking-tight"
-          >
-            <CaraMarca className="h-7 w-7 shrink-0" />
-            {site.name}
+          {/* La marca. El dibujo y el logotipo viven en Logo.tsx. */}
+          <Link href={`/${lang}`} aria-label={site.name}>
+            <Marca />
           </Link>
 
           <nav

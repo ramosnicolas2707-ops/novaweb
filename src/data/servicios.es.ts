@@ -10,7 +10,7 @@ export const servicios: Servicio[] = [
     cardLine: "Para que te encuentren y te escriban.",
     h1: "Páginas web que sí traen clientes",
     resumen:
-      "Meridiano hace páginas web a medida desde $900.000 la landing page y $2.200.000 el sitio completo, con entrega entre 2 y 5 semanas.",
+      "NovaWeb hace páginas web a medida desde $900.000 la landing page y $2.200.000 el sitio completo, con entrega entre 2 y 5 semanas.",
     intro: [
       "Una página web tiene dos trabajos: que te encuentren en Google y que te escriban. Todo lo que hago apunta a esos dos.",
       "Te hago un sitio rápido, que se vea bien en el celular y que tenga el botón de WhatsApp donde toca. Sin plantillas recicladas y sin extensiones que se rompan en seis meses.",
@@ -150,7 +150,7 @@ export const servicios: Servicio[] = [
     cardLine: "Para que te compren sin escribirte.",
     h1: "Tiendas online que venden solas",
     resumen:
-      "Meridiano desarrolla tiendas online desde $2.800.000, con pasarela de pago, cuotas y cierre por WhatsApp, entregadas entre 4 y 10 semanas.",
+      "NovaWeb desarrolla tiendas online desde $2.800.000, con pasarela de pago, cuotas y cierre por WhatsApp, entregadas entre 4 y 10 semanas.",
     intro: [
       "Si vendes por WhatsApp, cada venta te cuesta una conversación. Una tienda online cobra mientras duermes.",
       "Monto la tienda con catálogo real, pasarela de pago, pago en cuotas y el botón de WhatsApp intacto para quien igual prefiere que lo asesoren. Las dos puertas abiertas.",
@@ -302,7 +302,7 @@ export const servicios: Servicio[] = [
     cardLine: "Ya tienes página. Está vieja.",
     h1: "Rediseño de páginas que ya existen",
     resumen:
-      "Meridiano rediseña páginas web existentes desde $950.000, conservando el posicionamiento en Google que el sitio ya tiene.",
+      "NovaWeb rediseña páginas web existentes desde $950.000, conservando el posicionamiento en Google que el sitio ya tiene.",
     intro: [
       "Tu página funciona, pero se ve del 2016, carga lento y en el celular se descuadra. No hace falta botarla.",
       "Rediseño lo que ya tienes sin perder lo que ya ganaste en Google. Ese es el punto: un sitio nuevo arranca de cero en buscadores, un rediseño bien hecho no.",
@@ -437,7 +437,7 @@ export const servicios: Servicio[] = [
     cardLine: "Para que no se caiga y nadie se entere.",
     h1: "Mantenimiento mensual",
     resumen:
-      "Meridiano ofrece mantenimiento web mensual desde $95.000 al mes, con hosting, copias de seguridad, monitoreo y horas de cambios incluidas.",
+      "NovaWeb ofrece mantenimiento web mensual desde $95.000 al mes, con hosting, copias de seguridad, monitoreo y horas de cambios incluidas.",
     intro: [
       "Un sitio publicado no se cuida solo. Se cae, se desactualiza, alguien cambia un precio y nadie lo sube.",
       "El plan mensual es para no tener que pensar en eso. Los cambios se piden por WhatsApp y quedan hechos.",
