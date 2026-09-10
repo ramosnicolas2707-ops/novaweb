@@ -33,12 +33,10 @@
    personaje es otra cosa: es el que recibe en la portada y el que se
    encuentra quien baja hasta el final. Nunca firma nada.
 
-   QUIÉN ES QUIÉN
-   · <MascotaHero>  (otro archivo) la versión grande del hero. Esquiva el
-     cursor. Solo aparece de lg para arriba.
-   · <CaraSello>    la versión chica CON VIDA: parpadea, pero no se mueve de
-     su sitio. Es la que va en el hero del celular, pegada a la línea de "te
-     respondo el mismo día".
+   DÓNDE SALE
+   Solo en el hero, de lg para arriba, y lo monta <MascotaHero> (otro
+   archivo). En celular no sale: sin cursor que esquivar no queda gracia,
+   y una cara quieta en una pantalla angosta es rellenar espacio.
    ========================================================================== */
 
 /* ───────────────────────────────────────────────────── GEOMETRÍA GRANDE ──
@@ -81,9 +79,8 @@ export const BOCA_O = { cx: 20, cy: 29.2, r: 2.9, grosor: 2.6 };
 
 /* ──────────────────────────────────────────────────────── EL CICLO CSS ──
 
-   Un solo bloque de CSS para todas las caras vivas del sitio. Lo montan
-   tanto <CaraSello> como <MascotaHero>: si aparecen las dos en la misma
-   página, el navegador recibe las mismas reglas dos veces y no pasa nada.
+   El CSS de la cara. Lo monta <MascotaHero> dentro de su propio <style>,
+   junto al CSS del esquive.
 
    El ciclo es de 14 s y solo tiene dos parpadeos, en el 21% y el 48%
    (0,9% = 126 ms cada uno). Después del segundo se queda siete segundos con
@@ -151,62 +148,3 @@ export const CSS_CARA = `
     .mc-parpadeo { opacity: 0; }
   }
 `;
-
-/* ───────────────────────────────────────────────────── GEOMETRÍA CHICA ──
-
-   NO es el mismo dibujo encogido, y eso es a propósito. A tamaño chico la
-   cara del hero se empasta: la boca se pega a los ojos y queda un borrón.
-   Esta versión está corregida ópticamente para los 44 px del sello:
-
-     · la cabeza llena más la caja (borde de 2,5 contra 4)
-     · los ojos son más chicos y suben, para abrir el espacio de la boca
-     · la boca baja a y=29,5 y adelgaza, para que se lea como boca y no como
-       una tercera mancha                                                   */
-
-const CHICA_ABIERTOS = ["M15.5 12 L11 17 L15.5 22", "M24.5 12 L29 17 L24.5 22"];
-const CHICA_CERRADOS = ["M11.4 17 L15.5 17", "M24.5 17 L28.6 17"];
-const CHICA_BOCA = "M14.5 29.5 L25.5 29.5";
-
-/* ────────────────────────────────────────────────────────────── SELLO ── */
-
-/**
- * La versión chica CON VIDA: el dibujo corregido ópticamente de aquí arriba,
- * parpadeando en el ciclo de 14 s del personaje grande.
- *
- * Existe por el celular. En el teléfono el personaje grande ocupaba media
- * pantalla debajo del titular sin aportar nada: decoración pesando más que la
- * promesa. Aquí el mismo gesto cabe en una línea, al lado del texto, y sigue
- * estando vivo.
- *
- * No lleva JavaScript ni reacciona al cursor. En un teléfono no hay cursor.
- */
-export function CaraSello({ className = "" }: { className?: string }) {
-  return (
-    <span className={`inline-block ${className}`} aria-hidden="true">
-      <svg viewBox="0 0 40 40" className="h-full w-full" focusable="false">
-        <rect x="2.5" y="2.5" width="35" height="35" rx="11.5" fill="var(--color-naranja)" />
-        <g
-          fill="none"
-          stroke="var(--color-tinta)"
-          strokeWidth="3.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <g className="mc-ojos">
-            {CHICA_ABIERTOS.map((d) => (
-              <path key={d} d={d} />
-            ))}
-          </g>
-          <g className="mc-parpadeo">
-            {CHICA_CERRADOS.map((d) => (
-              <path key={d} d={d} />
-            ))}
-          </g>
-          <path className="mc-boca" d={CHICA_BOCA} />
-        </g>
-      </svg>
-
-      <style>{CSS_CARA}</style>
-    </span>
-  );
-}

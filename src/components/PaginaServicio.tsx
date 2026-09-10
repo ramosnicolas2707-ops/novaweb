@@ -68,8 +68,17 @@ export default function PaginaServicio({
             </div>
           </div>
 
-          <dl className="grid h-fit grid-cols-2 gap-px bg-filete lg:grid-cols-1">
-            <div className="bg-blanco p-6 lg:border-l-2 lg:border-naranja">
+          {/* Uno debajo del otro en celular. En dos columnas, "$2.800.000"
+              en text-3xl no cabe en media pantalla de teléfono: la cifra no
+              se puede partir, empujaba su columna y el ancho de más se lo
+              llevaba la página entera, que empezaba a correrse de lado. En
+              dólares sí cabe, y por eso solo se veía roto en pesos.
+
+              El min-w-0 es el cinturón: una celda de grid no se encoge por
+              debajo de su contenido a menos que uno se lo diga, así que sin
+              eso cualquier cifra larga que venga después repite el problema. */}
+          <dl className="grid h-fit gap-px bg-filete sm:grid-cols-2 lg:grid-cols-1">
+            <div className="min-w-0 bg-blanco p-6 lg:border-l-2 lg:border-naranja">
               <dt className="text-xs font-bold uppercase tracking-[0.14em] text-grafito">
                 {t.desde}
               </dt>
@@ -80,7 +89,7 @@ export default function PaginaServicio({
                 />
               </dd>
             </div>
-            <div className="bg-blanco p-6 lg:border-l-2 lg:border-naranja">
+            <div className="min-w-0 bg-blanco p-6 lg:border-l-2 lg:border-naranja">
               <dt className="text-xs font-bold uppercase tracking-[0.14em] text-grafito">
                 {t.entrega}
               </dt>

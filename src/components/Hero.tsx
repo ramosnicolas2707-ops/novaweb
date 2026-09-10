@@ -1,7 +1,6 @@
 import { whatsapp } from "@/data/site";
 import type { Textos } from "@/i18n/textos";
 import { Boton } from "./ui";
-import { CaraSello } from "./Mascota";
 import MascotaHero from "./MascotaHero";
 
 /**
@@ -10,15 +9,14 @@ import MascotaHero from "./MascotaHero";
  * Una sola frase, un solo botón principal. Todo lo que se agregue aquí le
  * resta fuerza a lo único que el visitante tiene que entender.
  *
- * EL PERSONAJE CAMBIA DE TAMAÑO SEGÚN LA PANTALLA, y no es lo mismo encogido:
- *
- *   · de lg para arriba   <MascotaHero>, grande y esquivando el cursor.
- *   · debajo de lg        <CaraSello>, chiquito, pegado a la línea de "te
- *                         respondo el mismo día".
+ * EL PERSONAJE SOLO SALE DE lg PARA ARRIBA. Debajo de eso el hero es puro
+ * texto y botones.
  *
  * En el teléfono la cara grande ocupaba media pantalla debajo del titular y
- * empujaba los botones fuera de la vista. Ahí no hay cursor que esquivar ni
- * espacio que gastar: el mismo gesto cabe en 44 px al lado del texto.
+ * empujaba los botones fuera de la vista. Se probó con una versión chiquita
+ * al lado de la línea de "te respondo", y tampoco: en una pantalla angosta
+ * ese sello le robaba el renglón al texto y no aportaba nada. En un teléfono
+ * no hay cursor que esquivar, que es lo único que hace gracioso al personaje.
  */
 export default function Hero({ t }: { t: Textos }) {
   return (
@@ -46,15 +44,11 @@ export default function Hero({ t }: { t: Textos }) {
               </Boton>
             </div>
 
-            <p className="mt-6 flex items-center gap-3 text-sm text-grafito">
-              <CaraSello className="h-11 w-11 shrink-0 lg:hidden" />
-              {t.heroRespuesta}
-            </p>
+            <p className="mt-6 text-sm text-grafito">{t.heroRespuesta}</p>
           </div>
 
-          {/* El personaje grande. Ver MascotaHero.tsx para el comportamiento y
-              Mascota.tsx para el dibujo. Debajo de lg no se monta: en su lugar
-              está el sello de arriba. */}
+          {/* El personaje. Ver MascotaHero.tsx para el comportamiento y
+              Mascota.tsx para el dibujo. */}
           <div className="hidden lg:block">
             <MascotaHero />
           </div>

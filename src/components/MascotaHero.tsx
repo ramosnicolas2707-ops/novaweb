@@ -39,7 +39,7 @@ import {
    DÓNDE NO CORRE
    · en pantallas sin mouse                (no hay cursor que esquivar)
    · con prefers-reduced-motion            (nadie pidió una cara saltando)
-   · debajo de lg                          (allí va <CaraSello>, ver Hero.tsx)
+   · debajo de lg                          (en celular no sale, ver Hero.tsx)
    En todos esos casos queda el ciclo de CSS: la cara parpadea sola.
    ========================================================================== */
 
