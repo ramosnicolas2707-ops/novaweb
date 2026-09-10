@@ -5,10 +5,7 @@ Next.js 15 (App Router) · TypeScript · Tailwind CSS 4 · 100% estático.
 > **El nombre es NovaWeb** y vive en una sola variable de `src/data/site.ts`.
 > El logo —la N de circuito y el logotipo NOVA/WEB— está en
 > `src/components/Logo.tsx`. El personaje `<_>` sigue existiendo, pero ya no
-> firma nada: vive en la portada y al final del scroll.
->
-> **El dominio todavía dice `meridiano`.** Hay que renombrar el proyecto en
-> Vercel y después actualizar `url` y `domain` en `src/data/site.ts`.
+> firma nada: vive en la portada, de `lg` para arriba.
 
 ---
 
@@ -46,11 +43,33 @@ externo.
 
 ---
 
-## Lo que falta antes de publicar
+## Lo que falta para lanzar
+
+El sitio ya está publicado y se puede visitar. Lo que falta es que Google
+lo registre, y eso espera a una sola cosa: el dominio.
+
+### 1. El dominio (bloquea el lanzamiento)
+
+Hoy `url` y `domain` en `src/data/site.ts` apuntan a
+`meridiano-nrm4.vercel.app`, que es el nombre viejo. El orden importa y no
+se puede invertir:
+
+1. Comprar el dominio (`novaweb.co` o el que sea) y conectarlo en Vercel:
+   **Project Settings → Domains → Add**.
+2. Cambiar `url` y `domain` en `src/data/site.ts` por el dominio nuevo.
+3. Poner `INDEXAR = true` en ese mismo archivo y desplegar.
+
+El paso 3 va de último a propósito. Si Google indexa una dirección y
+después se cambia, el posicionamiento no se traslada solo y hay que
+empezar de cero. Por eso `INDEXAR` sigue en `false`: el sitio funciona y
+el enlace se puede mandar por WhatsApp, pero los buscadores no entran
+todavía.
+
+### 2. Lo demás (no bloquea, pero se nota)
 
 | Qué | Dónde |
 |---|---|
-| **Nombre definitivo** | `src/data/site.ts` → `name`, `legalName`, `url`, `domain`. También a mano en `public/llms.txt`. |
+| ~~Nombre definitivo~~ | NovaWeb, decidido el 9 de septiembre de 2026. |
 | ~~Precios de rediseño~~ | Confirmados el 7 de septiembre de 2026: $950.000 y $2.100.000. |
 | **URLs de los proyectos** | `src/data/proyectos.es.ts` y `.en.ts` → campo `url`, hoy en `null` en los dos. Eclipse está protegida con contraseña y Sexta Rueda solo corre en local. |
 | **Catálogo de Sexta Rueda** | Falta agregar esa captura cuando el sitio tenga fotos de producto reales (hoy son cuadros grises). |
