@@ -30,7 +30,7 @@ type TextosNav = Pick<
 >;
 
 /**
- * Barra superior. Fija, blanca, con filete que solo aparece al bajar.
+ * Barra superior. Fija, blanca translúcida, con filete que solo aparece al bajar.
  * En celular es un menú desplegable a pantalla completa.
  *
  * Los enlaces llegan ya traducidos desde el layout: este componente no sabe
@@ -75,7 +75,7 @@ export default function Nav({
     // encerrado en los 72 px de la barra y salía con altura cero.
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 bg-blanco/90 backdrop-blur-md transition-shadow duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 bg-blanco/60 backdrop-blur-xl backdrop-saturate-150 transition-shadow duration-300 ${
           bajado ? "shadow-[0_1px_0_0_var(--color-filete)]" : ""
         }`}
       >
@@ -98,7 +98,7 @@ export default function Nav({
                   aria-current={activo ? "page" : undefined}
                   className={`subraya text-[0.9375rem] font-semibold transition-colors ${
                     activo
-                      ? "text-naranja-texto"
+                      ? "text-rojo"
                       : "text-grafito hover:text-tinta"
                   }`}
                 >
@@ -121,7 +121,7 @@ export default function Nav({
               href={whatsapp(t.waGeneral)}
               target="_blank"
               rel="noopener noreferrer"
-              className="barrido ml-1 hidden bg-naranja px-5 py-2.5 text-[0.9375rem] font-bold tracking-tight text-tinta transition-colors duration-300 hover:text-blanco sm:inline-flex"
+              className="barrido ml-1 hidden bg-rojo px-5 py-2.5 text-[0.9375rem] font-bold tracking-tight text-blanco transition-colors duration-300 sm:inline-flex"
             >
               {t.escribeme}
             </a>
@@ -185,7 +185,7 @@ export default function Nav({
               href={whatsapp(t.waGeneral)}
               target="_blank"
               rel="noopener noreferrer"
-              className="barrido mt-8 flex items-center justify-center bg-naranja px-6 py-4 text-base font-bold text-tinta transition-colors duration-300 hover:text-blanco"
+              className="barrido mt-8 flex items-center justify-center bg-rojo px-6 py-4 text-base font-bold text-blanco transition-colors duration-300"
             >
               {t.escribemePorWhatsapp}
             </a>

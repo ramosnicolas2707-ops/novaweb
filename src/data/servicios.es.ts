@@ -10,12 +10,12 @@ export const servicios: Servicio[] = [
     cardLine: "Para que te encuentren y te escriban.",
     h1: "Páginas web que sí traen clientes",
     resumen:
-      "NovaWeb hace páginas web a medida desde $900.000 la landing page y $2.200.000 el sitio completo, con entrega entre 2 y 5 semanas.",
+      "NovaWeb hace páginas web a medida desde $900.000 la landing page y $2.200.000 el sitio completo, con entrega entre 1 y 4 semanas.",
     intro: [
-      "Una página web tiene dos trabajos: que te encuentren en Google y que te escriban. Todo lo que hago apunta a esos dos.",
-      "Te hago un sitio rápido, que se vea bien en el celular y que tenga el botón de WhatsApp donde toca. Sin plantillas recicladas y sin extensiones que se rompan en seis meses.",
+      "Una página web tiene dos trabajos: que te encuentren en Google y que te escriban. Todo lo que hacemos apunta a esos dos.",
+      "Te hacemos un sitio rápido, que se vea bien en el celular y que tenga el botón de WhatsApp donde toca. Sin plantillas recicladas y sin extensiones que se rompan en seis meses.",
     ],
-    entrega: "Entre 2 y 5 semanas, según el plan.",
+    entrega: "Entre 1 y 4 semanas, según el plan.",
     siEsParaTi: [
       "Tienes un negocio andando y quieres que en internet se vea como se ve en persona.",
       "Quieres aparecer en Google cuando alguien busca lo que vendes.",
@@ -32,7 +32,7 @@ export const servicios: Servicio[] = [
       },
       {
         texto:
-          "Tu presupuesto todavía está por debajo de esto. Escríbeme igual y te digo por dónde arrancar, aunque sea sin mí.",
+          "Tu presupuesto todavía está por debajo de esto. Escríbenos igual y te decimos por dónde arrancar, aunque sea sin nosotros.",
       },
     ],
     incluyeSiempre: [
@@ -59,12 +59,12 @@ export const servicios: Servicio[] = [
       {
         title: "El código es tuyo",
         detail:
-          "Te entrego el repositorio. Si mañana quieres trabajar con otro, no tienes que pedirme permiso.",
+          "Te entregamos el repositorio. Si mañana quieres trabajar con otro, no tienes que pedirnos permiso.",
       },
       {
-        title: "Te enseño a usarla",
+        title: "Te enseñamos a usarla",
         detail:
-          "Al entregarte grabo un video corto mostrándote dónde está cada cosa. Queda tuyo, para cuando se te olvide.",
+          "Al entregarte grabamos un video corto mostrándote dónde está cada cosa. Queda tuyo, para cuando se te olvide.",
       },
     ],
     noIncluye: [
@@ -79,7 +79,7 @@ export const servicios: Servicio[] = [
         price: 900000,
         billing: "unico",
         paraQuien: "Un solo servicio o producto que quieres empujar.",
-        entrega: "Lista en 2 semanas",
+        entrega: "Lista en 1 semana",
         incluye: [
           "Una página, hasta 6 secciones",
           "Diseño a medida, no plantilla",
@@ -93,7 +93,7 @@ export const servicios: Servicio[] = [
         price: 2200000,
         billing: "unico",
         paraQuien: "Un negocio con varios servicios que explicar.",
-        entrega: "Listo en 5 semanas",
+        entrega: "Listo en 4 semanas",
         destacado: true,
         incluye: [
           "Hasta 6 páginas (inicio, servicios, nosotros, contacto…)",
@@ -112,19 +112,19 @@ export const servicios: Servicio[] = [
     faq: [
       {
         q: "¿Cuánto cuesta una página web en Colombia?",
-        a: "Aquí, desde $900.000 una landing page y $2.200.000 un sitio completo, en pesos colombianos y sin sorpresas después. En el mercado vas a ver desde $300.000 (plantilla armada en una tarde) hasta más de $10.000.000 (agencia grande con equipo). Yo estoy en el medio: trabajo a medida, sin la estructura de costos de una agencia.",
+        a: "Aquí, desde $900.000 una landing page y $2.200.000 un sitio completo, en pesos colombianos y sin sorpresas después. En el mercado vas a ver desde $300.000 (plantilla armada en una tarde) hasta más de $10.000.000 (agencia grande con equipo). Nosotros estamos en el medio: trabajo a medida, sin la estructura de costos de una agencia grande.",
       },
       {
-        q: "¿En cuánto tiempo la tienes lista?",
-        a: "Dos semanas la landing, cinco el sitio completo, contando desde que me pasas los textos y las fotos. El reloj arranca cuando tengo el material, no cuando pagas el anticipo. Si el material demora, la entrega demora.",
+        q: "¿En cuánto tiempo la tienen lista?",
+        a: "Una semana la landing, cuatro el sitio completo, contando desde que nos pasas los textos y las fotos. El reloj arranca cuando tenemos el material, no cuando pagas el anticipo. Si el material demora, la entrega demora.",
       },
       {
         q: "¿El hosting y el dominio están incluidos?",
-        a: "El hosting sí: el sitio queda publicado en Vercel, que para un sitio estático no cuesta nada. El dominio lo compras tú (unos $60.000 al año un .com, $80.000 un .co) y queda a tu nombre, no al mío. Yo lo conecto.",
+        a: "El hosting sí: el sitio queda publicado en Vercel, que para un sitio estático no cuesta nada. El dominio lo compras tú (unos $60.000 al año un .com, $80.000 un .co) y queda a tu nombre, no al nuestro. Nosotros lo conectamos.",
       },
       {
         q: "¿Puedo cambiar los textos yo mismo después?",
-        a: "Si contratas el blog editable, sí: los cambias desde un panel, sin saber de código. Sin él, me los pides a mí y van dentro de las dos rondas incluidas. Pasadas esas, se cobran por hora a $60.000, o quedan cubiertos con un plan mensual.",
+        a: "Si contratas el blog editable, sí: los cambias desde un panel, sin saber de código. Sin él, nos los pides y van dentro de las dos rondas incluidas. Pasadas esas, se cobran por hora a $60.000, o quedan cubiertos con un plan mensual.",
         ir: {
           href: "/servicios/mantenimiento",
           label: "Si quieres conocer los planes de mantenimiento, mira aquí",
@@ -132,7 +132,7 @@ export const servicios: Servicio[] = [
       },
       {
         q: "¿Qué pasa si no me gusta el diseño?",
-        a: "Lo cambiamos. Primero te muestro el diseño y solo cuando te gusta me pongo a programar, así que los ajustes se hacen en el momento barato del proyecto y no cuando ya está todo armado. Van dos rondas de cambios incluidas, y en la práctica casi nunca se usan las dos.",
+        a: "Lo cambiamos. Primero te mostramos el diseño y solo cuando te gusta nos ponemos a programar, así que los ajustes se hacen en el momento barato del proyecto y no cuando ya está todo armado. Van dos rondas de cambios incluidas, y en la práctica casi nunca se usan las dos.",
       },
     ],
     meta: {
@@ -150,12 +150,12 @@ export const servicios: Servicio[] = [
     cardLine: "Para que te compren sin escribirte.",
     h1: "Tiendas online que venden solas",
     resumen:
-      "NovaWeb desarrolla tiendas online desde $2.800.000, con pasarela de pago, cuotas y cierre por WhatsApp, entregadas entre 4 y 10 semanas.",
+      "NovaWeb desarrolla tiendas online desde $2.800.000, con pasarela de pago, cuotas y cierre por WhatsApp, entregadas entre 3 y 9 semanas.",
     intro: [
       "Si vendes por WhatsApp, cada venta te cuesta una conversación. Una tienda online cobra mientras duermes.",
-      "Monto la tienda con catálogo real, pasarela de pago, pago en cuotas y el botón de WhatsApp intacto para quien igual prefiere que lo asesoren. Las dos puertas abiertas.",
+      "Montamos la tienda con catálogo real, pasarela de pago, pago en cuotas y el botón de WhatsApp intacto para quien igual prefiere que lo asesoren. Las dos puertas abiertas.",
     ],
-    entrega: "Entre 4 y 10 semanas, según el tamaño del catálogo.",
+    entrega: "Entre 3 y 9 semanas, según el tamaño del catálogo.",
     siEsParaTi: [
       "Ya vendes y el WhatsApp se te está quedando corto.",
       "Tienes fotos de tus productos, o puedes conseguirlas.",
@@ -173,7 +173,7 @@ export const servicios: Servicio[] = [
       },
       {
         texto:
-          "Quieres un marketplace con varios vendedores. Eso es otro proyecto y es más grande — escríbeme y lo hablamos con calma.",
+          "Quieres un marketplace con varios vendedores. Eso es otro proyecto y es más grande — escríbenos y lo hablamos con calma.",
       },
     ],
     incluyeSiempre: [
@@ -200,10 +200,10 @@ export const servicios: Servicio[] = [
       {
         title: "Tú manejas el inventario",
         detail:
-          "Panel para subir productos, cambiar precios y marcar agotados. Sin llamarme.",
+          "Panel para subir productos, cambiar precios y marcar agotados. Sin llamarnos.",
       },
       {
-        title: "Te enseño a manejarla",
+        title: "Te enseñamos a manejarla",
         detail:
           "Video corto al entregar: cómo subir un producto, cambiar un precio y marcar un agotado. Queda grabado para volver a verlo cuando toque.",
       },
@@ -220,7 +220,7 @@ export const servicios: Servicio[] = [
         price: 2800000,
         billing: "unico",
         paraQuien: "Catálogo chico, hasta 50 productos.",
-        entrega: "Lista en 4 semanas",
+        entrega: "Lista en 3 semanas",
         incluye: [
           "Hasta 50 productos",
           "Pasarela de pago conectada",
@@ -234,7 +234,7 @@ export const servicios: Servicio[] = [
         price: 4400000,
         billing: "unico",
         paraQuien: "Catálogo mediano con tallas, colores o presentaciones.",
-        entrega: "Lista en 7 semanas",
+        entrega: "Lista en 6 semanas",
         destacado: true,
         incluye: [
           "Hasta 300 productos",
@@ -249,7 +249,7 @@ export const servicios: Servicio[] = [
         price: 7000000,
         billing: "unico",
         paraQuien: "Catálogo grande o algo que se sale de lo normal.",
-        entrega: "Lista en 10 semanas",
+        entrega: "Lista en 9 semanas",
         incluye: [
           "Productos sin límite",
           "Todo lo del Profesional",
@@ -264,7 +264,7 @@ export const servicios: Servicio[] = [
       { label: "Pasarela adicional", value: "$350.000" },
       { label: "Suscripciones", value: "desde $900.000" },
     ],
-    nota: "Las pasarelas cobran su propia comisión por transacción (entre 2,5% y 4% según cuál). Eso lo cobra la pasarela, no yo.",
+    nota: "Las pasarelas cobran su propia comisión por transacción (entre 2,5% y 4% según cuál). Eso lo cobra la pasarela, no nosotros.",
     faq: [
       {
         q: "¿Cuánto cuesta una tienda online en Colombia?",
@@ -272,7 +272,7 @@ export const servicios: Servicio[] = [
       },
       {
         q: "¿Shopify o hecha a medida?",
-        a: "Depende de ti, no de mí. Shopify si quieres administrarla sin depender de nadie y no te molesta pagar la mensualidad y la comisión de la plataforma. A medida si tienes algo raro que Shopify no hace, o si el volumen ya justifica quitarte esa comisión de encima. En la primera llamada te digo cuál te sirve, aunque sea la que me deja menos.",
+        a: "Depende de ti, no de nosotros. Shopify si quieres administrarla sin depender de nadie y no te molesta pagar la mensualidad y la comisión de la plataforma. A medida si tienes algo raro que Shopify no hace, o si el volumen ya justifica quitarte esa comisión de encima. En la primera llamada te decimos cuál te sirve, aunque sea la que nos deja menos.",
       },
       {
         q: "¿Puedo vender sin pasarela, solo por WhatsApp?",
@@ -280,11 +280,11 @@ export const servicios: Servicio[] = [
       },
       {
         q: "¿Quién sube los productos?",
-        a: "Tú, desde el panel, y te enseño cómo. Si son muchos y prefieres que lo haga yo, se cotiza aparte desde $400.000 según la cantidad y en qué formato tengas la información.",
+        a: "Tú, desde el panel, y te enseñamos cómo. Si son muchos y prefieres que lo hagamos nosotros, se cotiza aparte desde $400.000 según la cantidad y en qué formato tengas la información.",
       },
       {
         q: "¿Y el pago en cuotas?",
-        a: "Addi y Sistecrédito se conectan como cualquier otra pasarela. Tú abres la cuenta con ellos, yo la conecto. En Colombia mueve la aguja: la gente compra más caro cuando lo ve dividido en tres.",
+        a: "Addi y Sistecrédito se conectan como cualquier otra pasarela. Tú abres la cuenta con ellos, nosotros la conectamos. En Colombia mueve la aguja: la gente compra más caro cuando lo ve dividido en tres.",
       },
     ],
     meta: {
@@ -305,9 +305,9 @@ export const servicios: Servicio[] = [
       "NovaWeb rediseña páginas web existentes desde $950.000, conservando el posicionamiento en Google que el sitio ya tiene.",
     intro: [
       "Tu página funciona, pero se ve del 2016, carga lento y en el celular se descuadra. No hace falta botarla.",
-      "Rediseño lo que ya tienes sin perder lo que ya ganaste en Google. Ese es el punto: un sitio nuevo arranca de cero en buscadores, un rediseño bien hecho no.",
+      "Rediseñamos lo que ya tienes sin perder lo que ya ganaste en Google. Ese es el punto: un sitio nuevo arranca de cero en buscadores, un rediseño bien hecho no.",
     ],
-    entrega: "Entre 2 y 4 semanas.",
+    entrega: "Entre 1 y 3 semanas.",
     siEsParaTi: [
       "Tu página tiene más de tres años y se nota.",
       "En el celular se descuadra, o toca hacer zoom para leerla.",
@@ -333,7 +333,7 @@ export const servicios: Servicio[] = [
       {
         title: "No pierdes tu Google",
         detail:
-          "Reviso qué páginas tuyas están posicionadas y las conservo con la misma dirección. Si alguna tiene que cambiar, se redirige. Nadie llega a un error 404.",
+          "Revisamos qué páginas tuyas están posicionadas y las conservamos con la misma dirección. Si alguna tiene que cambiar, se redirige. Nadie llega a un error 404.",
       },
       {
         title: "Diseño nuevo de verdad",
@@ -353,19 +353,19 @@ export const servicios: Servicio[] = [
       {
         title: "Antes y después medido",
         detail:
-          "Te muestro la velocidad y la nota de la página antes y después. Con números, no con opiniones.",
+          "Te mostramos la velocidad y la nota de la página antes y después. Con números, no con opiniones.",
       },
       {
         title: "Nada se pierde en el camino",
         detail:
-          "Antes de tocar nada guardo una copia completa de tu sitio actual. Si algo del diseño nuevo no te convence, hay a dónde volver.",
+          "Antes de tocar nada guardamos una copia completa de tu sitio actual. Si algo del diseño nuevo no te convence, hay a dónde volver.",
       },
     ],
     noIncluye: [
       "Escribir el contenido de nuevo (se reordena y se ajusta el que ya tienes)",
       "Fotos nuevas",
       "Migrar de plataforma si tu sitio está en algo muy cerrado (se revisa primero)",
-      "Recuperar posiciones que ya habías perdido antes de llamarme",
+      "Recuperar posiciones que ya habías perdido antes de llamarnos",
     ],
     planes: [
       {
@@ -373,7 +373,7 @@ export const servicios: Servicio[] = [
         price: 950000,
         billing: "unico",
         paraQuien: "El contenido sirve. Lo que está mal es cómo se ve.",
-        entrega: "Listo en 2 semanas",
+        entrega: "Listo en 1 semana",
         incluye: [
           "Hasta 4 páginas",
           "Diseño nuevo con tu contenido actual",
@@ -387,7 +387,7 @@ export const servicios: Servicio[] = [
         price: 2100000,
         billing: "unico",
         paraQuien: "Hay que replantear qué dice el sitio y en qué orden.",
-        entrega: "Listo en 4 semanas",
+        entrega: "Listo en 3 semanas",
         destacado: true,
         incluye: [
           "Hasta 8 páginas",
@@ -403,7 +403,7 @@ export const servicios: Servicio[] = [
       { label: "Revisión previa de SEO", value: "$350.000" },
       { label: "Migrar de plataforma", value: "se cotiza" },
     ],
-    nota: "Antes de cotizarte miro tu sitio y te digo si de verdad necesitas un rediseño. A veces con arreglar tres cosas basta y te lo digo, aunque me quede sin el trabajo.",
+    nota: "Antes de cotizarte miramos tu sitio y te decimos si de verdad necesitas un rediseño. A veces con arreglar tres cosas basta y te lo decimos, aunque nos quedemos sin el trabajo.",
     faq: [
       {
         q: "¿Voy a perder mi posición en Google?",
@@ -415,17 +415,17 @@ export const servicios: Servicio[] = [
       },
       {
         q: "Mi página está en WordPress. ¿Toca cambiarla?",
-        a: "No necesariamente. Si WordPress te sirve y sabes usarlo, se rediseña ahí. Si lo que te tiene lento es una montaña de plugins, te propongo pasarlo a un sitio estático y te explico qué ganas y qué pierdes. Tú decides.",
+        a: "No necesariamente. Si WordPress te sirve y sabes usarlo, se rediseña ahí. Si lo que te tiene lento es una montaña de plugins, te proponemos pasarlo a un sitio estático y te explicamos qué ganas y qué pierdes. Tú decides.",
       },
       {
         q: "¿Cómo sé si necesito un rediseño?",
-        a: "Ábrela en tu celular ahora mismo. Si tienes que hacer zoom para leer, si algo se sale del margen, o si tarda más de tres segundos en aparecer, ya tienes la respuesta. Igual mándamela y te digo qué le veo, sin costo.",
+        a: "Ábrela en tu celular ahora mismo. Si tienes que hacer zoom para leer, si algo se sale del margen, o si tarda más de tres segundos en aparecer, ya tienes la respuesta. Igual mándanosla y te decimos qué le vemos, sin costo.",
       },
     ],
     meta: {
       title: "Rediseño de páginas web desde $950.000",
       description:
-        "Rediseño tu página sin perder lo que ya tienes en Google. Desde $950.000. Se arregla el celular, la velocidad y el diseño.",
+        "Rediseñamos tu página sin perder lo que ya tienes en Google. Desde $950.000. Se arregla el celular, la velocidad y el diseño.",
     },
   },
 
@@ -446,7 +446,7 @@ export const servicios: Servicio[] = [
     siEsParaTi: [
       "Cambias precios, promociones o fotos seguido.",
       "No quieres aprender a editar la página ni tienes a quién ponerle esa tarea.",
-      "Prefieres enterarte de que el sitio se cayó por mí y no por un cliente.",
+      "Prefieres enterarte de que el sitio se cayó por nosotros y no por un cliente.",
     ],
     otraCosa: [
       {
@@ -474,12 +474,12 @@ export const servicios: Servicio[] = [
       {
         title: "Monitoreo",
         detail:
-          "Se revisa cada 5 minutos que el sitio esté arriba. Si se cae, me entero yo primero.",
+          "Se revisa cada 5 minutos que el sitio esté arriba. Si se cae, nos enteramos nosotros primero.",
       },
       {
         title: "Cambios por WhatsApp",
         detail:
-          "Me escribes el cambio y queda. Sin tiquetes, sin formularios, sin correos.",
+          "Nos escribes el cambio y queda. Sin tiquetes, sin formularios, sin correos.",
       },
       {
         title: "Reporte de lo que pasó",
@@ -489,7 +489,7 @@ export const servicios: Servicio[] = [
       {
         title: "Sin permanencia",
         detail:
-          "Cancelas cuando quieras avisando antes del corte del mes. El sitio queda tuyo y te ayudo a moverlo a donde sea.",
+          "Cancelas cuando quieras avisando antes del corte del mes. El sitio queda tuyo y te ayudamos a moverlo a donde sea.",
       },
     ],
     noIncluye: [
@@ -504,7 +504,7 @@ export const servicios: Servicio[] = [
         price: 95000,
         billing: "mes",
         paraQuien: "El sitio casi no cambia. Solo que no se caiga.",
-        entrega: "Te respondo en 48 h",
+        entrega: "Te respondemos en 48 h",
         incluye: [
           "Hosting y certificado de seguridad",
           "Copias de seguridad semanales",
@@ -517,7 +517,7 @@ export const servicios: Servicio[] = [
         price: 120000,
         billing: "mes",
         paraQuien: "Cambias precios o promociones cada mes.",
-        entrega: "Te respondo en 24 h",
+        entrega: "Te respondemos en 24 h",
         destacado: true,
         incluye: [
           "Todo lo del Básico",
@@ -531,12 +531,12 @@ export const servicios: Servicio[] = [
         price: 199000,
         billing: "mes",
         paraQuien: "El sitio es tu canal de venta y no puede fallar.",
-        entrega: "Te respondo en 4 h",
+        entrega: "Te respondemos en 4 h",
         incluye: [
           "Todo lo del Activo",
           "8 horas de cambios al mes",
           "Ajustes de velocidad y SEO cada trimestre",
-          "WhatsApp directo conmigo",
+          "WhatsApp directo con el equipo",
         ],
       },
     ],
@@ -544,7 +544,7 @@ export const servicios: Servicio[] = [
       { label: "Hora adicional", value: "$60.000" },
       { label: "Urgencia fuera de horario", value: "$120.000 la hora" },
     ],
-    nota: "Las horas no se acumulan de un mes a otro. Si un mes no las usas, se pierden; si te pasas, se cobran a $60.000 la hora y te aviso antes.",
+    nota: "Las horas no se acumulan de un mes a otro. Si un mes no las usas, se pierden; si te pasas, se cobran a $60.000 la hora y te avisamos antes.",
     faq: [
       {
         q: "¿Necesito el plan de mantenimiento?",
@@ -552,15 +552,15 @@ export const servicios: Servicio[] = [
       },
       {
         q: "¿Qué cuenta como una hora de cambios?",
-        a: "Cambiar textos, precios, fotos, agregar productos, ajustar una sección. Lo que no cuenta es una página nueva o un rediseño: eso se cotiza aparte y te lo digo antes de tocar nada.",
+        a: "Cambiar textos, precios, fotos, agregar productos, ajustar una sección. Lo que no cuenta es una página nueva o un rediseño: eso se cotiza aparte y te lo decimos antes de tocar nada.",
       },
       {
         q: "¿Puedo cancelar cuando quiera?",
-        a: "Sí, sin permanencia ni penalidad. Avisas antes del corte del mes y ya. El sitio queda tuyo y te ayudo a moverlo a donde quieras.",
+        a: "Sí, sin permanencia ni penalidad. Avisas antes del corte del mes y ya. El sitio queda tuyo y te ayudamos a moverlo a donde quieras.",
       },
       {
-        q: "¿Solo mantienes sitios que tú hiciste?",
-        a: "No, pero primero lo reviso. Si está construido con algo que se va a caer solo, te lo digo y te propongo un rediseño en vez de venderte un plan que no va a alcanzar.",
+        q: "¿Solo mantienen sitios que ustedes hicieron?",
+        a: "No, pero primero lo revisamos. Si está construido con algo que se va a caer solo, te lo decimos y te proponemos un rediseño en vez de venderte un plan que no va a alcanzar.",
       },
     ],
     meta: {

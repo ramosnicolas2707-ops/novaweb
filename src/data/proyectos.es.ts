@@ -42,7 +42,7 @@ export const proyectos: Proyecto[] = [
       {
         src: "/proyectos/eclipse-hero.jpg",
         alt: "Portada de Eclipse Perfumería con la campaña de Amor y Amistad: dos perfumes sobre un fondo de rosas rojas y el botón Descubre los dúos perfectos.",
-        pie: "La portada cambia por campaña. Ellos la editan solos, sin llamarme.",
+        pie: "La portada cambia por campaña. Ellos la editan solos, sin llamarnos.",
       },
       {
         src: "/proyectos/eclipse-shoppable.jpg",

@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Props) {
     title: textos(lang).contacto,
     description:
       lang === "es"
-        ? `Escríbeme por WhatsApp al ${site.contact.whatsappDisplay} o por correo. Respondo el mismo día, de lunes a viernes.`
-        : `Message me on WhatsApp at ${site.contact.whatsappDisplay} or by email. I answer the same day, Monday to Friday.`,
+        ? `Escríbenos por WhatsApp al ${site.contact.whatsappDisplay} o por correo. Respondemos el mismo día, de lunes a viernes.`
+        : `Message us on WhatsApp at ${site.contact.whatsappDisplay} or by email. We answer the same day, Monday to Friday.`,
     path: "/contacto",
   });
 }
@@ -72,7 +72,7 @@ export default async function Page({ params }: Props) {
                     href={`https://wa.me/${site.contact.whatsapp}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-naranja-texto"
+                    className="hover:text-rojo"
                   >
                     {site.contact.whatsappDisplay}
                   </a>
@@ -85,7 +85,7 @@ export default async function Page({ params }: Props) {
                 <dd className="mt-2 font-bold break-all">
                   <a
                     href={`mailto:${site.contact.email}`}
-                    className="hover:text-naranja-texto"
+                    className="hover:text-rojo"
                   >
                     {site.contact.email}
                   </a>
@@ -122,7 +122,7 @@ export default async function Page({ params }: Props) {
                   <dt className="text-xs font-bold uppercase tracking-[0.14em] text-grafito">
                     {c.label}
                   </dt>
-                  <dd className="cifra mt-1.5 text-2xl font-extrabold tracking-tight text-naranja-texto">
+                  <dd className="cifra mt-1.5 text-2xl font-extrabold tracking-tight text-rojo">
                     {c.value}
                   </dd>
                   <dd className="mt-2 leading-relaxed text-grafito">

@@ -10,7 +10,7 @@ import { Boton } from "@/components/ui";
 export default function NoEncontrado() {
   return (
     <section className="contenedor flex min-h-[70vh] flex-col justify-center py-32">
-      <p className="cifra text-[clamp(5rem,18vw,11rem)] font-extrabold leading-none tracking-tight text-naranja">
+      <p className="cifra text-[clamp(5rem,18vw,11rem)] font-extrabold leading-none tracking-tight text-rojo">
         404
       </p>
       <h1 className="mt-4 text-[clamp(1.75rem,5vw,3rem)]">

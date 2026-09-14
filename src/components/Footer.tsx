@@ -21,7 +21,7 @@ export default function Footer({
       <div className="contenedor py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <Marca tono="text-blanco" id="novaweb-circuito-pie" />
+            <Marca sobreOscuro />
             <p className="mt-5 max-w-sm leading-relaxed text-white/60">
               {t.pieTagline(site.address.city)}
             </p>
@@ -29,14 +29,14 @@ export default function Footer({
               href={whatsapp(t.waCotizar)}
               target="_blank"
               rel="noopener noreferrer"
-              className="barrido mt-7 inline-flex bg-naranja px-6 py-3.5 text-[0.9375rem] font-bold tracking-tight text-tinta transition-colors duration-300 [--color-barrido:var(--color-blanco)]"
+              className="barrido mt-7 inline-flex bg-rojo px-6 py-3.5 text-[0.9375rem] font-bold tracking-tight text-blanco transition-colors duration-300 [--color-barrido:var(--color-blanco)] hover:text-tinta"
             >
               {t.escribemePorWhatsapp}
             </a>
           </div>
 
           <nav aria-label={t.queHago}>
-            <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-naranja">
+            <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-rojo-claro">
               {t.queHago}
             </h2>
             <ul className="mt-5 space-y-3">
@@ -54,7 +54,7 @@ export default function Footer({
           </nav>
 
           <div>
-            <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-naranja">
+            <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-rojo-claro">
               {t.contacto}
             </h2>
             <ul className="mt-5 space-y-3 text-[0.9375rem] text-white/70">

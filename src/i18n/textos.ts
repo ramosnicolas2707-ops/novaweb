@@ -16,8 +16,8 @@ const es = {
   saltarAlContenido: "Saltar al contenido",
   abrirMenu: "Abrir menú",
   cerrarMenu: "Cerrar menú",
-  escribeme: "Escríbeme",
-  escribemePorWhatsapp: "Escríbeme por WhatsApp",
+  escribeme: "Escríbenos",
+  escribemePorWhatsapp: "Escríbenos por WhatsApp",
   cotizarPorWhatsapp: "Cotizar por WhatsApp",
   verPrecios: "Ver precios",
   moneda: "Moneda",
@@ -29,15 +29,15 @@ const es = {
   contacto: "Contacto",
 
   /* ── Hero ──────────────────────────────────────────────────────────── */
-  heroBadge: "Bogotá · Trabajo para toda Latinoamérica",
-  heroPromesa: "Te hago la página web que tu negocio necesita para vender.",
+  heroBadge: "Bogotá · Trabajamos para todo LATAM",
+  heroPromesa: "Te hacemos la página web que tu negocio necesita para vender.",
   heroBajada: "Páginas web, tiendas online y rediseños.",
-  heroRespuesta: "Te respondo el mismo día.",
+  heroRespuesta: "Te respondemos el mismo día.",
 
   /* ── Home ──────────────────────────────────────────────────────────── */
-  queHago: "Qué hago",
+  queHago: "Qué hacemos",
   queHagoTitulo: "Cuatro cosas, bien hechas",
-  queHagoBajada: "No hago apps, ni logos, ni redes sociales. Hago esto.",
+  queHagoBajada: "No hacemos apps, ni logos, ni redes sociales. Hacemos esto.",
   servicio: "Servicio",
   desde: "desde",
 
@@ -47,21 +47,21 @@ const es = {
   proyectosBajada:
     "Capturas de los sitios en vivo. Nada de mockups bonitos que nunca existieron.",
   elProblema: "El problema",
-  queLeHice: "Qué le hice",
+  queLeHice: "Qué le hicimos",
   verSitioEnVivo: "Ver el sitio en vivo",
   proyectosH1: (n: number) => `${n} proyectos que puedes ir a mirar`,
   proyectosIntro:
-    "Estas son capturas de los sitios funcionando, no maquetas. Si quieres ver alguno en vivo o hablar con el cliente, pídemelo.",
+    "Estas son capturas de los sitios funcionando, no maquetas. Si quieres ver alguno en vivo o hablar con el cliente, pídenoslo.",
   proyectosUnoAUno: "Uno por uno",
   proyectosAntesDespues: "Qué había antes y qué hay ahora",
   proyectosDetalle:
-    "Para cada proyecto: cuál era el problema del negocio y qué construí para resolverlo.",
+    "Para cada proyecto: cuál era el problema del negocio y qué construimos para resolverlo.",
 
   /* ── Precios ───────────────────────────────────────────────────────── */
   precios: "Precios",
   cuantoCuesta: "Cuánto cuesta",
   monedasNota:
-    "Manejamos precios en pesos colombianos y en dólares. Si tu proyecto tiene una estructura complicada, te lo digo antes de facturar.",
+    "Manejamos precios en pesos colombianos y en dólares. Si tu proyecto tiene una estructura complicada, te lo decimos antes de facturar.",
   verElDetalle: "Ver el detalle",
   elMasPedido: "El más pedido",
   preguntarPorEste: "Preguntar por este",
@@ -78,21 +78,21 @@ const es = {
   paraQueNoPierdasTiempo: "Para que no pierdas tiempo",
   esEstoLoQueNecesitas: "¿Es esto lo que necesitas?",
   esEstoBajada:
-    "Te ahorro la llamada: aquí abajo está para qué sirve esto y, si lo tuyo es otra cosa, a dónde ir.",
+    "Te ahorramos la llamada: aquí abajo está para qué sirve esto y, si lo tuyo es otra cosa, a dónde ir.",
   justoLoTuyo: "Esto es justo lo tuyo si…",
   otraCosaTitulo: "Te sirve más otra cosa si…",
   queIncluye: "Qué incluye",
   vaEnTodosLosPlanes: "Esto va en todos los planes",
   noVaIncluido: "Y esto no va incluido",
   preguntas: "Preguntas",
-  loQueMasPreguntan: "Lo que más me preguntan",
+  loQueMasPreguntan: "Lo que más nos preguntan",
   arrancamosCon: (servicio: string) => `¿Arrancamos con ${servicio}?`,
 
   /* ── Cierre ────────────────────────────────────────────────────────── */
   siguientePaso: "Siguiente paso",
   ctaTitulo: "¿Hablamos de tu proyecto?",
   ctaBajada:
-    "Me cuentas qué vendes y a quién. Te digo qué te sirve, cuánto cuesta y en cuánto lo tengo. Si lo que necesitas no lo hago yo, también te lo digo.",
+    "Nos cuentas qué vendes y a quién. Te decimos qué te sirve, cuánto cuesta y en cuánto lo tenemos. Si lo que necesitas no lo hacemos, también te lo decimos.",
   oPorCorreo: "O por correo",
   horarioBogota:
     "Lunes a viernes, 8:00 a 18:00 hora de Bogotá (UTC−5, sin cambio de hora).",
@@ -104,24 +104,20 @@ const es = {
     `Páginas web, tiendas online y rediseños. Desde ${ciudad}, para toda Latinoamérica.`,
   pieHorario: "Lunes a viernes, 8 a 6",
   pieHecho: "Hecho en Next.js. Sin plantillas.",
-  dondeEstoy: "Dónde estoy",
+  dondeEstoy: "Dónde estamos",
   horario: "Horario",
 
   /* ── Contacto ──────────────────────────────────────────────────────── */
-  contactoH1: "Escríbeme y hablamos",
+  contactoH1: "Escríbenos y hablamos",
   contactoIntro:
-    "Cuéntame qué vendes, a quién y qué necesitas. Con eso te digo qué te sirve, cuánto cuesta y en cuánto lo tengo listo. Si lo que necesitas no lo hago yo, te lo digo de una y te ahorro el tiempo.",
-  comoTrabajo: "Cómo trabajo",
+    "Cuéntanos qué vendes, a quién y qué necesitas. Con eso te decimos qué te sirve, cuánto cuesta y en cuánto lo tenemos listo. Si lo que necesitas no lo hacemos, te lo decimos de una y te ahorramos el tiempo.",
+  comoTrabajo: "Cómo trabajamos",
   correo: "Correo",
-
-  /* ── Fin del scroll ────────────────────────────────────────────────── */
-  finTitulo: "Eyyy… ¿qué haces aquí?",
-  finBajada: "Se acabó la página. Para arriba está todo lo demás.",
 
   /* ── 404 ───────────────────────────────────────────────────────────── */
   noEncontradoTitulo: "Esta página no existe",
   noEncontradoTexto:
-    "O la borré, o el enlace venía mal escrito. Te dejo por dónde seguir.",
+    "O la borramos, o el enlace venía mal escrito. Te dejamos por dónde seguir.",
   irAlInicio: "Ir al inicio",
   verElTrabajo: "Ver el trabajo",
 
@@ -146,8 +142,8 @@ const en: Textos = {
   saltarAlContenido: "Skip to content",
   abrirMenu: "Open menu",
   cerrarMenu: "Close menu",
-  escribeme: "Message me",
-  escribemePorWhatsapp: "Message me on WhatsApp",
+  escribeme: "Message us",
+  escribemePorWhatsapp: "Message us on WhatsApp",
   cotizarPorWhatsapp: "Get a quote on WhatsApp",
   verPrecios: "See prices",
   moneda: "Currency",
@@ -159,15 +155,15 @@ const en: Textos = {
   contacto: "Contact",
 
   /* ── Hero ──────────────────────────────────────────────────────────── */
-  heroBadge: "Bogotá · Working across Latin America and the US",
-  heroPromesa: "I build the website your business needs to sell.",
+  heroBadge: "Bogotá · We work across LATAM and the US",
+  heroPromesa: "We build the website your business needs to sell.",
   heroBajada: "Websites, online stores and redesigns.",
-  heroRespuesta: "I answer the same day.",
+  heroRespuesta: "We answer the same day.",
 
   /* ── Home ──────────────────────────────────────────────────────────── */
-  queHago: "What I do",
+  queHago: "What we do",
   queHagoTitulo: "Four things, done properly",
-  queHagoBajada: "No apps, no logos, no social media. This is what I do.",
+  queHagoBajada: "No apps, no logos, no social media. This is what we do.",
   servicio: "Service",
   desde: "from",
 
@@ -177,7 +173,7 @@ const en: Textos = {
   proyectosBajada:
     "Screenshots of the actual sites. No pretty mockups of things that never existed.",
   elProblema: "The problem",
-  queLeHice: "What I built",
+  queLeHice: "What we built",
   verSitioEnVivo: "Visit the live site",
   proyectosH1: (n: number) => `${n} projects you can go and look at`,
   proyectosIntro:
@@ -185,13 +181,13 @@ const en: Textos = {
   proyectosUnoAUno: "One by one",
   proyectosAntesDespues: "What was there before, and what's there now",
   proyectosDetalle:
-    "For each project: what the business's problem was, and what I built to solve it.",
+    "For each project: what the business's problem was, and what we built to solve it.",
 
   /* ── Precios ───────────────────────────────────────────────────────── */
   precios: "Pricing",
   cuantoCuesta: "What it costs",
   monedasNota:
-    "Prices are shown in Colombian pesos and US dollars. If your project has a complicated structure, I'll tell you before I invoice.",
+    "Prices are shown in Colombian pesos and US dollars. If your project has a complicated structure, we'll tell you before we invoice.",
   verElDetalle: "See the details",
   elMasPedido: "Most requested",
   preguntarPorEste: "Ask about this one",
@@ -215,14 +211,14 @@ const en: Textos = {
   vaEnTodosLosPlanes: "This comes with every plan",
   noVaIncluido: "And this doesn't",
   preguntas: "Questions",
-  loQueMasPreguntan: "What people ask me most",
+  loQueMasPreguntan: "What people ask us most",
   arrancamosCon: (servicio: string) => `Shall we start on ${servicio}?`,
 
   /* ── Cierre ────────────────────────────────────────────────────────── */
   siguientePaso: "Next step",
   ctaTitulo: "Want to talk about your project?",
   ctaBajada:
-    "Tell me what you sell and who you sell it to. I'll tell you what suits you, what it costs and how long it takes. If what you need isn't something I do, I'll tell you that too.",
+    "Tell us what you sell and who you sell it to. We'll tell you what suits you, what it costs and how long it takes. If what you need isn't something we do, we'll tell you that too.",
   oPorCorreo: "Or by email",
   horarioBogota:
     "Monday to Friday, 8:00 to 18:00 Bogotá time (UTC−5, no daylight saving).",
@@ -234,24 +230,20 @@ const en: Textos = {
     `Websites, online stores and redesigns. From ${ciudad}, for Latin America and the US.`,
   pieHorario: "Monday to Friday, 8 to 6",
   pieHecho: "Built in Next.js. No templates.",
-  dondeEstoy: "Where I am",
+  dondeEstoy: "Where we are",
   horario: "Hours",
 
   /* ── Contacto ──────────────────────────────────────────────────────── */
-  contactoH1: "Write to me and let's talk",
+  contactoH1: "Write to us and let's talk",
   contactoIntro:
-    "Tell me what you sell, who you sell it to and what you need. With that I'll tell you what suits you, what it costs and when it'll be ready. If what you need isn't something I do, I'll say so right away and save you the time.",
-  comoTrabajo: "How I work",
+    "Tell us what you sell, who you sell it to and what you need. With that we'll tell you what suits you, what it costs and when it'll be ready. If what you need isn't something we do, we'll say so right away and save you the time.",
+  comoTrabajo: "How we work",
   correo: "Email",
-
-  /* ── Fin del scroll ────────────────────────────────────────────────── */
-  finTitulo: "Heyyy… what are you doing down here?",
-  finBajada: "That's the end of the page. Everything else is back up there.",
 
   /* ── 404 ───────────────────────────────────────────────────────────── */
   noEncontradoTitulo: "This page doesn't exist",
   noEncontradoTexto:
-    "Either I deleted it or the link was mistyped. Here's where to go instead.",
+    "Either we deleted it or the link was mistyped. Here's where to go instead.",
   irAlInicio: "Go home",
   verElTrabajo: "See the work",
 

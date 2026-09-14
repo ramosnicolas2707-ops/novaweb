@@ -35,7 +35,7 @@ export async function generateMetadata({
 
 /**
  * Home. Cinco bloques y se acabó:
- *   1. Qué hago (hero + personaje)
+ *   1. Qué hago (hero)
  *   2. Qué vendo (las cuatro tarjetas, cortitas)
  *   3. Trabajo real
  *   4. Precios
@@ -78,7 +78,7 @@ export default async function Home({
                   href={`/${lang}/servicios/${s.slug}`}
                   className="panel-sube group flex h-full flex-col bg-blanco p-8 transition-colors duration-500 hover:text-blanco md:p-10"
                 >
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-naranja-texto group-hover:text-naranja">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-rojo">
                     {t.servicio} {String(i + 1).padStart(2, "0")}
                   </p>
 
@@ -95,7 +95,7 @@ export default async function Home({
                     </span>
                     <span
                       aria-hidden="true"
-                      className="text-naranja-texto transition-transform group-hover:translate-x-1 group-hover:text-naranja"
+                      className="text-rojo transition-transform group-hover:translate-x-1"
                     >
                       →
                     </span>

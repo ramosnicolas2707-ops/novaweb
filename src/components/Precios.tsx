@@ -41,7 +41,7 @@ export default function Precios({ lang, t }: { lang: Idioma; t: Textos }) {
                   <h3 className="text-2xl md:text-3xl">{s.card}</h3>
                   <Link
                     href={`/${lang}/servicios/${s.slug}`}
-                    className="text-[0.9375rem] font-bold tracking-tight text-naranja-texto underline decoration-2 underline-offset-4 hover:text-tinta"
+                    className="text-[0.9375rem] font-bold tracking-tight text-rojo underline decoration-2 underline-offset-4 hover:text-tinta"
                   >
                     {t.verElDetalle} →
                   </Link>
@@ -59,7 +59,7 @@ export default function Precios({ lang, t }: { lang: Idioma; t: Textos }) {
                     <div
                       key={p.name}
                       className={`realza flex flex-col bg-blanco p-7 ${
-                        p.destacado ? "ring-2 ring-inset ring-naranja" : ""
+                        p.destacado ? "ring-2 ring-inset ring-rojo" : ""
                       }`}
                     >
                       <div className="flex items-start justify-between gap-3">
@@ -67,7 +67,7 @@ export default function Precios({ lang, t }: { lang: Idioma; t: Textos }) {
                           {p.name}
                         </h4>
                         {p.destacado && (
-                          <span className="shrink-0 bg-naranja px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wider text-tinta">
+                          <span className="shrink-0 bg-rojo px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wider text-blanco">
                             {t.elMasPedido}
                           </span>
                         )}
@@ -90,7 +90,7 @@ export default function Precios({ lang, t }: { lang: Idioma; t: Textos }) {
                       <p className="mt-3.5 inline-flex w-fit items-center gap-2 bg-nieve px-3 py-1.5 text-sm font-bold">
                         <span
                           aria-hidden="true"
-                          className="h-2 w-2 bg-naranja"
+                          className="h-2 w-2 bg-rojo"
                         />
                         {p.entrega}
                       </p>
@@ -103,7 +103,7 @@ export default function Precios({ lang, t }: { lang: Idioma; t: Textos }) {
                           >
                             <span
                               aria-hidden="true"
-                              className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 bg-naranja"
+                              className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 bg-rojo"
                             />
                             <span>{item}</span>
                           </li>
@@ -118,7 +118,7 @@ export default function Precios({ lang, t }: { lang: Idioma; t: Textos }) {
                         rel="noopener noreferrer"
                         className={`barrido mt-7 inline-flex items-center justify-center px-5 py-3 text-[0.9375rem] font-bold tracking-tight transition-colors duration-300 hover:text-blanco ${
                           p.destacado
-                            ? "bg-naranja text-tinta"
+                            ? "bg-rojo text-blanco"
                             : "border border-filete-fuerte"
                         }`}
                       >

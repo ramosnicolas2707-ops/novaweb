@@ -14,7 +14,6 @@ import { textos } from "@/i18n/textos";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import FinDelScroll from "@/components/FinDelScroll";
 import "../globals.css";
 
 /**
@@ -152,7 +151,6 @@ export default async function LayoutIdioma({
         />
         <main id="contenido">{children}</main>
         <Footer lang={lang} t={t} enlaces={enlaces} />
-        <FinDelScroll t={t} />
       </body>
     </html>
   );
