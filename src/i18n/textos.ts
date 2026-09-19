@@ -29,7 +29,7 @@ const es = {
   contacto: "Contacto",
 
   /* ── Hero ──────────────────────────────────────────────────────────── */
-  heroBadge: "Bogotá · Trabajamos para todo LATAM",
+  heroBadge: "Bogotá · Trabajamos para LATAM y Estados Unidos",
   heroPromesa: "Te hacemos la página web que tu negocio necesita para vender.",
   heroBajada: "Páginas web, tiendas online y rediseños.",
   heroRespuesta: "Te respondemos el mismo día.",
@@ -101,7 +101,7 @@ const es = {
 
   /* ── Pie ───────────────────────────────────────────────────────────── */
   pieTagline: (ciudad: string) =>
-    `Páginas web, tiendas online y rediseños. Desde ${ciudad}, para toda Latinoamérica.`,
+    `Páginas web, tiendas online y rediseños. Desde ${ciudad}, para Latinoamérica y Estados Unidos.`,
   pieHorario: "Lunes a viernes, 8 a 6",
   pieHecho: "Hecho en Next.js. Sin plantillas.",
   dondeEstoy: "Dónde estamos",

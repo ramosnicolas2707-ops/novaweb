@@ -16,9 +16,8 @@ import type { Idioma } from "@/i18n/idiomas";
  * El logotipo NO sale de aquí: cómo se escribe la marca —NOVA en negrita y
  * WEB normal— vive en src/components/Logo.tsx, porque es dibujo y no dato.
  *
- * `url` y `domain` siguen apuntando al dominio viejo de Vercel. Eso se
- * cambia del lado de Vercel primero; mientras tanto son el único rastro del
- * nombre anterior.
+ * `url` y `domain` son el subdominio de Vercel, no un dominio propio. Se
+ * cambian del lado de Vercel primero y después aquí.
  * ─────────────────────────────────────────────────────────────────────────
  */
 /**
@@ -27,8 +26,8 @@ import type { Idioma } from "@/i18n/idiomas";
  * En `false` mientras el dominio siga siendo el de Vercel. El sitio funciona
  * igual y el enlace se puede abrir y compartir: lo único que cambia es que se
  * le pide a los buscadores que no lo indexen. El nombre ya está decidido,
- * pero el dominio todavía dice "meridiano": si Google indexa esa dirección
- * y después se cambia, ese trabajo se pierde.
+ * pero la dirección sigue siendo un subdominio de Vercel: si Google indexa
+ * esa dirección y después se cambia, ese trabajo se pierde.
  *
  * PARA PUBLICAR DE VERDAD: pon esto en `true` y vuelve a desplegar. Eso es
  * todo — desde aquí se alimentan el <meta robots> de todas las páginas y el
@@ -39,8 +38,8 @@ export const INDEXAR = false;
 export const site = {
   name: "NovaWeb",
   legalName: "NovaWeb Estudio",
-  url: "https://meridiano-nrm4.vercel.app",
-  domain: "meridiano-nrm4.vercel.app",
+  url: "https://novaweb-estudio.vercel.app",
+  domain: "novaweb-estudio.vercel.app",
 
   founder: {
     name: "Nicolás Ramos Murcia",

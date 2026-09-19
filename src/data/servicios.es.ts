@@ -138,7 +138,7 @@ export const servicios: Servicio[] = [
     meta: {
       title: "Páginas web desde $900.000 en Colombia",
       description:
-        "Páginas web a medida desde $900.000 la landing y $2.200.000 el sitio completo. Rápidas, listas para Google y con WhatsApp. Bogotá, para toda Latinoamérica.",
+        "Páginas web a medida desde $900.000 la landing y $2.200.000 el sitio completo. Rápidas, listas para Google y WhatsApp. Bogotá, para LATAM y Estados Unidos.",
     },
   },
 

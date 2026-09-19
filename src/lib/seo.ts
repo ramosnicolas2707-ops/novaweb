@@ -101,6 +101,28 @@ export function negocioJsonLd(lang: Idioma) {
   };
 }
 
+/**
+ * La ficha del sitio como tal, distinta de la del negocio.
+ *
+ * Son dos cosas separadas en schema.org y conviene que lo sigan siendo: el
+ * negocio es NovaWeb —que existiría igual sin sitio— y el WebSite es este
+ * sitio, que lo publica. Atarlos con `publisher` apuntando al mismo @id le
+ * dice a Google que las dos fichas hablan de la misma empresa en vez de
+ * tratarlas como dos entidades sueltas que casualmente se llaman igual.
+ */
+export function sitioJsonLd(lang: Idioma) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${URL_BASE}/#sitio`,
+    name: site.name,
+    url: absoluta(`/${lang}`),
+    description: claim[lang],
+    inLanguage: LOCALE[lang],
+    publisher: { "@id": `${URL_BASE}/#negocio` },
+  };
+}
+
 /** Un servicio con sus planes, para que Google muestre el precio. */
 export function servicioJsonLd(lang: Idioma, s: Servicio) {
   return {

@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { servicios, desde } from "@/data/contenido";
+import { servicios, desde, faqHome } from "@/data/contenido";
 import { claim } from "@/data/site";
-import { meta } from "@/lib/seo";
+import { meta, faqJsonLd } from "@/lib/seo";
 import { esIdioma, paramsDeIdioma, type Idioma } from "@/i18n/idiomas";
 import { textos } from "@/i18n/textos";
 import Hero from "@/components/Hero";
+import Faq from "@/components/Faq";
+import JsonLd from "@/components/JsonLd";
 import Proyectos from "@/components/Proyectos";
 import Precios from "@/components/Precios";
 import CtaFinal from "@/components/CtaFinal";
@@ -39,7 +41,8 @@ export async function generateMetadata({
  *   2. Qué vendo (las cuatro tarjetas, cortitas)
  *   3. Trabajo real
  *   4. Precios
- *   5. Cierre
+ *   5. Las dudas que frenan la compra
+ *   6. Cierre
  *
  * Sin sección de "proceso", sin "nosotros", sin logos de tecnologías. Lo que
  * no ayuda a decidir, estorba.
@@ -53,8 +56,18 @@ export default async function Home({
   const lang: Idioma = esIdioma(bruto) ? bruto : "es";
   const t = textos(lang);
 
+  const preguntas = faqHome(lang);
+
   return (
     <>
+      {/*
+        El FAQPage del home. Las preguntas están escritas contra búsquedas
+        reales ("cuánto cuesta una página web"), así que este bloque es lo
+        que puede hacer que el sitio aparezca respondiendo esa búsqueda
+        directamente en Google, sin que nadie entre a la página.
+      */}
+      <JsonLd data={faqJsonLd(preguntas)} />
+
       <Hero t={t} />
 
       {/* Qué vendo */}
@@ -109,6 +122,24 @@ export default async function Home({
 
       <Proyectos lang={lang} t={t} />
       <Precios lang={lang} t={t} />
+
+      {/* Las dudas que frenan la compra, contestadas antes de que escriban. */}
+      <section className="seccion">
+        <div className="contenedor">
+          <Revelar>
+            <TituloSeccion
+              antetitulo={t.preguntas}
+              titulo={t.loQueMasPreguntan}
+            />
+          </Revelar>
+          <Revelar>
+            <div className="mt-12 max-w-3xl">
+              <Faq lang={lang} preguntas={preguntas} />
+            </div>
+          </Revelar>
+        </div>
+      </section>
+
       <CtaFinal t={t} />
     </>
   );

@@ -51,8 +51,8 @@ lo registre, y eso espera a una sola cosa: el dominio.
 ### 1. El dominio (bloquea el lanzamiento)
 
 Hoy `url` y `domain` en `src/data/site.ts` apuntan a
-`meridiano-nrm4.vercel.app`, que es el nombre viejo. El orden importa y no
-se puede invertir:
+`novaweb-estudio.vercel.app`, que es un subdominio de Vercel y no un
+dominio propio. El orden importa y no se puede invertir:
 
 1. Comprar el dominio (`novaweb.co` o el que sea) y conectarlo en Vercel:
    **Project Settings → Domains → Add**.
