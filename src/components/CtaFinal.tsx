@@ -22,7 +22,7 @@ export default function CtaFinal({
     <section className="bg-tinta text-blanco">
       <div className="contenedor py-20 md:py-28">
         <div className="max-w-2xl">
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-naranja">
+          <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-rojo-claro">
             {t.siguientePaso}
           </p>
           <h2 className="text-[clamp(2.25rem,6vw,3.75rem)]">
@@ -37,7 +37,7 @@ export default function CtaFinal({
               href={whatsapp(mensaje ?? t.waCotizar)}
               target="_blank"
               rel="noopener noreferrer"
-              className="barrido inline-flex bg-naranja px-7 py-4 font-bold tracking-tight text-tinta transition-colors duration-300 [--color-barrido:var(--color-blanco)]"
+              className="barrido inline-flex bg-rojo px-7 py-4 font-bold tracking-tight text-blanco transition-colors duration-300 [--color-barrido:var(--color-blanco)] hover:text-tinta"
             >
               {t.escribemePorWhatsapp}
             </a>

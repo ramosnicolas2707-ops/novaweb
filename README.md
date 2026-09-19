@@ -3,9 +3,9 @@
 Next.js 15 (App Router) · TypeScript · Tailwind CSS 4 · 100% estático.
 
 > **El nombre es NovaWeb** y vive en una sola variable de `src/data/site.ts`.
-> El logo —la N de circuito y el logotipo NOVA/WEB— está en
-> `src/components/Logo.tsx`. El personaje `<_>` sigue existiendo, pero ya no
-> firma nada: vive en la portada, de `lg` para arriba.
+> El logo —la N de dos columnas con diagonal roja y el logotipo NOVA/WEB— está en
+> `src/components/Logo.tsx`. El personaje `<_>` se quitó del sitio el 14 de
+> septiembre de 2026, del hero y de debajo del pie.
 
 ---
 
@@ -51,8 +51,8 @@ lo registre, y eso espera a una sola cosa: el dominio.
 ### 1. El dominio (bloquea el lanzamiento)
 
 Hoy `url` y `domain` en `src/data/site.ts` apuntan a
-`meridiano-nrm4.vercel.app`, que es el nombre viejo. El orden importa y no
-se puede invertir:
+`novaweb-estudio.vercel.app`, que es un subdominio de Vercel y no un
+dominio propio. El orden importa y no se puede invertir:
 
 1. Comprar el dominio (`novaweb.co` o el que sea) y conectarlo en Vercel:
    **Project Settings → Domains → Add**.
@@ -150,10 +150,10 @@ porque una API de terceros no contestó es un problema peor.
 
 ## Decisiones que conviene no deshacer sin querer
 
-**Los botones naranjas llevan texto negro, no blanco.** Blanco sobre `#ff5a00`
-da 2.9:1 de contraste y no pasa accesibilidad; negro da 6:1. Además se ve más
-técnico. Por lo mismo hay dos naranjas en `globals.css`: `--naranja` para
-bloques y `--naranja-texto` (más oscuro, 5.1:1) para texto chico.
+**Los botones rojos llevan texto blanco, no negro.** El rojo es oscuro
+(`#b00000`): blanco encima da 7.4:1 y negro apenas 2.6:1. Por lo mismo, sobre
+los bloques negros ese rojo se apaga como texto, y ahí se usa `--rojo-claro`
+(`#ff4d4d`, 5.9:1). Sobre fondo claro, `--rojo` sirve para todo.
 
 **El menú de celular vive fuera del `<header>`.** El header tiene
 `backdrop-blur`, y un elemento con `backdrop-filter` se convierte en el bloque
@@ -168,43 +168,12 @@ contenido y espera al observer para mostrarlo, así que lleva una red de
 seguridad: a los 2 segundos se muestra pase lo que pase. Si el observer no
 dispara, el visitante ve la sección igual — no la pierde.
 
-**El personaje son tres dibujos, no uno encogido.** La cara `<_>` vive en
-`src/components/Mascota.tsx` (`<Mascota>` para el hero, `<CaraMarca>` para la
-barra y el pie) y en `src/app/icon.svg` (favicon). Son distintos a propósito:
-la boca deja de leerse por debajo de unos 28 px, así que el favicon la suelta
-y se queda solo con los ojos. Si cambias la cara, cámbiala en los tres — está
-anotado dentro de cada archivo.
-
-Sus gestos —parpadeo y guiño con sonrisa— son un ciclo de 14 s hecho con
-`opacity` y `steps(1)`, sin una línea de JavaScript. Van con `steps` y no con
-fundido porque un parpadeo que se desvanece no parece un parpadeo, parece un
-error de carga.
-
 **Los hovers se mueven, no cambian de color.** `.barrido`, `.panel-sube` y
 `.subraya` en `globals.css`: un fondo que entra barriendo, un panel que sube,
 una línea que crece. El color cambia también, pero como consecuencia del
 movimiento y para que el texto siga siendo legible, no como el efecto. Las
 tres animan `transform` —nunca `width` ni `height`— para que el navegador lo
 resuelva en la tarjeta gráfica sin recalcular la página en cada cuadro.
-
-**El rebote del final no mueve el scroll: encoge la sección.** La sección
-del personaje que va debajo del pie (`FinDelScroll` + `ReboteDelFinal`) tiene
-altura propia y se recoge sola a los 2 segundos de que la ves. Al acortarse
-el documento, el navegador sube la vista él mismo.
-
-Llegué ahí después de que dos versiones que sí movían el scroll se rompieran:
-
-- `scrollTo({ behavior: "smooth" })` no siempre corre. Hay navegadores y
-  configuraciones donde el suave nativo está apagado y la llamada no mueve
-  nada: no falla, no avisa, simplemente no pasa.
-- Animarlo a mano tampoco alcanzó. Cualquier reacomodo de maquetación —una
-  fuente que termina de cargar, una imagen que ocupa su sitio— movía la
-  página unos píxeles, la animación lo confundía con el visitante tomando el
-  control y se cancelaba a media vuelta. Fallaba en unas páginas y en otras
-  no, según cuánto se acomodara cada una, que es la peor clase de error.
-
-Encogiendo no hay nada que sincronizar. Si vuelves a tocarlo, no lo
-conviertas otra vez en un `scrollTo`.
 
 **Las páginas de servicio comparten una sola plantilla**
 (`src/components/PaginaServicio.tsx`). Cada `page.tsx` son diez líneas que le

@@ -5,7 +5,7 @@ import { site } from "@/data/site";
  * La imagen que aparece cuando alguien pega un enlace del sitio en WhatsApp,
  * en Instagram o en un chat. Se genera al compilar, una por página.
  *
- * Mismo lenguaje que el sitio: blanco, un bloque naranja y el texto en negro.
+ * Mismo lenguaje que el sitio: blanco, un bloque rojo y el texto en negro.
  * No se cargan fuentes externas a propósito — traer un binario de tipografía
  * en tiempo de build hace que el deploy dependa de que Google esté arriba.
  */
@@ -40,26 +40,13 @@ export function imagenOg({
       >
         {/* Marca */}
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          {/* El isotipo, escrito en vez de dibujado. Satori no traza bien los
-              paths de un SVG, y las pistas doradas del logo se le pierden;
-              una N en la caja naranja sí sale igual que en el sitio. */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "56px",
-              height: "56px",
-              borderRadius: "17px",
-              backgroundColor: "#ff5a00",
-              color: "#0d0d0d",
-              fontSize: "38px",
-              fontWeight: 800,
-              letterSpacing: "-1px",
-            }}
-          >
-            N
-          </div>
+          {/* El isotipo, la misma N de Logo.tsx. Son solo rectángulos y un
+              polígono, que Satori dibuja sin problema. */}
+          <svg width="64" height="64" viewBox="0 0 40 40">
+            <rect x="5" y="5" width="8" height="30" fill="#0d0d0d" />
+            <rect x="27" y="5" width="8" height="30" fill="#0d0d0d" />
+            <polygon points="5,5 13,5 35,35 27,35" fill="#b00000" />
+          </svg>
           {/* NOVA pesado y WEB normal, como en la barra. Los pesos van
               declarados, pero aquí no se ven: sin fuente propia, Satori cae
               en la sans del sistema, que trae un solo grosor. Se dejan
@@ -80,7 +67,7 @@ export function imagenOg({
                 fontWeight: 700,
                 letterSpacing: "4px",
                 textTransform: "uppercase",
-                color: "#c73f00",
+                color: "#b00000",
                 marginBottom: "24px",
               }}
             >
@@ -116,8 +103,8 @@ export function imagenOg({
             <div
               style={{
                 display: "flex",
-                backgroundColor: "#ff5a00",
-                color: "#0d0d0d",
+                backgroundColor: "#b00000",
+                color: "#ffffff",
                 fontSize: "32px",
                 fontWeight: 800,
                 padding: "12px 24px",

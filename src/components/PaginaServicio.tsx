@@ -78,7 +78,7 @@ export default function PaginaServicio({
               debajo de su contenido a menos que uno se lo diga, así que sin
               eso cualquier cifra larga que venga después repite el problema. */}
           <dl className="grid h-fit gap-px bg-filete sm:grid-cols-2 lg:grid-cols-1">
-            <div className="min-w-0 bg-blanco p-6 lg:border-l-2 lg:border-naranja">
+            <div className="min-w-0 bg-blanco p-6 lg:border-l-2 lg:border-rojo">
               <dt className="text-xs font-bold uppercase tracking-[0.14em] text-grafito">
                 {t.desde}
               </dt>
@@ -89,7 +89,7 @@ export default function PaginaServicio({
                 />
               </dd>
             </div>
-            <div className="min-w-0 bg-blanco p-6 lg:border-l-2 lg:border-naranja">
+            <div className="min-w-0 bg-blanco p-6 lg:border-l-2 lg:border-rojo">
               <dt className="text-xs font-bold uppercase tracking-[0.14em] text-grafito">
                 {t.entrega}
               </dt>
@@ -134,7 +134,7 @@ export default function PaginaServicio({
                           {" "}
                           <Link
                             href={`/${lang}${item.ir.href}`}
-                            className="font-bold whitespace-nowrap text-naranja-texto underline decoration-2 underline-offset-4 hover:text-tinta"
+                            className="font-bold whitespace-nowrap text-rojo underline decoration-2 underline-offset-4 hover:text-tinta"
                           >
                             {item.ir.label} →
                           </Link>
@@ -213,13 +213,13 @@ export default function PaginaServicio({
                     segundo que pregunta todo el mundo. */}
                 <div
                   className={`realza flex h-full flex-col bg-blanco p-8 ${
-                    p.destacado ? "ring-2 ring-inset ring-naranja" : ""
+                    p.destacado ? "ring-2 ring-inset ring-rojo" : ""
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-xl">{p.name}</h3>
                     {p.destacado && (
-                      <span className="shrink-0 bg-naranja px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wider text-tinta">
+                      <span className="shrink-0 bg-rojo px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wider text-blanco">
                         {t.elMasPedido}
                       </span>
                     )}
@@ -240,7 +240,7 @@ export default function PaginaServicio({
                   </p>
 
                   <p className="mt-4 inline-flex w-fit items-center gap-2 bg-nieve px-3 py-1.5 text-sm font-bold">
-                    <span aria-hidden="true" className="h-2 w-2 bg-naranja" />
+                    <span aria-hidden="true" className="h-2 w-2 bg-rojo" />
                     {p.entrega}
                   </p>
 
@@ -251,7 +251,7 @@ export default function PaginaServicio({
                   <Boton
                     href={whatsapp(t.waPlan(p.name, s.card, precio(p.price)))}
                     externo
-                    tono={p.destacado ? "naranja" : "linea"}
+                    tono={p.destacado ? "rojo" : "linea"}
                     className="mt-8 w-full"
                   >
                     {t.preguntarPorEste}
@@ -280,7 +280,7 @@ export default function PaginaServicio({
               </div>
 
               {s.nota && (
-                <div className="border-l-2 border-naranja pl-6">
+                <div className="border-l-2 border-rojo pl-6">
                   <h3 className="mb-3 text-lg">{t.ojoConEsto}</h3>
                   <p className="leading-relaxed text-grafito">{s.nota}</p>
                 </div>

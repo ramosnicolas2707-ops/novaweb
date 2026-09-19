@@ -1,23 +1,23 @@
 /* =============================================================================
-   SISTEMA VISUAL — blanco, naranja, negro
+   SISTEMA VISUAL — blanco, rojo, negro
    =============================================================================
 
-   COLOR. Blanco manda. Naranja señala. Negro sostiene.
+   COLOR. Blanco manda. Rojo señala. Negro sostiene.
 
-   El blanco no es un fondo: es el 80% de la página. El naranja aparece solo
+   El blanco no es un fondo: es el 80% de la página. El rojo aparece solo
    donde hay que hacer clic o mirar, y el negro carga el peso del texto y de
    los bloques que tienen que frenar el scroll.
 
-   El naranja tiene una trampa que hay que conocer: --naranja (#ff5a00) sobre
-   blanco da 3.1:1 de contraste. Alcanza para un titular grande o un bloque de
-   color, NO para texto normal. Por eso hay dos naranjas:
+   Es un rojo oscuro, y eso decide dos cosas:
 
-     --naranja        bloques, botones, líneas, números grandes. Nunca texto chico.
-     --naranja-texto  el mismo tono oscurecido, 5.1:1 sobre blanco. Ese sí es texto.
+     --rojo        #b00000. Bloques, botones, líneas y también texto sobre
+                   fondo claro: da 7.4:1 sobre blanco y 6.7:1 sobre nieve.
+     --rojo-claro  #ff4d4d. SOLO sobre los bloques negros (texto y la
+                   diagonal del logo en el pie), donde --rojo se apaga
+                   (2.6:1). Este da 5.9:1 sobre tinta.
 
-   Y por eso los botones naranjas llevan texto NEGRO, no blanco: negro sobre
-   naranja da 6:1 y se lee de lejos; blanco sobre naranja da 2.9:1 y no pasa.
-   Además el negro sobre naranja se ve más técnico, que es justo el punto.
+   Los botones rojos llevan texto BLANCO: da 7.4:1. Negro sobre este rojo
+   da 2.6:1 y no pasa.
 
    TIPOGRAFÍA. Una sola familia.
 
@@ -41,8 +41,8 @@
   --color-nieve: #f5f4f1; /* secciones alternas, superficies */
   --color-tinta: #0d0d0d; /* texto y bloques oscuros */
   --color-grafito: #5c5c5c; /* texto secundario — 6.6:1 sobre blanco */
-  --color-naranja: #ff5a00; /* bloques y botones — 6:1 con texto negro encima */
-  --color-naranja-texto: #c73f00; /* texto naranja — 5.1:1 sobre blanco */
+  --color-rojo: #b00000; /* bloques, botones y texto sobre claro — 7.4:1 con blanco */
+  --color-rojo-claro: #ff4d4d; /* texto rojo sobre tinta — 5.9:1 */
 
   /* Filetes derivados de tinta. No son colores nuevos: son tinta con alfa. */
   --color-filete: rgb(13 13 13 / 0.1);
@@ -102,7 +102,7 @@
 
   /* Foco visible y del color de la marca, sin matar el estilo del navegador. */
   :focus-visible {
-    outline: 2px solid var(--color-naranja);
+    outline: 2px solid var(--color-rojo);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -232,7 +232,7 @@
     transform: scaleY(1);
   }
 
-  /* La tarjeta se levanta, se ilumina y le entra una línea naranja por
+  /* La tarjeta se levanta, se ilumina y le entra una línea roja por
      arriba. Para las cuadrículas de "qué incluye" y las tarjetas de plan,
      donde un simple cambio de color no alcanzaba para llamar la atención.
 
@@ -251,7 +251,7 @@
     inset-inline: 0;
     top: 0;
     height: 3px;
-    background: var(--color-naranja);
+    background: var(--color-rojo);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 420ms var(--curva);
@@ -280,7 +280,7 @@
     inset-inline: 0;
     bottom: -0.4rem;
     height: 2px;
-    background: var(--color-naranja);
+    background: var(--color-rojo);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 320ms var(--curva);
@@ -290,44 +290,6 @@
   .subraya:focus-visible::after,
   .subraya[aria-current="page"]::after {
     transform: scaleX(1);
-  }
-
-  /* ── El rebote del final ─────────────────────────────────────────────────
-
-     La sección del personaje que va debajo del pie. Tiene altura propia para
-     que haya algo que recoger, y se recoge sola dos segundos después de que
-     la ves (lo dispara ReboteDelFinal.tsx poniendo data-encogido).
-
-     Al achicarse, el documento se acorta y el navegador sube la vista él
-     mismo. Ese es todo el truco: no se toca la posición del scroll, así que
-     no hay nada que pueda desincronizarse.
-
-     La altura se anima en píxeles y no en porcentaje porque el navegador no
-     interpola una transición entre dos valores relativos.                  */
-
-  .fin-scroll {
-    height: 17rem;
-    overflow: hidden;
-    /* Sale disparada y asienta al final, como un resorte. La curva por
-       defecto del sitio (--curva) es más lenta y aquí se sentía pesada.
-       will-change le avisa al navegador que prepare la capa antes de que
-       empiece, que es de donde salían los tirones del primer cuadro. */
-    will-change: height;
-    transition:
-      height 360ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 240ms ease-out;
-  }
-
-  .fin-scroll[data-encogido="true"] {
-    height: 0;
-    opacity: 0;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    /* Se recoge igual —el visitante sale del fondo— pero sin animación. */
-    .fin-scroll {
-      transition: none;
-    }
   }
 
   /* Aparición al hacer scroll. La activa Revelar con IntersectionObserver. */

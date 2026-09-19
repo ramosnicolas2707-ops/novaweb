@@ -1,9 +1,11 @@
 import type { Idioma } from "@/i18n/idiomas";
-import type { Servicio, Proyecto } from "./tipos";
+import type { Servicio, Proyecto, Faq } from "./tipos";
 import { servicios as serviciosEs } from "./servicios.es";
 import { servicios as serviciosEn } from "./servicios.en";
 import { proyectos as proyectosEs } from "./proyectos.es";
 import { proyectos as proyectosEn } from "./proyectos.en";
+import { faqHome as faqHomeEs } from "./faq.es";
+import { faqHome as faqHomeEn } from "./faq.en";
 
 /**
  * El único sitio desde donde se pide contenido.
@@ -28,9 +30,17 @@ const PROYECTOS: Record<Idioma, Proyecto[]> = {
   en: proyectosEn,
 };
 
+/** Las preguntas del home. Las de cada servicio viven dentro del servicio. */
+const FAQ_HOME: Record<Idioma, Faq[]> = {
+  es: faqHomeEs,
+  en: faqHomeEn,
+};
+
 export const servicios = (lang: Idioma) => SERVICIOS[lang];
 
 export const proyectos = (lang: Idioma) => PROYECTOS[lang];
+
+export const faqHome = (lang: Idioma) => FAQ_HOME[lang];
 
 export const servicioPorSlug = (lang: Idioma, slug: string) =>
   SERVICIOS[lang].find((s) => s.slug === slug);

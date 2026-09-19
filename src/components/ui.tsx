@@ -11,8 +11,8 @@ import type { ReactNode } from "react";
 type BotonProps = {
   href: string;
   children: ReactNode;
-  /** "naranja" es el botón principal. Solo uno por pantalla. */
-  tono?: "naranja" | "negro" | "linea";
+  /** "rojo" es el botón principal. Solo uno por pantalla. */
+  tono?: "rojo" | "negro" | "linea";
   /** Los enlaces a WhatsApp salen en pestaña nueva. */
   externo?: boolean;
   className?: string;
@@ -23,15 +23,14 @@ type BotonProps = {
  * .barrido en globals.css). El color del texto cambia con él porque tiene que
  * hacerlo para seguir siendo legible, no porque el color sea el efecto.
  *
- * --color-barrido es lo que entra. El texto NEGRO sobre naranja da 6:1 de
- * contraste; blanco sobre naranja no pasa accesibilidad, por eso el botón
- * principal arranca en negro y se va a blanco cuando entra el fondo oscuro.
+ * --color-barrido es lo que entra. El texto va BLANCO todo el tiempo: da
+ * 7.4:1 sobre el rojo y 19:1 sobre el negro que entra barriendo.
  */
 const tonos = {
-  naranja:
-    "barrido bg-naranja text-tinta [--color-barrido:var(--color-tinta)] hover:text-blanco",
+  rojo:
+    "barrido bg-rojo text-blanco [--color-barrido:var(--color-tinta)]",
   negro:
-    "barrido bg-tinta text-blanco [--color-barrido:var(--color-naranja)] hover:text-tinta",
+    "barrido bg-tinta text-blanco [--color-barrido:var(--color-rojo)]",
   linea:
     "barrido border border-filete-fuerte text-tinta [--color-barrido:var(--color-tinta)] hover:border-tinta hover:text-blanco",
 } as const;
@@ -39,7 +38,7 @@ const tonos = {
 export function Boton({
   href,
   children,
-  tono = "naranja",
+  tono = "rojo",
   externo = false,
   className = "",
 }: BotonProps) {
@@ -78,7 +77,7 @@ export function Antetitulo({
   return (
     <p
       className={`mb-4 text-xs font-bold uppercase tracking-[0.18em] ${
-        sobreOscuro ? "text-naranja" : "text-naranja-texto"
+        sobreOscuro ? "text-rojo-claro" : "text-rojo"
       }`}
     >
       {children}
@@ -119,7 +118,7 @@ export function TituloSeccion({
 
 /* ─────────────────────────────────────────────────────────────── Listas ── */
 
-/** Lista con palomita naranja. Para lo que sí está incluido. */
+/** Lista con palomita roja. Para lo que sí está incluido. */
 export function ListaSi({ items }: { items: readonly string[] }) {
   return (
     <ul className="space-y-3">
@@ -127,7 +126,7 @@ export function ListaSi({ items }: { items: readonly string[] }) {
         <li key={item} className="flex gap-3 text-[0.9375rem] leading-relaxed">
           <span
             aria-hidden="true"
-            className="mt-[0.4rem] h-2 w-2 shrink-0 bg-naranja"
+            className="mt-[0.4rem] h-2 w-2 shrink-0 bg-rojo"
           />
           <span>{item}</span>
         </li>

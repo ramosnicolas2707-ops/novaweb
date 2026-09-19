@@ -18,12 +18,12 @@ export const servicios: Servicio[] = [
     cardLine: "So people find you and write to you.",
     h1: "Websites that actually bring in clients",
     resumen:
-      "NovaWeb builds custom websites from COP $900,000 for a landing page and COP $2,200,000 for a full site, delivered in 2 to 5 weeks.",
+      "NovaWeb builds custom websites from COP $900,000 for a landing page and COP $2,200,000 for a full site, delivered in 1 to 4 weeks.",
     intro: [
-      "A website has two jobs: getting you found on Google, and getting people to write to you. Everything I build points at those two.",
+      "A website has two jobs: getting you found on Google, and getting people to write to you. Everything we build points at those two.",
       "You get a fast site that looks right on a phone and has the WhatsApp button where it belongs. No recycled templates and no plugins that break in six months.",
     ],
-    entrega: "2 to 5 weeks, depending on the plan.",
+    entrega: "1 to 4 weeks, depending on the plan.",
     siEsParaTi: [
       "You have a running business and you want it to look online the way it looks in person.",
       "You want to show up on Google when someone searches for what you sell.",
@@ -40,7 +40,7 @@ export const servicios: Servicio[] = [
       },
       {
         texto:
-          "Your budget is still below this. Write to me anyway and I'll tell you where to start, even if it's without me.",
+          "Your budget is still below this. Write to us anyway and we'll tell you where to start, even if it's without us.",
       },
     ],
     incluyeSiempre: [
@@ -67,12 +67,12 @@ export const servicios: Servicio[] = [
       {
         title: "The code is yours",
         detail:
-          "I hand over the repository. If tomorrow you want to work with someone else, you don't have to ask my permission.",
+          "We hand over the repository. If tomorrow you want to work with someone else, you don't have to ask our permission.",
       },
       {
-        title: "I show you how to use it",
+        title: "We show you how to use it",
         detail:
-          "When I hand it over I record a short video showing you where everything is. It's yours to keep, for when you forget.",
+          "When we hand it over we record a short video showing you where everything is. It's yours to keep, for when you forget.",
       },
     ],
     noIncluye: [
@@ -87,7 +87,7 @@ export const servicios: Servicio[] = [
         price: 900000,
         billing: "unico",
         paraQuien: "One service or product you want to push.",
-        entrega: "Ready in 2 weeks",
+        entrega: "Ready in 1 week",
         incluye: [
           "One page, up to 6 sections",
           "Custom design, not a template",
@@ -101,7 +101,7 @@ export const servicios: Servicio[] = [
         price: 2200000,
         billing: "unico",
         paraQuien: "A business with several services to explain.",
-        entrega: "Ready in 5 weeks",
+        entrega: "Ready in 4 weeks",
         destacado: true,
         incluye: [
           "Up to 6 pages (home, services, about, contact…)",
@@ -120,19 +120,19 @@ export const servicios: Servicio[] = [
     faq: [
       {
         q: "How much does a website cost in Colombia?",
-        a: "Here, from COP $900,000 for a landing page and COP $2,200,000 for a full site, with no surprises afterwards. Around the market you'll see anything from COP $300,000 (a template thrown together in an afternoon) to over COP $10,000,000 (a large agency with a team). I sit in the middle: custom work, without an agency's cost structure.",
+        a: "Here, from COP $900,000 for a landing page and COP $2,200,000 for a full site, with no surprises afterwards. Around the market you'll see anything from COP $300,000 (a template thrown together in an afternoon) to over COP $10,000,000 (a large agency with a team). We sit in the middle: custom work, without a big agency's cost structure.",
       },
       {
         q: "How long does it take?",
-        a: "Two weeks for a landing page, five for a full site, counting from the moment you send me the copy and the photos. The clock starts when I have the material, not when you pay the deposit. If the material is late, delivery is late.",
+        a: "One week for a landing page, four for a full site, counting from the moment you send us the copy and the photos. The clock starts when we have the material, not when you pay the deposit. If the material is late, delivery is late.",
       },
       {
         q: "Are hosting and the domain included?",
-        a: "Hosting yes: the site is published on Vercel, which costs nothing for a static site. You buy the domain yourself (around COP $60,000 a year for a .com, COP $80,000 for a .co) and it stays in your name, not mine. I connect it.",
+        a: "Hosting yes: the site is published on Vercel, which costs nothing for a static site. You buy the domain yourself (around COP $60,000 a year for a .com, COP $80,000 for a .co) and it stays in your name, not ours. We connect it.",
       },
       {
         q: "Can I change the copy myself afterwards?",
-        a: "If you take the editable blog, yes: you change it from a panel, no code needed. Without it, you ask me and the changes go inside the two included rounds. After those, they're billed by the hour at COP $60,000, or covered by a monthly plan.",
+        a: "If you take the editable blog, yes: you change it from a panel, no code needed. Without it, you ask us and the changes go inside the two included rounds. After those, they're billed by the hour at COP $60,000, or covered by a monthly plan.",
         ir: {
           href: "/servicios/mantenimiento",
           label: "If you want to see the maintenance plans, look here",
@@ -140,7 +140,7 @@ export const servicios: Servicio[] = [
       },
       {
         q: "What if I don't like the design?",
-        a: "We change it. I show you the design first and only start coding once you like it, so adjustments happen at the cheap point of the project instead of when everything is already built. Two rounds of changes are included, and in practice the second one is rarely used.",
+        a: "We change it. We show you the design first and only start coding once you like it, so adjustments happen at the cheap point of the project instead of when everything is already built. Two rounds of changes are included, and in practice the second one is rarely used.",
       },
     ],
     meta: {
@@ -158,12 +158,12 @@ export const servicios: Servicio[] = [
     cardLine: "So people buy without writing to you.",
     h1: "Online stores that sell on their own",
     resumen:
-      "NovaWeb builds online stores from COP $2,800,000, with a payment gateway, instalments and WhatsApp checkout, delivered in 4 to 10 weeks.",
+      "NovaWeb builds online stores from COP $2,800,000, with a payment gateway, instalments and WhatsApp checkout, delivered in 3 to 9 weeks.",
     intro: [
       "If you sell on WhatsApp, every sale costs you a conversation. An online store takes money while you sleep.",
-      "I set up the store with a real catalogue, a payment gateway, instalment payments and the WhatsApp button left exactly where it is for the people who still want to be walked through it. Both doors open.",
+      "We set up the store with a real catalogue, a payment gateway, instalment payments and the WhatsApp button left exactly where it is for the people who still want to be walked through it. Both doors open.",
     ],
-    entrega: "4 to 10 weeks, depending on the size of the catalogue.",
+    entrega: "3 to 9 weeks, depending on the size of the catalogue.",
     siEsParaTi: [
       "You already sell and WhatsApp is starting to be too small for it.",
       "You have photos of your products, or you can get them.",
@@ -181,14 +181,14 @@ export const servicios: Servicio[] = [
       },
       {
         texto:
-          "You want a marketplace with several sellers. That's a different, bigger project — write to me and let's talk it through.",
+          "You want a marketplace with several sellers. That's a different, bigger project — write to us and let's talk it through.",
       },
     ],
     incluyeSiempre: [
       {
         title: "It actually takes money",
         detail:
-          "The gateway is connected and tested with a real purchase before I hand it over. Wompi, Mercado Pago, or whichever one you use.",
+          "The gateway is connected and tested with a real purchase before we hand it over. Wompi, Mercado Pago, or whichever one you use.",
       },
       {
         title: "Instalment payments",
@@ -208,10 +208,10 @@ export const servicios: Servicio[] = [
       {
         title: "You run the inventory",
         detail:
-          "A panel to add products, change prices and mark things out of stock. Without calling me.",
+          "A panel to add products, change prices and mark things out of stock. Without calling us.",
       },
       {
-        title: "I show you how to run it",
+        title: "We show you how to run it",
         detail:
           "A short video on delivery: how to add a product, change a price and mark something sold out. It stays recorded, to watch again when you need it.",
       },
@@ -228,7 +228,7 @@ export const servicios: Servicio[] = [
         price: 2800000,
         billing: "unico",
         paraQuien: "A small catalogue, up to 50 products.",
-        entrega: "Ready in 4 weeks",
+        entrega: "Ready in 3 weeks",
         incluye: [
           "Up to 50 products",
           "Payment gateway connected",
@@ -242,7 +242,7 @@ export const servicios: Servicio[] = [
         price: 4400000,
         billing: "unico",
         paraQuien: "A mid-sized catalogue with sizes, colours or formats.",
-        entrega: "Ready in 7 weeks",
+        entrega: "Ready in 6 weeks",
         destacado: true,
         incluye: [
           "Up to 300 products",
@@ -257,7 +257,7 @@ export const servicios: Servicio[] = [
         price: 7000000,
         billing: "unico",
         paraQuien: "A large catalogue, or something out of the ordinary.",
-        entrega: "Ready in 10 weeks",
+        entrega: "Ready in 9 weeks",
         incluye: [
           "Unlimited products",
           "Everything in Professional",
@@ -272,7 +272,7 @@ export const servicios: Servicio[] = [
       { label: "Additional gateway", value: "COP $350,000" },
       { label: "Subscriptions", value: "from COP $900,000" },
     ],
-    nota: "Payment gateways charge their own commission per transaction (between 2.5% and 4%, depending on which one). That's charged by the gateway, not by me.",
+    nota: "Payment gateways charge their own commission per transaction (between 2.5% and 4%, depending on which one). That's charged by the gateway, not by us.",
     faq: [
       {
         q: "How much does an online store cost in Colombia?",
@@ -280,7 +280,7 @@ export const servicios: Servicio[] = [
       },
       {
         q: "Shopify or custom-built?",
-        a: "That depends on you, not on me. Shopify if you want to run it without depending on anyone and you don't mind paying the monthly fee and the platform's commission. Custom if you have something unusual that Shopify won't do, or if your volume already justifies getting that commission off your back. On the first call I'll tell you which one suits you, even when it's the one that pays me less.",
+        a: "That depends on you, not on us. Shopify if you want to run it without depending on anyone and you don't mind paying the monthly fee and the platform's commission. Custom if you have something unusual that Shopify won't do, or if your volume already justifies getting that commission off your back. On the first call we'll tell you which one suits you, even when it's the one that pays us less.",
       },
       {
         q: "Can I sell without a gateway, on WhatsApp only?",
@@ -288,11 +288,11 @@ export const servicios: Servicio[] = [
       },
       {
         q: "Who uploads the products?",
-        a: "You do, from the panel, and I teach you how. If there are a lot of them and you'd rather I did it, that's quoted separately from COP $400,000 depending on the quantity and the format your information is in.",
+        a: "You do, from the panel, and we teach you how. If there are a lot of them and you'd rather we did it, that's quoted separately from COP $400,000 depending on the quantity and the format your information is in.",
       },
       {
         q: "What about instalment payments?",
-        a: "Addi and Sistecrédito connect like any other gateway. You open the account with them, I connect it. In Colombia it moves the needle: people buy more expensive things when they see it split into three.",
+        a: "Addi and Sistecrédito connect like any other gateway. You open the account with them, we connect it. In Colombia it moves the needle: people buy more expensive things when they see it split into three.",
       },
     ],
     meta: {
@@ -313,9 +313,9 @@ export const servicios: Servicio[] = [
       "NovaWeb redesigns existing websites from COP $950,000, keeping the Google ranking the site already has.",
     intro: [
       "Your site works, but it looks like 2016, it loads slowly and it falls apart on a phone. You don't have to throw it away.",
-      "I redesign what you already have without losing what you already earned on Google. That's the whole point: a brand-new site starts from zero in search, and a redesign done properly does not.",
+      "We redesign what you already have without losing what you already earned on Google. That's the whole point: a brand-new site starts from zero in search, and a redesign done properly does not.",
     ],
-    entrega: "2 to 4 weeks.",
+    entrega: "1 to 3 weeks.",
     siEsParaTi: [
       "Your site is more than three years old and it shows.",
       "On a phone it breaks, or you have to zoom in to read it.",
@@ -341,7 +341,7 @@ export const servicios: Servicio[] = [
       {
         title: "You don't lose your Google ranking",
         detail:
-          "I check which of your pages are ranking and keep them at the same address. Anything that has to change gets redirected. Nobody lands on a 404.",
+          "We check which of your pages are ranking and keep them at the same address. Anything that has to change gets redirected. Nobody lands on a 404.",
       },
       {
         title: "A real redesign",
@@ -361,19 +361,19 @@ export const servicios: Servicio[] = [
       {
         title: "Before and after, measured",
         detail:
-          "I show you the speed and the page score before and after. With numbers, not opinions.",
+          "We show you the speed and the page score before and after. With numbers, not opinions.",
       },
       {
         title: "Nothing gets lost on the way",
         detail:
-          "Before touching anything I keep a full copy of your current site. If some part of the new design doesn't convince you, there's somewhere to go back to.",
+          "Before touching anything we keep a full copy of your current site. If some part of the new design doesn't convince you, there's somewhere to go back to.",
       },
     ],
     noIncluye: [
       "Rewriting the content (the copy you have is reordered and adjusted)",
       "New photos",
       "Migrating off a very closed platform (checked first)",
-      "Recovering rankings you had already lost before calling me",
+      "Recovering rankings you had already lost before calling us",
     ],
     planes: [
       {
@@ -381,7 +381,7 @@ export const servicios: Servicio[] = [
         price: 950000,
         billing: "unico",
         paraQuien: "The content works. What's wrong is how it looks.",
-        entrega: "Ready in 2 weeks",
+        entrega: "Ready in 1 week",
         incluye: [
           "Up to 4 pages",
           "New design using your current content",
@@ -395,7 +395,7 @@ export const servicios: Servicio[] = [
         price: 2100000,
         billing: "unico",
         paraQuien: "The site needs rethinking: what it says and in what order.",
-        entrega: "Ready in 4 weeks",
+        entrega: "Ready in 3 weeks",
         destacado: true,
         incluye: [
           "Up to 8 pages",
@@ -411,7 +411,7 @@ export const servicios: Servicio[] = [
       { label: "SEO review beforehand", value: "COP $350,000" },
       { label: "Platform migration", value: "quoted" },
     ],
-    nota: "Before I quote you I look at your site and tell you whether you actually need a redesign. Sometimes fixing three things is enough, and I'll say so even when it costs me the job.",
+    nota: "Before we quote you we look at your site and tell you whether you actually need a redesign. Sometimes fixing three things is enough, and we'll say so even when it costs us the job.",
     faq: [
       {
         q: "Will I lose my Google ranking?",
@@ -423,17 +423,17 @@ export const servicios: Servicio[] = [
       },
       {
         q: "My site is on WordPress. Do I have to move?",
-        a: "Not necessarily. If WordPress works for you and you know how to use it, we redesign there. If what's making it slow is a mountain of plugins, I'll propose moving it to a static site and explain what you gain and what you lose. You decide.",
+        a: "Not necessarily. If WordPress works for you and you know how to use it, we redesign there. If what's making it slow is a mountain of plugins, we'll propose moving it to a static site and explain what you gain and what you lose. You decide.",
       },
       {
         q: "How do I know if I need a redesign?",
-        a: "Open it on your phone right now. If you have to zoom in to read, if something spills off the edge, or if it takes more than three seconds to appear, you already have your answer. Send it to me anyway and I'll tell you what I see, at no cost.",
+        a: "Open it on your phone right now. If you have to zoom in to read, if something spills off the edge, or if it takes more than three seconds to appear, you already have your answer. Send it to us anyway and we'll tell you what we see, at no cost.",
       },
     ],
     meta: {
       title: "Website redesign from COP $950,000",
       description:
-        "I redesign your site without losing what you already have on Google. From COP $950,000. The phone version, the speed and the design, all fixed.",
+        "We redesign your site without losing what you already have on Google. From COP $950,000. The phone version, the speed and the design, all fixed.",
     },
   },
 
@@ -454,7 +454,7 @@ export const servicios: Servicio[] = [
     siEsParaTi: [
       "You change prices, promotions or photos often.",
       "You don't want to learn to edit the site and there's nobody to hand that task to.",
-      "You'd rather hear from me that the site went down than from a customer.",
+      "You'd rather hear from us that the site went down than from a customer.",
     ],
     otraCosa: [
       {
@@ -483,12 +483,12 @@ export const servicios: Servicio[] = [
       {
         title: "Monitoring",
         detail:
-          "The site is checked every 5 minutes. If it goes down, I find out first.",
+          "The site is checked every 5 minutes. If it goes down, we find out first.",
       },
       {
         title: "Changes by WhatsApp",
         detail:
-          "You send me the change and it's done. No tickets, no forms, no emails.",
+          "You send us the change and it's done. No tickets, no forms, no emails.",
       },
       {
         title: "A report of what happened",
@@ -498,7 +498,7 @@ export const servicios: Servicio[] = [
       {
         title: "No lock-in",
         detail:
-          "Cancel whenever you like by telling me before the monthly cut-off. The site stays yours and I'll help you move it anywhere.",
+          "Cancel whenever you like by telling us before the monthly cut-off. The site stays yours and we'll help you move it anywhere.",
       },
     ],
     noIncluye: [
@@ -513,7 +513,7 @@ export const servicios: Servicio[] = [
         price: 95000,
         billing: "mes",
         paraQuien: "The site barely changes. Just keep it from going down.",
-        entrega: "I answer within 48 h",
+        entrega: "We answer within 48 h",
         incluye: [
           "Hosting and security certificate",
           "Weekly backups",
@@ -526,7 +526,7 @@ export const servicios: Servicio[] = [
         price: 120000,
         billing: "mes",
         paraQuien: "You change prices or promotions every month.",
-        entrega: "I answer within 24 h",
+        entrega: "We answer within 24 h",
         destacado: true,
         incluye: [
           "Everything in Basic",
@@ -540,12 +540,12 @@ export const servicios: Servicio[] = [
         price: 199000,
         billing: "mes",
         paraQuien: "The site is your sales channel and it can't fail.",
-        entrega: "I answer within 4 h",
+        entrega: "We answer within 4 h",
         incluye: [
           "Everything in Active",
           "8 hours of changes a month",
           "Speed and SEO tuning every quarter",
-          "My direct WhatsApp",
+          "Direct WhatsApp with the team",
         ],
       },
     ],
@@ -553,7 +553,7 @@ export const servicios: Servicio[] = [
       { label: "Additional hour", value: "COP $60,000" },
       { label: "Out-of-hours emergency", value: "COP $120,000 per hour" },
     ],
-    nota: "Hours don't roll over from one month to the next. If you don't use them they're lost; if you go over, they're billed at COP $60,000 an hour and I tell you first.",
+    nota: "Hours don't roll over from one month to the next. If you don't use them they're lost; if you go over, they're billed at COP $60,000 an hour and we tell you first.",
     faq: [
       {
         q: "Do I need the maintenance plan?",
@@ -561,15 +561,15 @@ export const servicios: Servicio[] = [
       },
       {
         q: "What counts as an hour of changes?",
-        a: "Changing copy, prices, photos, adding products, adjusting a section. What doesn't count is a new page or a redesign: that's quoted separately and I tell you before touching anything.",
+        a: "Changing copy, prices, photos, adding products, adjusting a section. What doesn't count is a new page or a redesign: that's quoted separately and we tell you before touching anything.",
       },
       {
         q: "Can I cancel whenever I want?",
-        a: "Yes, no lock-in and no penalty. You tell me before the monthly cut-off and that's it. The site stays yours and I'll help you move it wherever you want.",
+        a: "Yes, no lock-in and no penalty. You tell us before the monthly cut-off and that's it. The site stays yours and we'll help you move it wherever you want.",
       },
       {
         q: "Do you only maintain sites you built?",
-        a: "No, but I look at it first. If it's built on something that's going to fall over on its own, I'll tell you and propose a redesign instead of selling you a plan that won't be enough.",
+        a: "No, but we look at it first. If it's built on something that's going to fall over on its own, we'll tell you and propose a redesign instead of selling you a plan that won't be enough.",
       },
     ],
     meta: {

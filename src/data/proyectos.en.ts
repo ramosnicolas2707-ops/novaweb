@@ -40,7 +40,7 @@ export const proyectos: Proyecto[] = [
       {
         src: "/proyectos/eclipse-hero.jpg",
         alt: "Eclipse Perfumería home page with the Amor y Amistad campaign: two perfumes on a background of red roses and a button reading Descubre los dúos perfectos.",
-        pie: "The home page changes with each campaign. They edit it themselves, without calling me.",
+        pie: "The home page changes with each campaign. They edit it themselves, without calling us.",
       },
       {
         src: "/proyectos/eclipse-shoppable.jpg",

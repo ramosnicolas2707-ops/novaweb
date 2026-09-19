@@ -30,7 +30,7 @@ function Ficha({
       <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
         {/* Ficha del proyecto */}
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-naranja-texto">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-rojo">
             {String(indice + 1).padStart(2, "0")} · {p.servicioLabel}
           </p>
 
@@ -88,7 +88,7 @@ function Ficha({
               href={p.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 font-bold tracking-tight text-naranja-texto underline decoration-2 underline-offset-4 hover:text-tinta"
+              className="mt-8 inline-flex items-center gap-2 font-bold tracking-tight text-rojo underline decoration-2 underline-offset-4 hover:text-tinta"
             >
               {t.verSitioEnVivo}
               <span aria-hidden="true">→</span>

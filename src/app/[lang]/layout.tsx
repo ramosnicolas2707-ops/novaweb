@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Archivo } from "next/font/google";
 import { site, claim, INDEXAR } from "@/data/site";
 import { servicios } from "@/data/contenido";
-import { negocioJsonLd } from "@/lib/seo";
+import { negocioJsonLd, sitioJsonLd } from "@/lib/seo";
 import {
   LOCALE,
   esIdioma,
@@ -14,7 +14,6 @@ import { textos } from "@/i18n/textos";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import FinDelScroll from "@/components/FinDelScroll";
 import "../globals.css";
 
 /**
@@ -106,7 +105,18 @@ export default async function LayoutIdioma({
   ];
 
   return (
-    <html lang={LOCALE[lang]} className={archivo.variable}>
+    /*
+      suppressHydrationWarning va solo en este <html> y solo por un atributo:
+      el script de más abajo escribe data-precios antes de que React hidrate,
+      así que el servidor manda el <html> sin ese atributo y el cliente ya lo
+      tiene puesto. React lo reportaba como desajuste en cada carga. No apaga
+      los avisos del resto del árbol: React solo ignora este nodo.
+    */
+    <html
+      lang={LOCALE[lang]}
+      className={archivo.variable}
+      suppressHydrationWarning
+    >
       <head>
         {/*
           Aplica la moneda guardada ANTES de pintar. Sin esto, quien eligió
@@ -121,6 +131,7 @@ export default async function LayoutIdioma({
       </head>
       <body>
         <JsonLd data={negocioJsonLd(lang)} />
+        <JsonLd data={sitioJsonLd(lang)} />
 
         {/* Primer tabulador de la página: saltar el menú e ir al contenido. */}
         <a
@@ -152,7 +163,6 @@ export default async function LayoutIdioma({
         />
         <main id="contenido">{children}</main>
         <Footer lang={lang} t={t} enlaces={enlaces} />
-        <FinDelScroll t={t} />
       </body>
     </html>
   );
