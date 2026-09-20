@@ -47,7 +47,9 @@ export const site = {
   },
 
   contact: {
-    email: "ramos.nicolas2707@gmail.com",
+    /** El de la empresa, no el personal: sale en el pie, en contacto y en
+     *  los datos estructurados que lee Google. */
+    email: "this.isnovaweb@gmail.com",
     /** Formato internacional sin signos, para el enlace wa.me */
     whatsapp: "573123445330",
     whatsappDisplay: "+57 312 344 5330",
