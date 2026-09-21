@@ -24,15 +24,15 @@ import type { Idioma } from "@/i18n/idiomas";
 /**
  * ¿Puede Google registrar este sitio?
  *
- * Sigue en `false` solo hasta que el DNS del dominio nuevo termine de
- * propagar y estudionovaweb.com cargue de verdad. Invitar a Google a una
- * dirección que todavía no responde es peor que no invitarlo.
+ * En `true` desde el 20 de septiembre de 2026: el dominio propio responde,
+ * el certificado es válido y el DNS ya propagó, así que los buscadores
+ * tienen a dónde entrar.
  *
- * PARA PUBLICAR DE VERDAD: pon esto en `true` y vuelve a desplegar. Eso es
- * todo — desde aquí se alimentan el <meta robots> de todas las páginas y el
- * archivo robots.txt.
+ * Desde aquí se alimentan el <meta robots> de todas las páginas y el
+ * archivo robots.txt. Ponerlo en `false` vuelve a cerrar la puerta, que es
+ * lo que hay que hacer si algún día se cambia de dirección otra vez.
  */
-export const INDEXAR = false;
+export const INDEXAR = true;
 
 /**
  * El contador de visitas (Google Analytics).
