@@ -48,22 +48,29 @@ externo.
 El sitio ya está publicado y se puede visitar. Lo que falta es que Google
 lo registre, y eso espera a una sola cosa: el dominio.
 
-### 1. El dominio (bloquea el lanzamiento)
+### 1. El dominio (casi listo)
 
-Hoy `url` y `domain` en `src/data/site.ts` apuntan a
-`novaweb-estudio.vercel.app`, que es un subdominio de Vercel y no un
-dominio propio. El orden importa y no se puede invertir:
+`estudionovaweb.com` se compró el 20 de septiembre de 2026, está agregado
+al proyecto en Vercel y `url` y `domain` en `src/data/site.ts` ya apuntan
+ahí. Es el apex, sin `www`.
 
-1. Comprar el dominio (`novaweb.co` o el que sea) y conectarlo en Vercel:
-   **Project Settings → Domains → Add**.
-2. Cambiar `url` y `domain` en `src/data/site.ts` por el dominio nuevo.
-3. Poner `INDEXAR = true` en ese mismo archivo y desplegar.
+En Namecheap quedó un solo registro, que es todo lo que Vercel pide:
 
-El paso 3 va de último a propósito. Si Google indexa una dirección y
-después se cambia, el posicionamiento no se traslada solo y hay que
-empezar de cero. Por eso `INDEXAR` sigue en `false`: el sitio funciona y
-el enlace se puede mandar por WhatsApp, pero los buscadores no entran
-todavía.
+| Type | Host | Value |
+| --- | --- | --- |
+| A Record | `@` | `216.198.79.1` |
+
+Falta únicamente que el DNS termine de propagar. Cuando Vercel pase de
+"Invalid Configuration" a verde y la dirección cargue, queda el último
+paso:
+
+**Poner `INDEXAR = true` en `src/data/site.ts` y desplegar.**
+
+Va de último a propósito. Si Google indexa una dirección que todavía no
+responde, o una que después se cambia, el posicionamiento no se traslada
+solo y hay que empezar de cero. Por eso sigue en `false`: el sitio
+funciona y el enlace se puede mandar por WhatsApp, pero los buscadores no
+entran todavía.
 
 ### 2. Lo demás (no bloquea, pero se nota)
 
