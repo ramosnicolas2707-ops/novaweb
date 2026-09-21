@@ -35,6 +35,20 @@ import type { Idioma } from "@/i18n/idiomas";
  */
 export const INDEXAR = false;
 
+/**
+ * El contador de visitas (Google Analytics).
+ *
+ * Este código NO es secreto: viaja en el HTML de todas las páginas y
+ * cualquiera puede verlo con clic derecho. Por eso vive aquí y no en una
+ * variable de entorno, igual que el resto de los datos del negocio.
+ *
+ * Solo se carga en producción. En desarrollo estorba: cada recarga mientras
+ * programas contaría como una visita real y ensuciaría los reportes.
+ *
+ * Dejarlo en cadena vacía apaga la medición sin tener que tocar el layout.
+ */
+export const ANALYTICS_ID = "G-9KZ2BE5W9J";
+
 export const site = {
   name: "NovaWeb",
   legalName: "NovaWeb Estudio",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Archivo } from "next/font/google";
-import { site, claim, INDEXAR } from "@/data/site";
+import { site, claim, INDEXAR, ANALYTICS_ID } from "@/data/site";
 import { servicios } from "@/data/contenido";
 import { negocioJsonLd, sitioJsonLd } from "@/lib/seo";
 import {
@@ -14,6 +14,7 @@ import { textos } from "@/i18n/textos";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "../globals.css";
 
 /**
@@ -163,6 +164,18 @@ export default async function LayoutIdioma({
         />
         <main id="contenido">{children}</main>
         <Footer lang={lang} t={t} enlaces={enlaces} />
+
+        {/*
+          El contador de visitas, de último y solo en producción.
+
+          Va al final del <body> a propósito: el script se carga después de
+          que la página ya se pintó, así que medir no le quita velocidad a
+          nadie. Y va envuelto en la comprobación de entorno para que las
+          recargas de `npm run dev` no se cuenten como visitas reales.
+        */}
+        {ANALYTICS_ID && process.env.NODE_ENV === "production" && (
+          <GoogleAnalytics gaId={ANALYTICS_ID} />
+        )}
       </body>
     </html>
   );
